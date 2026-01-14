@@ -117,7 +117,7 @@ export function Projects() {
             variants={cardVariants}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-gradient mb-4">
+            <h2 className="text-3xl md:text-4xl font-black bg-gradient-to-r from-emerald-400 via-emerald-500 to-brand-600 bg-clip-text text-transparent mb-4">
               Projects
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
@@ -188,11 +188,10 @@ export function Projects() {
                       target="_blank"
                       rel="noopener noreferrer"
                       whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      className="btn btn-primary inline-flex items-center gap-2 px-4 py-2 text-sm"
+                      className="inline-flex items-center gap-2 text-emerald-600 dark:text-emerald-400 hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors"
                     >
                       <Github className="w-4 h-4" />
-                      <span>View on GitHub</span>
+                      <span className="text-emerald-600 dark:text-emerald-400">View Code</span>
                     </motion.a>
 
                     {/* Demo */}
@@ -202,11 +201,10 @@ export function Projects() {
                         target="_blank"
                         rel="noopener noreferrer"
                         whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                        className="btn btn-secondary inline-flex items-center gap-2 px-4 py-2 text-sm"
+                        className="inline-flex items-center gap-2 text-emerald-600 dark:text-emerald-400 hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors"
                       >
                         <ExternalLink className="w-4 h-4" />
-                        <span>Live Demo</span>
+                        <span className="text-emerald-600 dark:text-emerald-400">Live Demo</span>
                       </motion.a>
                     )}
                   </div>
@@ -247,15 +245,10 @@ export function Projects() {
 
                   {/* Tags */}
                   <div className="flex flex-wrap gap-2 mt-4">
-                    {project.tags.map((tag, tagIndex) => (
-                      <motion.span
-                        key={tag}
-                        variants={tagVariants}
-                        transition={{ delay: 4 * 0.15 + tagIndex * 0.05 }}
-                        className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium"
-                      >
+                    {project.tags.map((tag, index) => (
+                      <span key={index} className="text-xs px-2 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
                         {tag}
-                      </motion.span>
+                      </span>
                     ))}
                   </div>
                 </div>

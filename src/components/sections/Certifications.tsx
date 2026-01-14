@@ -131,7 +131,7 @@ export function Certifications() {
             variants={cardVariants}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-gradient mb-4">
+            <h2 className="text-3xl md:text-4xl font-black bg-gradient-to-r from-emerald-400 via-emerald-500 to-brand-600 bg-clip-text text-transparent mb-4">
               Learning & Certifications
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">

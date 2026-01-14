@@ -16,6 +16,32 @@ import {
   Briefcase
 } from "lucide-react"
 
+// Add custom styles for glowing animations
+const customStyles = `
+  @keyframes pulse {
+    0%, 100% { 
+      opacity: 0.3; 
+      transform: scale(1);
+    }
+    50% { 
+      opacity: 1; 
+      transform: scale(1.2);
+    }
+  }
+  
+  .glow-dot {
+    animation: pulse 2s ease-in-out infinite;
+  }
+  
+  .glow-dot:nth-child(2) {
+    animation-delay: 0.5s;
+  }
+  
+  .glow-dot:nth-child(3) {
+    animation-delay: 1s;
+  }
+`
+
 const aboutData = [
   {
     id: 1,
@@ -91,6 +117,7 @@ const iconVariants = {
 export function About() {
   return (
     <section id="about" className="section overflow-hidden">
+      <style jsx>{customStyles}</style>
       <div className="container-wide">
         <motion.div
           variants={containerVariants}
@@ -104,7 +131,7 @@ export function About() {
             variants={cardVariants}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-gradient mb-4">
+            <h2 className="text-3xl md:text-4xl font-black bg-gradient-to-r from-emerald-400 via-emerald-500 to-brand-600 bg-clip-text text-transparent mb-4">
               About Me
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
@@ -119,34 +146,66 @@ export function About() {
                 key={item.id}
                 variants={cardVariants}
                 transition={{ delay: index * 0.1 }}
-                className="card card-hover p-6 lg:p-8 relative overflow-hidden bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/20 transition-all duration-300"
+                className="relative"
               >
-                {/* Icon */}
-                <motion.div
-                  variants={iconVariants}
-                  className="flex-shrink-0 text-primary p-3 rounded-lg bg-primary/10 mb-4"
-                >
-                  <item.icon className="w-8 h-8" />
-                </motion.div>
+                {/* Timeline Line */}
+                <div className="absolute left-8 top-0 bottom-0 w-0.5 h-full">
+                  <div className="relative w-full h-full">
+                    {/* Static gradient line */}
+                    <div className="absolute inset-0 bg-gradient-to-b from-emerald-500/20 via-transparent to-emerald-500/20"></div>
+                    
+                    {/* Glowing dots */}
+                    <div className="absolute top-0 left-0 w-full h-full flex items-center">
+                      <div className="w-2 h-2 rounded-full bg-emerald-500 shadow-lg shadow-emerald-500/50 glow-dot"></div>
+                      <div className="w-2 h-2 rounded-full bg-emerald-500 shadow-lg shadow-emerald-500/50 glow-dot ml-4"></div>
+                      <div className="w-2 h-2 rounded-full bg-emerald-500 shadow-lg shadow-emerald-500/50 glow-dot ml-8"></div>
+                    </div>
+                  </div>
+                </div>
 
                 {/* Content */}
-                <div className="flex-1 space-y-4">
-                  <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
-                    {item.title}
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {item.description}
-                  </p>
-                  
-                  {/* Details List */}
-                  <ul className="space-y-2 mt-4">
-                    {item.details.map((detail, detailIndex) => (
-                      <li key={detailIndex} className="flex items-start gap-3">
-                        <div className="w-2 h-2 rounded-full bg-primary/20 mt-1 flex-shrink-0"></div>
-                        <span className="text-sm text-muted-foreground">{detail}</span>
-                      </li>
-                    ))}
-                  </ul>
+                <div className="ml-16 md:ml-20">
+                  {/* Icon with glassmorphism */}
+                  <motion.div
+                    variants={iconVariants}
+                    transition={{ delay: index * 0.1 + 0.3 }}
+                    className="relative z-10 mb-6"
+                  >
+                    <div className="absolute inset-0 bg-emerald-500/10 backdrop-blur-xl rounded-2xl -z-10"></div>
+                    <div className="relative bg-emerald-500/10 backdrop-blur-sm rounded-2xl p-4 border border-emerald-500/20">
+                      <item.icon className="w-6 h-6 text-emerald-600 dark:text-emerald-400 relative z-10" />
+                    </div>
+                  </motion.div>
+
+                  {/* Content */}
+                  <div className="space-y-4">
+                    <motion.h3
+                      variants={cardVariants}
+                      transition={{ delay: index * 0.1 + 0.4 }}
+                      className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors"
+                    >
+                      {item.title}
+                    </motion.h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {item.description}
+                    </p>
+                    
+                    {/* Details List */}
+                    <ul className="space-y-3 mt-6">
+                      {item.details.map((detail, detailIndex) => (
+                        <li key={detailIndex} className="flex items-start gap-4">
+                          <div className="w-2 h-2 rounded-full bg-emerald-500/20 mt-2 flex-shrink-0"></div>
+                          <motion.span
+                            variants={cardVariants}
+                            transition={{ delay: index * 0.1 + 0.5 + detailIndex * 0.1 }}
+                            className="text-sm md:text-base font-medium text-emerald-600 dark:text-emerald-400"
+                          >
+                            {detail}
+                          </motion.span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               </motion.div>
             ))}

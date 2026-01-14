@@ -51,7 +51,7 @@ export function Navbar() {
         <motion.div
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="text-xl font-bold text-gradient cursor-pointer"
+          className="text-xl font-bold bg-gradient-to-r from-emerald-400 via-emerald-500 to-brand-600 bg-clip-text text-transparent cursor-pointer"
           onClick={() => handleNavClick("#")}
         >
           Thamindu Nadeeja

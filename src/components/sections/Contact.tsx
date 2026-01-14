@@ -1,8 +1,15 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Mail, Github, Linkedin, MapPin, Send, User } from "lucide-react"
+import { Mail, Github, Linkedin, MapPin, Send, User, Code } from "lucide-react"
 import { cn } from "@/lib/utils"
+
+interface SocialLink {
+  icon: any;
+  label: string;
+  url: string;
+  image?: string;
+}
 
 interface ContactData {
   leftSide: {
@@ -10,6 +17,7 @@ interface ContactData {
     subtitle: string
     description: string
     icon: any
+    socialLinks?: SocialLink[]
   }
   rightSide: {
     title: string
@@ -31,11 +39,7 @@ interface ContactData {
         rows: number
       }
     }
-    socialLinks: {
-      icon: any
-      label: string
-      url: string
-    }[]
+    socialLinks: SocialLink[]
   }
 }
 
@@ -129,7 +133,7 @@ export function Contact() {
             variants={cardVariants}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-gradient mb-4">
+            <h2 className="text-3xl md:text-4xl font-black bg-gradient-to-r from-emerald-400 via-emerald-500 to-brand-600 bg-clip-text text-transparent mb-4">
               Get In Touch
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
@@ -152,8 +156,8 @@ export function Contact() {
                   transition={{ delay: 0.3 }}
                   className="inline-flex items-center gap-3 mb-6"
                 >
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                    <User className="w-6 h-6 text-primary" />
+                  <div className="flex-shrink-0 text-emerald-600 dark:text-emerald-400 p-3 rounded-lg bg-emerald-500/10 mb-4">
+                    <Code className="w-5 h-5" />
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold text-foreground">
@@ -192,28 +196,10 @@ export function Contact() {
                     >
                       <div className="relative h-48 lg:h-64 mt-6 overflow-hidden rounded-lg bg-muted/20">
                         {social.icon && (
-                          <>
-                            <Image
-                              src={social.icon}
-                              alt={social.label}
-                              width={400}
-                              height={256}
-                              className="object-cover transition-transform duration-300 group-hover:scale-105"
-                              sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, (max-width: 1280px) 25vw"
-                              style={{
-                                filter: 'drop-shadow(0 0 20px rgba(34, 197, 94, 0.15)'
-                              }}
-                              priority={false}
-                            />
-                            {/* Image Overlay */}
-                            <div className="absolute inset-0 bg-gradient-to-t from-transparent via-background/60 to-transparent opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
-                          </>
-                        )}
-                        {!social.icon && (
                           <div className="w-full h-full flex items-center justify-center bg-muted/10 border-2 border-dashed border-muted-30 rounded-lg">
                             <div className="text-center space-y-2">
                               <div className="w-16 h-16 mx-auto bg-muted/30 rounded-full flex items-center justify-center">
-                                <Code className="w-8 h-8 text-muted-foreground" />
+                                <Code className="w-8 h-8 text-emerald-600 dark:text-emerald-400" />
                               </div>
                               <p className="text-muted-foreground text-sm">
                                 Project Image
@@ -293,7 +279,7 @@ export function Contact() {
                   className="btn btn-primary w-full flex items-center justify-center gap-2 px-6 py-3 text-base font-medium"
                 >
                   <Send className="w-4 h-4" />
-                  <span>Send Message</span>
+                  <span className="text-emerald-600 dark:text-emerald-400">View Code</span>
                 </motion.button>
               </form>
             </motion.div>
