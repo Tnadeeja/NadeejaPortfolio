@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Award, BookOpen, Calendar, Code, Database, Globe, Users, Zap, TrendingUp } from "lucide-react"
+import { Award, BookOpen, Calendar, Code, Database, Globe, Users, Zap, TrendingUp, MapPin, Clock, CheckCircle, AlertCircle, ArrowRight, Sparkles } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 const certificationsData = [
@@ -117,108 +117,202 @@ const iconVariants = {
 
 export function Certifications() {
   return (
-    <section id="certifications" className="section overflow-hidden">
-      <div className="container-wide">
+    <section id="certifications" className="section overflow-hidden relative">
+      {/* Background Effects */}
+      <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 via-transparent to-brand-600/5"></div>
+      
+      <div className="container-wide relative z-10">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
-          className="max-w-4xl mx-auto"
+          className="max-w-6xl mx-auto"
         >
           {/* Section Header */}
           <motion.div
             variants={cardVariants}
-            className="text-center mb-16"
+            className="text-center mb-20"
           >
-            <h2 className="text-3xl md:text-4xl font-black bg-gradient-to-r from-emerald-400 via-emerald-500 to-brand-600 bg-clip-text text-transparent mb-4">
-              Learning & Certifications
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ delay: 0.5, duration: 0.8 }}
+              className="inline-flex items-center px-4 py-2 rounded-full bg-emerald-500/10 backdrop-blur-sm border border-emerald-500/20 mb-6"
+            >
+              <Sparkles className="w-4 h-4 text-emerald-600 dark:text-emerald-400 mr-2" />
+              <span className="text-sm font-medium text-emerald-600 dark:text-emerald-400">
+                Learning Journey
+              </span>
+            </motion.div>
+            
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black bg-gradient-to-r from-emerald-400 via-emerald-500 to-brand-600 bg-clip-text text-transparent mb-6">
+              Learning Roadmap
             </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Continuous learning journey showcasing discipline and expertise growth
+            <p className="text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+              Continuous learning journey showcasing discipline, expertise growth, and professional development 
+              through structured education and industry certifications.
             </p>
           </motion.div>
 
-          {/* Timeline */}
+          {/* Premium Roadmap Timeline */}
           <div className="relative">
-            {/* Vertical line */}
-            <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-primary/20"></div>
+            {/* Animated Timeline Line */}
+            <motion.div 
+              initial={{ scaleY: 0 }}
+              animate={{ scaleY: 1 }}
+              transition={{ delay: 1, duration: 1.5, ease: "easeInOut" }}
+              className="absolute left-8 md:left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-emerald-500 via-brand-600 to-emerald-500/30 origin-top"
+            ></motion.div>
             
-            {/* Timeline items */}
-            <div className="space-y-12">
+            {/* Timeline Items */}
+            <div className="space-y-16">
               {certificationsData.map((cert, index) => (
                 <motion.div
                   key={cert.id}
                   variants={cardVariants}
-                  transition={{ delay: index * 0.15 }}
-                  className="relative flex items-start gap-6"
+                  transition={{ delay: index * 0.2 }}
+                  className={cn(
+                    "relative flex items-center",
+                    index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+                  )}
                 >
-                  {/* Timeline dot */}
+                  {/* Timeline Node */}
                   <motion.div
                     variants={iconVariants}
-                    className="relative z-10"
+                    className="relative z-20 flex-shrink-0 w-16 h-16 md:w-20 md:h-20"
                   >
-                    <div className="w-4 h-4 rounded-full bg-primary flex items-center justify-center">
-                      <div className="w-2 h-2 rounded-full bg-background"></div>
+                    <div className="absolute inset-0 bg-emerald-500/20 rounded-full blur-xl"></div>
+                    <div className={cn(
+                      "relative w-full h-full rounded-full border-2 flex items-center justify-center backdrop-blur-sm",
+                      cert.status === "completed" 
+                        ? "bg-emerald-500/10 border-emerald-500/50"
+                        : "bg-amber-500/10 border-amber-500/50"
+                    )}>
+                      <motion.div
+                        whileHover={{ scale: 1.2, rotate: 360 }}
+                        transition={{ type: "spring", stiffness: 300 }}
+                      >
+                        {cert.status === "completed" ? (
+                          <CheckCircle className="w-6 h-6 md:w-8 md:h-8 text-emerald-600 dark:text-emerald-400" />
+                        ) : (
+                          <AlertCircle className="w-6 h-6 md:w-8 md:h-8 text-amber-600 dark:text-amber-400" />
+                        )}
+                      </motion.div>
                     </div>
+                    
+                    {/* Year Badge */}
+                    <motion.div
+                      initial={{ scale: 0, opacity: 0 }}
+                      animate={{ scale: 1, opacity: 1 }}
+                      transition={{ delay: 0.8 + index * 0.2 }}
+                      className="absolute -bottom-2 left-1/2 transform -translate-x-1/2"
+                    >
+                      <div className="px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 backdrop-blur-sm">
+                        <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400">
+                          {cert.date}
+                        </span>
+                      </div>
+                    </motion.div>
                   </motion.div>
 
-                  {/* Content */}
-                  <div className="flex-1">
-                    {/* Header */}
-                    <div className="flex items-start justify-between mb-3">
-                      <div className="flex-1 space-y-1">
-                        <h3 className="text-xl font-semibold text-foreground">
-                          {cert.title}
-                        </h3>
-                        <p className="text-sm text-muted-foreground">
-                          {cert.issuer} • {cert.date}
-                        </p>
-                      </div>
+                  {/* Content Card */}
+                  <motion.div
+                    variants={cardVariants}
+                    transition={{ delay: 0.3 + index * 0.2 }}
+                    className={cn(
+                      "flex-1 ml-8 md:ml-0",
+                      index % 2 === 0 ? "md:mr-8 md:pl-12" : "md:ml-8 md:pr-12"
+                    )}
+                  >
+                    <div className="relative bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 p-6 md:p-8 hover:border-emerald-500/30 transition-all duration-500 hover:shadow-[0_0_40px_#00ff8815] group">
+                      {/* Glow Effect */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 via-transparent to-brand-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
                       
-                      {/* Status Badge */}
-                      <div className="flex-shrink-0">
-                        <span className={cn(
-                          "inline-flex items-center px-3 py-1 rounded-full text-xs font-medium",
-                          cert.status === "completed" && "bg-brand-500 text-white",
-                          cert.status === "in-progress" && "bg-amber-500 text-white",
-                          "bg-muted text-muted-foreground"
-                        )}>
-                          {cert.status === "completed" ? "Completed" : "In Progress"}
-                        </span>
+                      <div className="relative z-10">
+                        {/* Header */}
+                        <div className="flex items-start justify-between mb-4">
+                          <div className="flex-1">
+                            <div className="flex items-center gap-3 mb-2">
+                              <motion.div
+                                whileHover={{ scale: 1.1, rotate: 5 }}
+                                transition={{ type: "spring", stiffness: 400 }}
+                                className="p-2 rounded-lg bg-emerald-500/10 border border-emerald-500/30"
+                              >
+                                <cert.icon className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
+                              </motion.div>
+                              <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-emerald-400 transition-colors">
+                                {cert.title}
+                              </h3>
+                            </div>
+                            
+                            <div className="flex items-center gap-2 text-muted-foreground/80">
+                              <MapPin className="w-4 h-4" />
+                              <span className="text-sm font-medium">{cert.issuer}</span>
+                            </div>
+                          </div>
+                          
+                          {/* Status Badge */}
+                          <motion.div
+                            whileHover={{ scale: 1.05 }}
+                            transition={{ type: "spring", stiffness: 400 }}
+                          >
+                            <div className={cn(
+                              "px-3 py-1.5 rounded-full text-xs font-medium backdrop-blur-sm border",
+                              cert.status === "completed" 
+                                ? "bg-emerald-500/20 text-emerald-400 border-emerald-500/30"
+                                : "bg-amber-500/20 text-amber-400 border-amber-500/30"
+                            )}>
+                              {cert.status === "completed" ? "✨ Completed" : "🚀 In Progress"}
+                            </div>
+                          </motion.div>
+                        </div>
+
+                        {/* Description */}
+                        <p className="text-muted-foreground/80 leading-relaxed mb-6">
+                          {cert.description}
+                        </p>
+
+                        {/* Focus Areas */}
+                        <div className="mb-6">
+                          <div className="flex items-center gap-2 mb-3">
+                            <BookOpen className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+                            <span className="text-sm font-semibold text-white">Focus Areas</span>
+                          </div>
+                          <div className="flex flex-wrap gap-2">
+                            {cert.focusAreas.map((area, areaIndex) => (
+                              <motion.span
+                                key={area}
+                                initial={{ scale: 0, opacity: 0 }}
+                                animate={{ scale: 1, opacity: 1 }}
+                                transition={{ delay: 0.6 + index * 0.2 + areaIndex * 0.1 }}
+                                className="inline-flex items-center px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-xs font-medium"
+                              >
+                                {area}
+                              </motion.span>
+                            ))}
+                          </div>
+                        </div>
+
+                        {/* Action Link */}
+                        <motion.a
+                          href="#"
+                          whileHover={{ scale: 1.02, x: 5 }}
+                          whileTap={{ scale: 0.98 }}
+                          className="inline-flex items-center gap-2 text-emerald-600 dark:text-emerald-400 text-sm font-medium hover:text-emerald-500 transition-colors"
+                        >
+                          <span>View Certificate</span>
+                          <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                        </motion.a>
                       </div>
                     </div>
-                  </div>
-
-                  {/* Description */}
-                  <p className="text-muted-foreground leading-relaxed">
-                    {cert.description}
-                  </p>
-
-                  {/* Focus Areas */}
-                  <div className="mt-4">
-                    <p className="text-sm font-medium text-foreground mb-2">
-                      Focus Areas:
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                      {cert.focusAreas.map((area, areaIndex) => (
-                        <span
-                          key={area}
-                          className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium"
-                        >
-                          {area}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
+                  </motion.div>
                 </motion.div>
               ))}
             </div>
           </div>
 
-          {/* Bottom line */}
-          <div className="absolute left-8 md:left-1/2 top-0 w-0.5 h-full bg-primary/20"></div>
-        </motion.div>
+          </motion.div>
       </div>
     </section>
   )

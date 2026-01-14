@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Github, ExternalLink, Eye, Calendar, Code, Database, Cloud, Smartphone, Award, Users, Zap, Globe } from "lucide-react"
+import { Github, ExternalLink, Eye, Calendar, Code, Database, Cloud, Smartphone, Award, Users, Zap, Globe, ArrowRight, Star, TrendingUp } from "lucide-react"
 import Image from "next/image"
 import { cn } from "@/lib/utils"
 
@@ -12,9 +12,9 @@ const projectsData = [
     shortDescription: "Personal wellness Android app with habit tracking and mood logging",
     description: "A comprehensive wellness application designed for daily habit tracking, mood monitoring, and personal growth. Features include customizable habit creation, streak tracking, mood analytics, and motivational reminders.",
     tech: ["Kotlin", "Android", "MVVM", "Room Database", "Coroutines", "Material Design"],
-    github: "https://github.com/nadeeja/brightwell",
+    github: "https://github.com/nWeerasinghe/brightwell",
     demo: null,
-    image: "/images/brightwell.jpg",
+    image: "/images/lakdiva.jpg",
     featured: true,
     tags: ["Android", "Kotlin", "Mobile App", "Wellness"],
     status: "completed",
@@ -26,8 +26,8 @@ const projectsData = [
     shortDescription: "Real-time data visualization dashboard for business intelligence",
     description: "Enterprise-grade analytics dashboard providing real-time data visualization and business intelligence. Transforms complex datasets into actionable insights with interactive charts and predictive analytics.",
     tech: ["React", "Next.js", "TypeScript", "D3.js", "PostgreSQL", "Redis", "WebSocket"],
-    github: "https://github.com/nadeeja/dataflow-analytics",
-    demo: "https://dataflow-demo.nadeeja.com",
+    github: "https://github.com/nWeerasinghe/dataflow-analytics",
+    demo: "https://dataflow-demo.nWeerasinghe.com",
     image: "/images/dataflow.jpg",
     featured: true,
     tags: ["Data Science", "Analytics", "Dashboard", "React"],
@@ -40,8 +40,8 @@ const projectsData = [
     shortDescription: "Multi-cloud file synchronization and backup service",
     description: "Cross-platform cloud synchronization service enabling seamless file backup across multiple cloud providers. Features real-time sync, version control, and automated backup scheduling.",
     tech: ["Node.js", "TypeScript", "AWS", "Google Cloud", "Azure", "Docker", "REST APIs"],
-    github: "https://github.com/nadeeja/cloudsync",
-    demo: "https://cloudsync-demo.nadeeja.com",
+    github: "https://github.com/nWeerasinghe/cloudsync",
+    demo: "https://cloudsync-demo.nWeerasinghe.com",
     image: "/images/cloudsync.jpg",
     featured: false,
     tags: ["Cloud", "SaaS", "Node.js", "AWS"],
@@ -54,8 +54,8 @@ const projectsData = [
     shortDescription: "Educational platform connecting students and instructors",
     description: "Educational technology platform facilitating seamless connection between students and instructors. Features video conferencing, assignment management, and collaborative learning tools.",
     tech: ["React", "Next.js", "TypeScript", "WebRTC", "MongoDB", "Socket.io", "Tailwind CSS"],
-    github: "https://github.com/nadeeja/educonnect",
-    demo: "https://educonnect-demo.nadeeja.com",
+    github: "https://github.com/nWeerasinghe/educonnect",
+    demo: "https://educonnect-demo.nWeerasinghe.com",
     image: "/images/educonnect.jpg",
     featured: true,
     tags: ["Education", "EdTech", "React", "WebRTC"],
@@ -103,25 +103,41 @@ const tagVariants = {
 
 export function Projects() {
   return (
-    <section id="projects" className="section overflow-hidden">
-      <div className="container-wide">
+    <section id="projects" className="section overflow-hidden relative">
+      {/* Background Effects */}
+      <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 via-transparent to-brand-600/5"></div>
+      
+      <div className="container-wide relative z-10">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
-          className="max-w-6xl mx-auto"
+          className="max-w-7xl mx-auto"
         >
           {/* Section Header */}
           <motion.div
             variants={cardVariants}
-            className="text-center mb-16"
+            className="text-center mb-20"
           >
-            <h2 className="text-3xl md:text-4xl font-black bg-gradient-to-r from-emerald-400 via-emerald-500 to-brand-600 bg-clip-text text-transparent mb-4">
-              Projects
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ delay: 0.5, duration: 0.8 }}
+              className="inline-flex items-center px-4 py-2 rounded-full bg-emerald-500/10 backdrop-blur-sm border border-emerald-500/20 mb-6"
+            >
+              <Star className="w-4 h-4 text-emerald-600 dark:text-emerald-400 mr-2" />
+              <span className="text-sm font-medium text-emerald-600 dark:text-emerald-400">
+                Featured Projects
+              </span>
+            </motion.div>
+            
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black bg-gradient-to-r from-emerald-400 via-emerald-500 to-brand-600 bg-clip-text text-transparent mb-6">
+              Innovation Portfolio
             </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Selected work demonstrating real-world problem solving and practical application development
+            <p className="text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+              Cutting-edge projects showcasing advanced development skills, innovative solutions, 
+              and real-world impact across multiple technologies and industries.
             </p>
           </motion.div>
 
@@ -134,122 +150,126 @@ export function Projects() {
                 transition={{ delay: index * 0.15 }}
                 className="group"
               >
-                {/* Project Card */}
-                <div className="card card-hover p-6 lg:p-8 relative overflow-hidden bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/20 transition-all duration-300">
-                  {/* Project Header */}
-                  <div className="flex items-start justify-between mb-6">
-                    <div className="flex-1 space-y-3">
-                      <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
-                        {project.title}
-                      </h3>
-                      <p className="text-muted-foreground leading-relaxed">
-                        {project.shortDescription}
-                      </p>
-                      
-                      {/* Tech Stack */}
-                      <div className="flex flex-wrap gap-2 mt-4">
-                        {project.tech.slice(0, 4).map((tech, techIndex) => (
-                          <span
-                            key={tech}
-                            className="inline-block px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs font-medium"
-                          >
-                            {tech}
-                          </span>
-                        ))}
-                        {project.tech.length > 4 && (
-                          <span className="inline-block px-3 py-1 rounded-full bg-muted text-muted-foreground text-xs font-medium">
-                            +{project.tech.length - 4}
-                          </span>
-                        )}
-                      </div>
-                    </div>
-
-                    {/* Status Badge */}
-                    <div className="flex items-center gap-3">
-                      <span className={cn(
-                        "inline-flex items-center px-3 py-1 rounded-full text-xs font-medium",
-                        project.status === "completed" && "bg-brand-500 text-white",
-                        project.status === "in-progress" && "bg-amber-500 text-white",
-                        "bg-muted text-muted-foreground"
-                      )}>
-                        {project.status === "completed" ? "Completed" : "In Progress"}
-                      </span>
-                      <span className="text-xs text-muted-foreground">
-                        {project.year}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Project Actions */}
-                  <div className="flex items-center gap-3 mt-6">
-                    {/* GitHub */}
-                    <motion.a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      whileHover={{ scale: 1.02 }}
-                      className="inline-flex items-center gap-2 text-emerald-600 dark:text-emerald-400 hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors"
-                    >
-                      <Github className="w-4 h-4" />
-                      <span className="text-emerald-600 dark:text-emerald-400">View Code</span>
-                    </motion.a>
-
-                    {/* Demo */}
-                    {project.demo && (
-                      <motion.a
-                        href={project.demo}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        whileHover={{ scale: 1.02 }}
-                        className="inline-flex items-center gap-2 text-emerald-600 dark:text-emerald-400 hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors"
-                      >
-                        <ExternalLink className="w-4 h-4" />
-                        <span className="text-emerald-600 dark:text-emerald-400">Live Demo</span>
-                      </motion.a>
-                    )}
-                  </div>
-
+                {/* Premium Project Card */}
+                <div className="relative bg-white/5 backdrop-blur-xl rounded-3xl border border-white/10 overflow-hidden hover:border-emerald-500/30 transition-all duration-500 hover:shadow-[0_0_60px_#00ff8820]">
+                  {/* Glow Effect */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 via-transparent to-brand-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  
                   {/* Project Image */}
-                  <div className="relative h-48 lg:h-64 mt-6 overflow-hidden rounded-lg bg-muted/20">
+                  <div className="relative h-64 lg:h-80 overflow-hidden">
                     {project.image && (
                       <>
                         <Image
                           src={project.image}
                           alt={project.title}
-                          width={400}
-                          height={256}
-                          className="object-cover transition-transform duration-300 group-hover:scale-105"
-                          sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, (max-width: 1280px) 25vw"
+                          fill
+                          className="object-cover transition-transform duration-700 group-hover:scale-110"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         />
                         
-                        {/* Image Overlay */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-transparent via-background/60 to-transparent opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
-                      </>
-                    )}
-                    {!project.image && (
-                      <div className="w-full h-full flex items-center justify-center bg-muted/10 border-2 border-dashed border-muted-30 rounded-lg">
-                        <div className="text-center space-y-2">
-                          <div className="w-16 h-16 mx-auto bg-muted/30 rounded-full flex items-center justify-center">
-                            <Code className="w-8 h-8 text-muted-foreground" />
+                        {/* Image Overlay Gradient */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60"></div>
+                        
+                        {/* Floating Status Badge */}
+                        <motion.div
+                          initial={{ y: 20, opacity: 0 }}
+                          animate={{ y: 0, opacity: 1 }}
+                          transition={{ delay: 0.5 + index * 0.3 }}
+                          className="absolute top-4 right-4"
+                        >
+                          <div className={cn(
+                            "px-4 py-2 rounded-full backdrop-blur-md border text-sm font-medium",
+                            project.status === "completed" 
+                              ? "bg-emerald-500/20 text-emerald-400 border-emerald-500/30"
+                              : "bg-amber-500/20 text-amber-400 border-amber-500/30"
+                          )}>
+                            {project.status === "completed" ? "✨ Launched" : "🚀 In Progress"}
                           </div>
-                          <p className="text-muted-foreground text-sm">
-                            Project Image
-                          </p>
-                          <p className="text-xs text-muted-foreground">
-                            Add your screenshot
-                          </p>
-                        </div>
-                      </div>
+                        </motion.div>
+                      </>
                     )}
                   </div>
 
-                  {/* Tags */}
-                  <div className="flex flex-wrap gap-2 mt-4">
-                    {project.tags.map((tag, index) => (
-                      <span key={index} className="text-xs px-2 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
-                        {tag}
-                      </span>
-                    ))}
+                  {/* Content */}
+                  <div className="relative p-8 lg:p-10">
+                    {/* Project Header */}
+                    <div className="mb-6">
+                      <div className="flex items-start justify-between mb-4">
+                        <h3 className="text-2xl lg:text-3xl font-bold text-white group-hover:text-emerald-400 transition-colors">
+                          {project.title}
+                        </h3>
+                        <motion.div
+                          whileHover={{ scale: 1.1, rotate: 5 }}
+                          transition={{ type: "spring", stiffness: 400 }}
+                          className="flex-shrink-0 ml-4"
+                        >
+                          <div className="p-2 rounded-xl bg-emerald-500/10 border border-emerald-500/30">
+                            <TrendingUp className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
+                          </div>
+                        </motion.div>
+                      </div>
+                      
+                      <p className="text-muted-foreground/80 leading-relaxed text-lg">
+                        {project.shortDescription}
+                      </p>
+                    </div>
+
+                    {/* Tech Stack */}
+                    <div className="flex flex-wrap gap-2 mb-8">
+                      {project.tech.slice(0, 4).map((tech, techIndex) => (
+                        <motion.span
+                          key={tech}
+                          variants={tagVariants}
+                          initial="hidden"
+                          animate="visible"
+                          transition={{ delay: 0.8 + index * 0.3 + techIndex * 0.05 }}
+                          className="inline-flex items-center px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-xs font-medium"
+                        >
+                          {tech}
+                        </motion.span>
+                      ))}
+                      {project.tech.length > 4 && (
+                        <motion.span
+                          variants={tagVariants}
+                          initial="hidden"
+                          animate="visible"
+                          transition={{ delay: 0.8 + index * 0.3 + 0.2 }}
+                          className="inline-flex items-center px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-white/70 text-xs font-medium"
+                        >
+                          +{project.tech.length - 4}
+                        </motion.span>
+                      )}
+                    </div>
+
+                    {/* Action Buttons */}
+                    <div className="flex items-center gap-4">
+                      <motion.a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        whileHover={{ scale: 1.05, x: 5 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="flex items-center gap-2 px-6 py-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 font-medium hover:bg-emerald-500/20 transition-all duration-300"
+                      >
+                        <Github className="w-4 h-4" />
+                        <span>View Code</span>
+                        <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                      </motion.a>
+
+                      {project.demo && (
+                        <motion.a
+                          href={project.demo}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          whileHover={{ scale: 1.05, x: 5 }}
+                          whileTap={{ scale: 0.95 }}
+                          className="flex items-center gap-2 px-6 py-3 rounded-xl bg-white/10 border border-white/20 text-white font-medium hover:bg-white/20 transition-all duration-300"
+                        >
+                          <ExternalLink className="w-4 h-4" />
+                          <span>Live Demo</span>
+                        </motion.a>
+                      )}
+                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -263,7 +283,7 @@ export function Projects() {
             className="text-center mt-16"
           >
             <motion.a
-              href="https://github.com/nadeeja"
+              href="https://github.com/nWeerasinghe"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}

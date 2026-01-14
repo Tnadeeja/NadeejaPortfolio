@@ -17,7 +17,10 @@ import {
   Package,
   Server,
   BarChart3,
-  Cloud
+  Cloud,
+  Sparkles,
+  TrendingUp,
+  Award
 } from "lucide-react"
 
 const skillsData = [
@@ -115,26 +118,41 @@ const progressVariants = {
 
 export function Skills() {
   return (
-    <section id="skills" className="section overflow-hidden">
-      <div className="container-wide">
+    <section id="skills" className="section overflow-hidden relative">
+      {/* Background Effects */}
+      <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 via-transparent to-brand-600/5"></div>
+      
+      <div className="container-wide relative z-10">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
-          className="max-w-6xl mx-auto"
+          className="max-w-7xl mx-auto"
         >
           {/* Section Header */}
           <motion.div
             variants={categoryVariants}
-            className="text-center mb-16"
+            className="text-center mb-20"
           >
-            <h2 className="text-3xl md:text-4xl font-black bg-gradient-to-r from-emerald-400 via-emerald-500 to-brand-600 bg-clip-text text-transparent mb-4">
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ delay: 0.5, duration: 0.8 }}
+              className="inline-flex items-center px-4 py-2 rounded-full bg-emerald-500/10 backdrop-blur-sm border border-emerald-500/20 mb-6"
+            >
+              <Sparkles className="w-4 h-4 text-emerald-600 dark:text-emerald-400 mr-2" />
+              <span className="text-sm font-medium text-emerald-600 dark:text-emerald-400">
+                Technical Excellence
+              </span>
+            </motion.div>
+            
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black bg-gradient-to-r from-emerald-400 via-emerald-500 to-brand-600 bg-clip-text text-transparent mb-6">
               Skills & Expertise
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Comprehensive technical skills spanning programming languages, frameworks, data science, and tools
-              with a focus on building scalable, innovative solutions.
+            <p className="text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+              Comprehensive technical skills spanning programming languages, frameworks, data science, and tools 
+              with a focus on building scalable, innovative solutions that drive real-world impact.
             </p>
           </motion.div>
 
@@ -256,6 +274,82 @@ export function Skills() {
               </motion.div>
             ))}
           </div>
+
+          {/* Premium Call to Action */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.5 }}
+            className="text-center mt-20"
+          >
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ delay: 1.6, duration: 0.8 }}
+              className="inline-flex items-center px-6 py-3 rounded-full bg-emerald-500/10 backdrop-blur-sm border border-emerald-500/20 mb-6"
+            >
+              <Award className="w-4 h-4 text-emerald-600 dark:text-emerald-400 mr-2" />
+              <span className="text-sm font-medium text-emerald-600 dark:text-emerald-400">
+                Expert Level Achieved
+              </span>
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.7 }}
+              className="flex items-center justify-center gap-8 mb-8"
+            >
+              <div className="text-center">
+                <motion.div
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  transition={{ delay: 1.8, type: "spring", stiffness: 200 }}
+                  className="text-3xl font-bold text-emerald-600 dark:text-emerald-400"
+                >
+                  15+
+                </motion.div>
+                <div className="text-sm text-muted-foreground">Years Experience</div>
+              </div>
+              
+              <div className="text-center">
+                <motion.div
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  transition={{ delay: 1.9, type: "spring", stiffness: 200 }}
+                  className="text-3xl font-bold text-emerald-600 dark:text-emerald-400"
+                >
+                  50+
+                </motion.div>
+                <div className="text-sm text-muted-foreground">Projects Completed</div>
+              </div>
+              
+              <div className="text-center">
+                <motion.div
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  transition={{ delay: 2.0, type: "spring", stiffness: 200 }}
+                  className="text-3xl font-bold text-emerald-600 dark:text-emerald-400"
+                >
+                  95%
+                </motion.div>
+                <div className="text-sm text-muted-foreground">Client Satisfaction</div>
+              </div>
+            </motion.div>
+            
+            <motion.a
+              href="#projects"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 2.1 }}
+              whileHover={{ scale: 1.05, x: 5 }}
+              whileTap={{ scale: 0.95 }}
+              className="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 font-medium hover:bg-emerald-500/20 transition-all duration-300"
+            >
+              <span>View My Work</span>
+              <TrendingUp className="w-5 h-5" />
+            </motion.a>
+          </motion.div>
         </motion.div>
       </div>
     </section>

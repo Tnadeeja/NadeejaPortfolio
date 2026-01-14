@@ -101,7 +101,7 @@ export function Hero() {
               className="mb-6"
             >
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-black bg-gradient-to-r from-emerald-400 via-emerald-500 to-brand-600 bg-clip-text text-transparent leading-tight">
-                Thamindu Nadeeja
+                Thamindu Weerasinghe
               </h1>
             </motion.div>
 
@@ -273,7 +273,7 @@ export function Hero() {
                   >
                     <Image
                       src="/images/profile.jpg"
-                      alt="Thamindu Nadeeja"
+                      alt="Thamindu Weerasinghe"
                       fill
                       className="object-cover"
                       sizes="(max-width: 320px) 100vw, (max-width: 384px) 50vw, (max-width: 640px) 33vw, (max-width: 768px) 25vw, (max-width: 1024px) 20vw, (max-width: 1280px) 17vw"

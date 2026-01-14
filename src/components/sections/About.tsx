@@ -13,7 +13,11 @@ import {
   BookOpen,
   Award,
   Users,
-  Briefcase
+  Briefcase,
+  Sparkles,
+  ArrowRight,
+  User,
+  Zap
 } from "lucide-react"
 
 // Add custom styles for glowing animations
@@ -116,114 +120,145 @@ const iconVariants = {
 
 export function About() {
   return (
-    <section id="about" className="section overflow-hidden">
-      <style jsx>{customStyles}</style>
-      <div className="container-wide">
+    <section id="about" className="section overflow-hidden relative">
+      {/* Background Effects */}
+      <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 via-transparent to-brand-600/5"></div>
+      
+      <div className="container-wide relative z-10">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
-          className="max-w-6xl mx-auto"
+          className="max-w-7xl mx-auto"
         >
           {/* Section Header */}
           <motion.div
             variants={cardVariants}
-            className="text-center mb-16"
+            className="text-center mb-20"
           >
-            <h2 className="text-3xl md:text-4xl font-black bg-gradient-to-r from-emerald-400 via-emerald-500 to-brand-600 bg-clip-text text-transparent mb-4">
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ delay: 0.5, duration: 0.8 }}
+              className="inline-flex items-center px-4 py-2 rounded-full bg-emerald-500/10 backdrop-blur-sm border border-emerald-500/20 mb-6"
+            >
+              <User className="w-4 h-4 text-emerald-600 dark:text-emerald-400 mr-2" />
+              <span className="text-sm font-medium text-emerald-600 dark:text-emerald-400">
+                Personal Journey
+              </span>
+            </motion.div>
+            
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black bg-gradient-to-r from-emerald-400 via-emerald-500 to-brand-600 bg-clip-text text-transparent mb-6">
               About Me
             </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Professional summary highlighting learning mindset and career direction in data science and software engineering.
+            <p className="text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+              Passionate data scientist and software engineer with a relentless drive for innovation, 
+              continuous learning, and creating impactful solutions that bridge technology and real-world challenges.
             </p>
           </motion.div>
 
-          {/* About Content */}
+          {/* Premium About Content */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
             {aboutData.map((item, index) => (
               <motion.div
                 key={item.id}
                 variants={cardVariants}
-                transition={{ delay: index * 0.1 }}
-                className="relative"
+                transition={{ delay: index * 0.2 }}
+                className="group"
               >
-                {/* Timeline Line */}
-                <div className="absolute left-8 top-0 bottom-0 w-0.5 h-full">
-                  <div className="relative w-full h-full">
-                    {/* Static gradient line */}
-                    <div className="absolute inset-0 bg-gradient-to-b from-emerald-500/20 via-transparent to-emerald-500/20"></div>
-                    
-                    {/* Glowing dots */}
-                    <div className="absolute top-0 left-0 w-full h-full flex items-center">
-                      <div className="w-2 h-2 rounded-full bg-emerald-500 shadow-lg shadow-emerald-500/50 glow-dot"></div>
-                      <div className="w-2 h-2 rounded-full bg-emerald-500 shadow-lg shadow-emerald-500/50 glow-dot ml-4"></div>
-                      <div className="w-2 h-2 rounded-full bg-emerald-500 shadow-lg shadow-emerald-500/50 glow-dot ml-8"></div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Content */}
-                <div className="ml-16 md:ml-20">
-                  {/* Icon with glassmorphism */}
-                  <motion.div
-                    variants={iconVariants}
-                    transition={{ delay: index * 0.1 + 0.3 }}
-                    className="relative z-10 mb-6"
-                  >
-                    <div className="absolute inset-0 bg-emerald-500/10 backdrop-blur-xl rounded-2xl -z-10"></div>
-                    <div className="relative bg-emerald-500/10 backdrop-blur-sm rounded-2xl p-4 border border-emerald-500/20">
-                      <item.icon className="w-6 h-6 text-emerald-600 dark:text-emerald-400 relative z-10" />
-                    </div>
-                  </motion.div>
-
-                  {/* Content */}
-                  <div className="space-y-4">
-                    <motion.h3
-                      variants={cardVariants}
-                      transition={{ delay: index * 0.1 + 0.4 }}
-                      className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors"
+                {/* Premium Glassmorphism Card */}
+                <div className="relative bg-white/5 backdrop-blur-xl rounded-3xl border border-white/10 p-8 lg:p-10 hover:border-emerald-500/30 transition-all duration-500 hover:shadow-[0_0_60px_#00ff8820]">
+                  {/* Glow Effect */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 via-transparent to-brand-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"></div>
+                  
+                  <div className="relative z-10">
+                    {/* Icon with enhanced glassmorphism */}
+                    <motion.div
+                      variants={iconVariants}
+                      initial="hidden"
+                      animate="visible"
+                      transition={{ delay: 0.3 + index * 0.2 }}
+                      whileHover={{ scale: 1.1, rotate: 5 }}
+                      className="relative mb-8"
                     >
-                      {item.title}
-                    </motion.h3>
-                    <p className="text-muted-foreground leading-relaxed">
-                      {item.description}
-                    </p>
-                    
-                    {/* Details List */}
-                    <ul className="space-y-3 mt-6">
-                      {item.details.map((detail, detailIndex) => (
-                        <li key={detailIndex} className="flex items-start gap-4">
-                          <div className="w-2 h-2 rounded-full bg-emerald-500/20 mt-2 flex-shrink-0"></div>
-                          <motion.span
-                            variants={cardVariants}
-                            transition={{ delay: index * 0.1 + 0.5 + detailIndex * 0.1 }}
-                            className="text-sm md:text-base font-medium text-emerald-600 dark:text-emerald-400"
+                      <div className="absolute inset-0 bg-emerald-500/20 rounded-2xl blur-xl"></div>
+                      <div className="relative bg-emerald-500/10 backdrop-blur-sm rounded-2xl p-4 border border-emerald-500/30">
+                        <item.icon className="w-8 h-8 text-emerald-600 dark:text-emerald-400" />
+                      </div>
+                    </motion.div>
+
+                    {/* Content */}
+                    <div className="space-y-6">
+                      <motion.h3
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.4 + index * 0.2 }}
+                        className="text-2xl font-bold text-white group-hover:text-emerald-400 transition-colors"
+                      >
+                        {item.title}
+                      </motion.h3>
+                      
+                      <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.5 + index * 0.2 }}
+                        className="text-muted-foreground/80 leading-relaxed text-lg"
+                      >
+                        {item.description}
+                      </motion.p>
+                      
+                      {/* Enhanced Details List */}
+                      <motion.ul
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.6 + index * 0.2 }}
+                        className="space-y-4"
+                      >
+                        {item.details.map((detail, detailIndex) => (
+                          <motion.li
+                            key={detailIndex}
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: 0.7 + index * 0.2 + detailIndex * 0.1 }}
+                            className="flex items-start gap-3"
                           >
-                            {detail}
-                          </motion.span>
-                        </li>
-                      ))}
-                    </ul>
+                            <motion.div
+                              whileHover={{ scale: 1.2 }}
+                              transition={{ type: "spring", stiffness: 400 }}
+                              className="flex-shrink-0 w-2 h-2 rounded-full bg-emerald-500/50 mt-2"
+                            ></motion.div>
+                            <span className="text-emerald-600 dark:text-emerald-400 font-medium leading-relaxed">
+                              {detail}
+                            </span>
+                          </motion.li>
+                        ))}
+                      </motion.ul>
+                    </div>
                   </div>
                 </div>
               </motion.div>
             ))}
           </div>
 
-          {/* Call to Action */}
+          {/* Premium Call to Action */}
           <motion.div
-            variants={cardVariants}
-            transition={{ delay: 0.8 }}
-            className="text-center mt-16"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.2 }}
+            className="text-center mt-20"
           >
             <motion.a
               href="#contact"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="btn btn-primary inline-flex items-center gap-2 px-4 py-2 text-sm"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.4 }}
+              whileHover={{ scale: 1.05, x: 5 }}
+              whileTap={{ scale: 0.95 }}
+              className="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 font-medium hover:bg-emerald-500/20 transition-all duration-300"
             >
-              Get In Touch
+              <span>Let's Connect</span>
+              <ArrowRight className="w-5 h-5" />
             </motion.a>
           </motion.div>
         </motion.div>

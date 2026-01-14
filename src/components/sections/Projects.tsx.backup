@@ -1,0 +1,281 @@
+"use client"
+
+import { motion } from "framer-motion"
+import { Github, ExternalLink, Eye, Calendar, Code, Database, Cloud, Smartphone, Award, Users, Zap, Globe, ArrowRight, Star, TrendingUp } from "lucide-react"
+import Image from "next/image"
+import { cn } from "@/lib/utils"
+
+const projectsData = [
+  {
+    id: 1,
+    title: "BrightWell",
+    shortDescription: "Personal wellness Android app with habit tracking and mood logging",
+    description: "A comprehensive wellness application designed for daily habit tracking, mood monitoring, and personal growth. Features include customizable habit creation, streak tracking, mood analytics, and motivational reminders.",
+    tech: ["Kotlin", "Android", "MVVM", "Room Database", "Coroutines", "Material Design"],
+    github: "https://github.com/nadeeja/brightwell",
+    demo: null,
+    image: "/images/lakdiva.jpg",
+    featured: true,
+    tags: ["Android", "Kotlin", "Mobile App", "Wellness"],
+    status: "completed",
+    year: "2024"
+  },
+  {
+    id: 2,
+    title: "DataFlow Analytics",
+    shortDescription: "Real-time data visualization dashboard for business intelligence",
+    description: "Enterprise-grade analytics dashboard providing real-time data visualization and business intelligence. Transforms complex datasets into actionable insights with interactive charts and predictive analytics.",
+    tech: ["React", "Next.js", "TypeScript", "D3.js", "PostgreSQL", "Redis", "WebSocket"],
+    github: "https://github.com/nadeeja/dataflow-analytics",
+    demo: "https://dataflow-demo.nadeeja.com",
+    image: "/images/dataflow.jpg",
+    featured: true,
+    tags: ["Data Science", "Analytics", "Dashboard", "React"],
+    status: "completed",
+    year: "2024"
+  },
+  {
+    id: 3,
+    title: "CloudSync Platform",
+    shortDescription: "Multi-cloud file synchronization and backup service",
+    description: "Cross-platform cloud synchronization service enabling seamless file backup across multiple cloud providers. Features real-time sync, version control, and automated backup scheduling.",
+    tech: ["Node.js", "TypeScript", "AWS", "Google Cloud", "Azure", "Docker", "REST APIs"],
+    github: "https://github.com/nadeeja/cloudsync",
+    demo: "https://cloudsync-demo.nadeeja.com",
+    image: "/images/cloudsync.jpg",
+    featured: false,
+    tags: ["Cloud", "SaaS", "Node.js", "AWS"],
+    status: "in-progress",
+    year: "2024"
+  },
+  {
+    id: 4,
+    title: "EduConnect",
+    shortDescription: "Educational platform connecting students and instructors",
+    description: "Educational technology platform facilitating seamless connection between students and instructors. Features video conferencing, assignment management, and collaborative learning tools.",
+    tech: ["React", "Next.js", "TypeScript", "WebRTC", "MongoDB", "Socket.io", "Tailwind CSS"],
+    github: "https://github.com/nadeeja/educonnect",
+    demo: "https://educonnect-demo.nadeeja.com",
+    image: "/images/educonnect.jpg",
+    featured: true,
+    tags: ["Education", "EdTech", "React", "WebRTC"],
+    status: "completed",
+    year: "2023"
+  }
+]
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      delayChildren: 0.2,
+      staggerChildren: 0.15,
+    },
+  },
+}
+
+const cardVariants = {
+  hidden: { y: 40, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      stiffness: 100,
+      damping: 12,
+    },
+  },
+}
+
+const tagVariants = {
+  hidden: { scale: 0.8, opacity: 0 },
+  visible: {
+    scale: 1,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      stiffness: 300,
+      damping: 15,
+    },
+  },
+}
+
+export function Projects() {
+  return (
+    <section id="projects" className="section overflow-hidden">
+      <div className="container-wide">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          className="max-w-6xl mx-auto"
+        >
+          {/* Section Header */}
+          <motion.div
+            variants={cardVariants}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-black bg-gradient-to-r from-emerald-400 via-emerald-500 to-brand-600 bg-clip-text text-transparent mb-4">
+              Projects
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Selected work demonstrating real-world problem solving and practical application development
+            </p>
+          </motion.div>
+
+          {/* Projects Grid */}
+          <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
+            {projectsData.map((project, index) => (
+              <motion.div
+                key={project.id}
+                variants={cardVariants}
+                transition={{ delay: index * 0.15 }}
+                className="group"
+              >
+                {/* Project Card */}
+                <div className="card card-hover p-6 lg:p-8 relative overflow-hidden bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/20 transition-all duration-300">
+                  {/* Project Header */}
+                  <div className="flex items-start justify-between mb-6">
+                    <div className="flex-1 space-y-3">
+                      <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
+                        {project.title}
+                      </h3>
+                      <p className="text-muted-foreground leading-relaxed">
+                        {project.shortDescription}
+                      </p>
+                      
+                      {/* Tech Stack */}
+                      <div className="flex flex-wrap gap-2 mt-4">
+                        {project.tech.slice(0, 4).map((tech, techIndex) => (
+                          <span
+                            key={tech}
+                            className="inline-block px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs font-medium"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                        {project.tech.length > 4 && (
+                          <span className="inline-block px-3 py-1 rounded-full bg-muted text-muted-foreground text-xs font-medium">
+                            +{project.tech.length - 4}
+                          </span>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Status Badge */}
+                    <div className="flex items-center gap-3">
+                      <span className={cn(
+                        "inline-flex items-center px-3 py-1 rounded-full text-xs font-medium",
+                        project.status === "completed" && "bg-brand-500 text-white",
+                        project.status === "in-progress" && "bg-amber-500 text-white",
+                        "bg-muted text-muted-foreground"
+                      )}>
+                        {project.status === "completed" ? "Completed" : "In Progress"}
+                      </span>
+                      <span className="text-xs text-muted-foreground">
+                        {project.year}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Project Actions */}
+                  <div className="flex items-center gap-3 mt-6">
+                    {/* GitHub */}
+                    <motion.a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.02 }}
+                      className="inline-flex items-center gap-2 text-emerald-600 dark:text-emerald-400 hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors"
+                    >
+                      <Github className="w-4 h-4" />
+                      <span className="text-emerald-600 dark:text-emerald-400">View Code</span>
+                    </motion.a>
+
+                    {/* Demo */}
+                    {project.demo && (
+                      <motion.a
+                        href={project.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        whileHover={{ scale: 1.02 }}
+                        className="inline-flex items-center gap-2 text-emerald-600 dark:text-emerald-400 hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors"
+                      >
+                        <ExternalLink className="w-4 h-4" />
+                        <span className="text-emerald-600 dark:text-emerald-400">Live Demo</span>
+                      </motion.a>
+                    )}
+                  </div>
+
+                  {/* Project Image */}
+                  <div className="relative h-48 lg:h-64 mt-6 overflow-hidden rounded-lg bg-muted/20">
+                    {project.image && (
+                      <>
+                        <Image
+                          src={project.image}
+                          alt={project.title}
+                          width={400}
+                          height={256}
+                          className="object-cover transition-transform duration-300 group-hover:scale-105"
+                          sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, (max-width: 1280px) 25vw"
+                        />
+                        
+                        {/* Image Overlay */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-transparent via-background/60 to-transparent opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+                      </>
+                    )}
+                    {!project.image && (
+                      <div className="w-full h-full flex items-center justify-center bg-muted/10 border-2 border-dashed border-muted-30 rounded-lg">
+                        <div className="text-center space-y-2">
+                          <div className="w-16 h-16 mx-auto bg-muted/30 rounded-full flex items-center justify-center">
+                            <Code className="w-8 h-8 text-muted-foreground" />
+                          </div>
+                          <p className="text-muted-foreground text-sm">
+                            Project Image
+                          </p>
+                          <p className="text-xs text-muted-foreground">
+                            Add your screenshot
+                          </p>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Tags */}
+                  <div className="flex flex-wrap gap-2 mt-4">
+                    {project.tags.map((tag, index) => (
+                      <span key={index} className="text-xs px-2 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* View All Projects */}
+          <motion.div
+            variants={cardVariants}
+            transition={{ delay: 0.8 }}
+            className="text-center mt-16"
+          >
+            <motion.a
+              href="https://github.com/nadeeja"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="btn btn-ghost inline-flex items-center gap-2 px-6 py-3 text-sm font-medium"
+            >
+              <Github className="w-4 h-4" />
+              <span>View All Projects</span>
+            </motion.a>
+          </motion.div>
+        </motion.div>
+      </div>
+    </section>
+  )
+}
