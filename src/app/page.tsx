@@ -3,6 +3,7 @@ import { Hero } from "@/components/sections/Hero"
 import { About } from "@/components/sections/About"
 import { Skills } from "@/components/sections/Skills"
 import { Projects } from "@/components/sections/Projects"
+import { Certifications } from "@/components/sections/Certifications"
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       <About />
       <Skills />
       <Projects />
+      <Certifications />
       
       {/* Component showcase */}
       <section className="section-sm border-t border-border">
@@ -40,13 +42,6 @@ export default function Home() {
       </section>
 
       {/* Placeholder sections for navbar navigation */}
-      <section id="certifications" className="section">
-        <div className="container">
-          <h2 className="text-3xl font-bold text-center mb-8">Certifications</h2>
-          <p className="text-center text-muted-foreground">Certifications section content will go here</p>
-        </div>
-      </section>
-
       <section id="contact" className="section">
         <div className="container">
           <h2 className="text-3xl font-bold text-center mb-8">Contact</h2>
