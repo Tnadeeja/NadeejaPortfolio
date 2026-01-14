@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 import { cn } from "@/lib/utils"
 import { 
   GraduationCap, 
-  Code2, 
+  Code, 
   Database, 
   Brain, 
   TrendingUp, 
@@ -12,46 +12,43 @@ import {
   Target,
   BookOpen,
   Award,
-  Users
+  Users,
+  Briefcase
 } from "lucide-react"
 
 const aboutData = [
   {
-    icon: GraduationCap,
+    id: 1,
     title: "Education",
-    description: "Currently pursuing Bachelor's degree in Information Technology, focusing on advanced data structures, algorithms, and software engineering principles.",
-    delay: 0.1,
+    icon: GraduationCap,
+    description: "Bachelor's degree in Computer Science with focus on data structures and algorithms.",
+    details: [
+      "Relevant coursework: Data Structures, Algorithms, Database Systems",
+      "Academic projects: Machine Learning applications, Web development"
+    ]
   },
   {
-    icon: Brain,
-    title: "Data Science Expertise",
-    description: "Specializing in machine learning, statistical analysis, and data visualization. Proficient in Python, R, and SQL for complex data manipulation and predictive modeling.",
-    delay: 0.2,
+    id: 2,
+    title: "Professional Development",
+    icon: Briefcase,
+    description: "Continuous learning through online courses, workshops, and hands-on projects.",
+    details: [
+      "Completed 50+ online courses in web development and data science",
+      "Regular participation in coding bootcamps and hackathons",
+      "Self-study: Advanced algorithms and system design"
+    ]
   },
   {
-    icon: Code2,
-    title: "Software Engineering",
-    description: "Strong foundation in full-stack development with modern frameworks. Experience building scalable applications using React, Next.js, and cloud technologies.",
-    delay: 0.3,
-  },
-  {
-    icon: TrendingUp,
-    title: "Growth Mindset",
-    description: "Continuous learner passionate about emerging technologies and industry best practices. Committed to staying current with AI/ML trends and software development innovations.",
-    delay: 0.4,
-  },
-  {
-    icon: Lightbulb,
-    title: "Problem Solving",
-    description: "Analytical approach to breaking down complex challenges into manageable components. Experience with algorithmic thinking and systematic problem-solving methodologies.",
-    delay: 0.5,
-  },
-  {
-    icon: Target,
-    title: "Career Goals",
-    description: "Aspiring to bridge the gap between data science and software engineering to create innovative AI-driven solutions that make meaningful impact.",
-    delay: 0.6,
-  },
+    id: 3,
+    title: "Technical Skills",
+    icon: Code,
+    description: "Strong foundation in programming languages, frameworks, and development tools.",
+    details: [
+      "Languages: Python, JavaScript, TypeScript, SQL",
+      "Frameworks: React, Node.js, Next.js",
+      "Tools: Git, Docker, AWS, VS Code"
+    ]
+  }
 ]
 
 const containerVariants = {
@@ -65,7 +62,7 @@ const containerVariants = {
   },
 }
 
-const itemVariants = {
+const cardVariants = {
   hidden: { y: 30, opacity: 0 },
   visible: {
     y: 0,
@@ -79,13 +76,13 @@ const itemVariants = {
 }
 
 const iconVariants = {
-  hidden: { scale: 0, rotate: -180 },
+  hidden: { scale: 0.8, opacity: 0 },
   visible: {
     scale: 1,
-    rotate: 0,
+    opacity: 1,
     transition: {
       type: "spring",
-      stiffness: 200,
+      stiffness: 300,
       damping: 15,
     },
   },
@@ -99,68 +96,73 @@ export function About() {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          className="max-w-4xl mx-auto"
+          viewport={{ once: true, amount: 0.2 }}
+          className="max-w-6xl mx-auto"
         >
           {/* Section Header */}
           <motion.div
-            variants={itemVariants}
+            variants={cardVariants}
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gradient mb-4">
               About Me
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Passionate about creating innovative solutions at the intersection of data science and software engineering
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Professional summary highlighting learning mindset and career direction in data science and software engineering.
             </p>
           </motion.div>
 
-          {/* About Content Grid */}
-          <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-start">
+          {/* About Content */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
             {aboutData.map((item, index) => (
               <motion.div
-                key={item.title}
-                variants={itemVariants}
-                transition={{ delay: item.delay }}
-                className="group"
+                key={item.id}
+                variants={cardVariants}
+                transition={{ delay: index * 0.1 }}
+                className="card card-hover p-6 lg:p-8 relative overflow-hidden bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/20 transition-all duration-300"
               >
-                <div className="flex items-start gap-6 p-6 rounded-xl border border-border/50 bg-card/30 backdrop-blur-sm hover:bg-card/50 transition-all duration-300">
-                  {/* Icon */}
-                  <motion.div
-                    variants={iconVariants}
-                    className="flex-shrink-0 w-12 h-12 rounded-lg bg-primary/10 text-primary p-3"
-                  >
-                    <item.icon className="w-full h-full" />
-                  </motion.div>
+                {/* Icon */}
+                <motion.div
+                  variants={iconVariants}
+                  className="flex-shrink-0 text-primary p-3 rounded-lg bg-primary/10 mb-4"
+                >
+                  <item.icon className="w-8 h-8" />
+                </motion.div>
 
-                  {/* Content */}
-                  <div className="flex-1 space-y-3">
-                    <h3 className="text-xl font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
-                      {item.title}
-                    </h3>
-                    <p className="text-muted-foreground leading-relaxed">
-                      {item.description}
-                    </p>
-                  </div>
+                {/* Content */}
+                <div className="flex-1 space-y-4">
+                  <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
+                    {item.title}
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {item.description}
+                  </p>
+                  
+                  {/* Details List */}
+                  <ul className="space-y-2 mt-4">
+                    {item.details.map((detail, detailIndex) => (
+                      <li key={detailIndex} className="flex items-start gap-3">
+                        <div className="w-2 h-2 rounded-full bg-primary/20 mt-1 flex-shrink-0"></div>
+                        <span className="text-sm text-muted-foreground">{detail}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-
-                {/* Hover Effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
               </motion.div>
             ))}
           </div>
 
           {/* Call to Action */}
           <motion.div
-            variants={itemVariants}
+            variants={cardVariants}
             transition={{ delay: 0.8 }}
             className="text-center mt-16"
           >
             <motion.a
               href="#contact"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-full font-semibold shadow-lg hover:bg-primary/90 transition-all duration-200"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="btn btn-primary inline-flex items-center gap-2 px-4 py-2 text-sm"
             >
               Get In Touch
             </motion.a>
