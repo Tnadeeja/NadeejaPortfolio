@@ -1,22 +1,14 @@
-import { ThemeToggle } from '@/components/ui/theme-toggle'
+import { Layout } from "@/components/layout/Layout"
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-background text-foreground">
-      {/* Header with theme toggle */}
-      <header className="border-b border-border">
-        <div className="container flex justify-between items-center h-16">
-          <h1 className="text-xl font-semibold">Nadeeja Portfolio</h1>
-          <ThemeToggle />
-        </div>
-      </header>
-
+    <Layout>
       {/* Hero section */}
-      <section className="section">
+      <section id="home" className="section">
         <div className="container text-center">
-          <h2 className="text-gradient text-6xl font-bold mb-6">
+          <h1 className="text-gradient text-6xl font-bold mb-6">
             Design System Ready
-          </h2>
+          </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
             Premium portfolio foundation with modern tech green accent and dark-first theme.
           </p>
@@ -48,7 +40,7 @@ export default function Home() {
             <h3 className="text-2xl md:text-3xl">Heading 3</h3>
             <h4 className="text-xl md:text-2xl">Heading 4</h4>
             <p className="text-base leading-relaxed">
-              Body text with proper line height and spacing. This is how regular paragraphs will look in the portfolio.
+              Body text with proper line height and spacing. This is how regular paragraphs will look in portfolio.
             </p>
           </div>
         </div>
@@ -80,6 +72,42 @@ export default function Home() {
           </div>
         </div>
       </section>
-    </main>
+
+      {/* Placeholder sections for navbar navigation */}
+      <section id="about" className="section">
+        <div className="container">
+          <h2 className="text-3xl font-bold text-center mb-8">About</h2>
+          <p className="text-center text-muted-foreground">About section content will go here</p>
+        </div>
+      </section>
+
+      <section id="skills" className="section">
+        <div className="container">
+          <h2 className="text-3xl font-bold text-center mb-8">Skills</h2>
+          <p className="text-center text-muted-foreground">Skills section content will go here</p>
+        </div>
+      </section>
+
+      <section id="projects" className="section">
+        <div className="container">
+          <h2 className="text-3xl font-bold text-center mb-8">Projects</h2>
+          <p className="text-center text-muted-foreground">Projects section content will go here</p>
+        </div>
+      </section>
+
+      <section id="certifications" className="section">
+        <div className="container">
+          <h2 className="text-3xl font-bold text-center mb-8">Certifications</h2>
+          <p className="text-center text-muted-foreground">Certifications section content will go here</p>
+        </div>
+      </section>
+
+      <section id="contact" className="section">
+        <div className="container">
+          <h2 className="text-3xl font-bold text-center mb-8">Contact</h2>
+          <p className="text-center text-muted-foreground">Contact section content will go here</p>
+        </div>
+      </section>
+    </Layout>
   )
 }
