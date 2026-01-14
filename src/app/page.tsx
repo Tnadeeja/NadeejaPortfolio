@@ -1,51 +1,11 @@
 import { Layout } from "@/components/layout/Layout"
+import { Hero } from "@/components/sections/Hero"
 
 export default function Home() {
   return (
     <Layout>
-      {/* Hero section */}
-      <section id="home" className="section">
-        <div className="container text-center">
-          <h1 className="text-gradient text-6xl font-bold mb-6">
-            Design System Ready
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
-            Premium portfolio foundation with modern tech green accent and dark-first theme.
-          </p>
-          
-          {/* Color palette showcase */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mb-12">
-            <div className="text-center">
-              <div className="w-full h-20 bg-brand-500 rounded-lg mb-2"></div>
-              <p className="text-sm font-mono">brand-500</p>
-            </div>
-            <div className="text-center">
-              <div className="w-full h-20 bg-brand-600 rounded-lg mb-2"></div>
-              <p className="text-sm font-mono">brand-600</p>
-            </div>
-            <div className="text-center">
-              <div className="w-full h-20 bg-brand-700 rounded-lg mb-2"></div>
-              <p className="text-sm font-mono">brand-700</p>
-            </div>
-            <div className="text-center">
-              <div className="w-full h-20 bg-neutral-900 rounded-lg mb-2"></div>
-              <p className="text-sm font-mono">neutral-900</p>
-            </div>
-          </div>
-
-          {/* Typography showcase */}
-          <div className="text-left max-w-4xl mx-auto space-y-6">
-            <h1 className="text-4xl md:text-6xl">Heading 1</h1>
-            <h2 className="text-3xl md:text-4xl">Heading 2</h2>
-            <h3 className="text-2xl md:text-3xl">Heading 3</h3>
-            <h4 className="text-xl md:text-2xl">Heading 4</h4>
-            <p className="text-base leading-relaxed">
-              Body text with proper line height and spacing. This is how regular paragraphs will look in portfolio.
-            </p>
-          </div>
-        </div>
-      </section>
-
+      <Hero />
+      
       {/* Component showcase */}
       <section className="section-sm border-t border-border">
         <div className="container">
