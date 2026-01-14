@@ -1,12 +1,14 @@
 import { Layout } from "@/components/layout/Layout"
 import { Hero } from "@/components/sections/Hero"
 import { About } from "@/components/sections/About"
+import { Skills } from "@/components/sections/Skills"
 
 export default function Home() {
   return (
     <Layout>
       <Hero />
       <About />
+      <Skills />
       
       {/* Component showcase */}
       <section className="section-sm border-t border-border">
@@ -36,13 +38,6 @@ export default function Home() {
       </section>
 
       {/* Placeholder sections for navbar navigation */}
-      <section id="skills" className="section">
-        <div className="container">
-          <h2 className="text-3xl font-bold text-center mb-8">Skills</h2>
-          <p className="text-center text-muted-foreground">Skills section content will go here</p>
-        </div>
-      </section>
-
       <section id="projects" className="section">
         <div className="container">
           <h2 className="text-3xl font-bold text-center mb-8">Projects</h2>
