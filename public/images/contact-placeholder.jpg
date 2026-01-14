@@ -1,0 +1,9 @@
+<svg width="400" height="256" viewBox="0 0 400 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="256" fill="#f3f4f6"/>
+  <text x="200" y="120" text-anchor="middle" fill="#94a3b8" font-family="Arial, sans-serif" font-size="16" font-weight="600">
+    Contact
+  </text>
+  <text x="200" y="145" text-anchor="middle" fill="#64748b" font-family="Arial, sans-serif" font-size="12" font-weight="400">
+    Add your screenshot
+  </text>
+</svg>

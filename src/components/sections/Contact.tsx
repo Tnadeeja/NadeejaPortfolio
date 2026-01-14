@@ -4,7 +4,42 @@ import { motion } from "framer-motion"
 import { Mail, Github, Linkedin, MapPin, Send, User } from "lucide-react"
 import { cn } from "@/lib/utils"
 
-const contactData = {
+interface ContactData {
+  leftSide: {
+    title: string
+    subtitle: string
+    description: string
+    icon: any
+  }
+  rightSide: {
+    title: string
+    form: {
+      name: {
+        label: string
+        placeholder: string
+        type: "text"
+      }
+      email: {
+        label: string
+        placeholder: string
+        type: "email"
+      }
+      message: {
+        label: string
+        placeholder: string
+        type: "textarea"
+        rows: number
+      }
+    }
+    socialLinks: {
+      icon: any
+      label: string
+      url: string
+    }[]
+  }
+}
+
+const contactData: ContactData = {
   leftSide: {
     title: "Let's Connect",
     subtitle: "I'm open to opportunities and collaborations",
@@ -35,17 +70,20 @@ const contactData = {
       {
         icon: Github,
         label: "GitHub",
-        url: "https://github.com/nadeeja"
+        url: "https://github.com/nadeeja",
+        image: "/images/contact-placeholder.jpg"
       },
       {
         icon: Linkedin,
         label: "LinkedIn",
-        url: "https://linkedin.com/in/thamindu-nadeeja"
+        url: "https://linkedin.com/in/thamindu-nadeeja",
+        image: "/images/contact-placeholder.jpg"
       },
       {
         icon: Mail,
         label: "Email",
-        url: "mailto:contact@nadeeja.com"
+        url: "mailto:contact@nadeeja.com",
+        image: "/images/contact-placeholder.jpg"
       }
     ]
   }
@@ -142,7 +180,7 @@ export function Contact() {
                   transition={{ delay: 0.5 }}
                   className="flex justify-center gap-4 pt-6"
                 >
-                  {contactData.leftSide.socialLinks.map((social, index) => (
+                  {contactData.leftSide.socialLinks?.map((social: { icon: any, label: string, url: string }, index: number) => (
                     <motion.a
                       key={social.label}
                       href={social.url}
@@ -152,6 +190,41 @@ export function Contact() {
                       whileTap={{ scale: 0.95 }}
                       className="flex items-center gap-2 px-4 py-2 rounded-lg border border-border/50 hover:border-primary/20 transition-all duration-300"
                     >
+                      <div className="relative h-48 lg:h-64 mt-6 overflow-hidden rounded-lg bg-muted/20">
+                        {social.icon && (
+                          <>
+                            <Image
+                              src={social.icon}
+                              alt={social.label}
+                              width={400}
+                              height={256}
+                              className="object-cover transition-transform duration-300 group-hover:scale-105"
+                              sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, (max-width: 1280px) 25vw"
+                              style={{
+                                filter: 'drop-shadow(0 0 20px rgba(34, 197, 94, 0.15)'
+                              }}
+                              priority={false}
+                            />
+                            {/* Image Overlay */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-transparent via-background/60 to-transparent opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+                          </>
+                        )}
+                        {!social.icon && (
+                          <div className="w-full h-full flex items-center justify-center bg-muted/10 border-2 border-dashed border-muted-30 rounded-lg">
+                            <div className="text-center space-y-2">
+                              <div className="w-16 h-16 mx-auto bg-muted/30 rounded-full flex items-center justify-center">
+                                <Code className="w-8 h-8 text-muted-foreground" />
+                              </div>
+                              <p className="text-muted-foreground text-sm">
+                                Project Image
+                              </p>
+                              <p className="text-xs text-muted-foreground">
+                                Add your screenshot
+                              </p>
+                            </div>
+                          </div>
+                        )}
+                      </div>
                       <social.icon className="w-5 h-5 text-muted-foreground" />
                       <span className="text-sm font-medium">{social.label}</span>
                     </motion.a>
