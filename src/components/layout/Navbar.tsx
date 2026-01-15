@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { Menu, X, Sparkles, ArrowRight, Globe, Code, Zap, Brain } from "lucide-react"
+import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
 import { ThemeToggle } from "@/components/ui/theme-toggle"
 import { cn } from "@/lib/utils"
@@ -26,6 +27,12 @@ export function Navbar() {
       // Determine active section based on scroll position
       const sections = navItems.map(item => item.href.replace("#", ""))
       const scrollPosition = window.scrollY + 100
+      
+      // If at the top of the page, clear active section
+      if (window.scrollY < 50) {
+        setActiveSection("")
+        return
+      }
       
       for (const section of sections) {
         const element = document.getElementById(section)
@@ -78,15 +85,25 @@ export function Navbar() {
         <motion.div
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="flex items-center gap-3 cursor-pointer group"
+          className="flex items-center cursor-pointer group gap-3"
           onClick={() => handleNavClick("#")}
         >
           <motion.div
             whileHover={{ rotate: 360 }}
             transition={{ duration: 0.6, ease: "easeInOut" }}
-            className="flex-shrink-0 w-10 h-10 rounded-xl bg-emerald-500/10 backdrop-blur-sm border border-emerald-500/30 flex items-center justify-center"
+            className="flex-shrink-0 w-10 h-10 rounded-xl bg-emerald-500/10 backdrop-blur-sm border border-emerald-500/30 flex items-center justify-center overflow-hidden"
           >
-            <Sparkles className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
+            <img
+              src="/images/logo.png"
+              alt="Thamindu Weerasinghe Logo"
+              width={32}
+              height={32}
+              className="rounded-lg object-contain"
+              onError={(e) => {
+                console.log('Navbar logo error:', e);
+              }}
+              onLoad={() => console.log('Navbar logo loaded successfully')}
+            />
           </motion.div>
           <div>
             <h1 className="text-xl font-bold bg-gradient-to-r from-emerald-700 via-emerald-600 to-emerald-500 dark:from-emerald-400 dark:via-emerald-500 dark:to-brand-600 bg-clip-text text-transparent">

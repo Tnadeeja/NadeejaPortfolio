@@ -2,6 +2,7 @@
 
 import { Navbar } from "./Navbar"
 import { Github, Linkedin, Mail, ChevronUp, Heart, Sparkles } from "lucide-react"
+import Image from "next/image"
 
 interface LayoutProps {
   children: React.ReactNode
@@ -55,11 +56,27 @@ export function Layout({ children }: LayoutProps) {
             <div className="grid md:grid-cols-3 gap-8 mb-8">
               {/* Brand Section */}
               <div className="space-y-4">
-                <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center">
-                    <Sparkles className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+                <div className="flex items-center gap-3">
+                  {/* Logo */}
+                  <div className="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center overflow-hidden">
+                    <img
+                      src="/images/logo.png"
+                      alt="Thamindu Weerasinghe Logo"
+                      width={32}
+                      height={32}
+                      className="rounded-lg object-contain"
+                      onError={(e) => {
+                        console.log('Logo load error:', e);
+                        e.currentTarget.style.display = 'none';
+                      }}
+                      onLoad={() => console.log('Logo loaded successfully')}
+                    />
+                    {/* Fallback */}
+                    <div className="absolute inset-0 flex items-center justify-center bg-emerald-500/20 rounded-lg">
+                      <span className="text-emerald-700 dark:text-emerald-400 font-bold text-xs">TW</span>
+                    </div>
                   </div>
-                  <h3 className="text-xl font-bold !text-emerald-700 dark:!text-white">Weerasinghe Portfolio</h3>
+                  <h3 className="text-xl font-bold !text-emerald-700 dark:!text-white">Thamindu Portfolio</h3>
                 </div>
                 <p className="!text-emerald-600 leading-relaxed dark:!text-muted-foreground/80">
                   Building innovative solutions with data science and modern web technologies.

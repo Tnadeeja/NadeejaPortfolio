@@ -237,7 +237,7 @@ export function Certifications() {
                               <motion.div
                                 whileHover={{ scale: 1.1, rotate: 5 }}
                                 transition={{ type: "spring", stiffness: 400 }}
-                                className="p-2 rounded-lg bg-white/10 backdrop-blur-sm border border-emerald-200 dark:bg-emerald-500/10 dark:border-emerald-500/30"
+                                className="p-2 rounded-lg bg-white/10 backdrop-blur-sm border-0 dark:bg-emerald-500/10 dark:border-0"
                               >
                                 <cert.icon className="w-5 h-5 text-emerald-700 dark:text-emerald-400" />
                               </motion.div>
@@ -246,8 +246,8 @@ export function Certifications() {
                               </h3>
                             </div>
                             
-                            <div className="flex items-center gap-2 text-slate-600 dark:text-muted-foreground/80">
-                              <MapPin className="w-4 h-4" />
+                            <div className="flex items-center gap-2 text-slate-600 dark:text-white/90">
+                              <MapPin className="w-4 h-4 dark:text-emerald-400" />
                               <span className="text-sm font-medium">{cert.issuer}</span>
                             </div>
                           </div>
@@ -258,10 +258,10 @@ export function Certifications() {
                             transition={{ type: "spring", stiffness: 400 }}
                           >
                             <div className={cn(
-                              "px-3 py-1.5 rounded-full text-xs font-medium backdrop-blur-sm border",
+                              "px-3 py-1.5 rounded-full text-xs font-medium backdrop-blur-sm border-0",
                               cert.status === "completed" 
-                                ? "bg-emerald-500/10 text-emerald-700 border-emerald-200 dark:text-emerald-400 dark:border-emerald-500/30"
-                                : "bg-amber-500/10 text-amber-700 border-amber-200 dark:text-amber-400 dark:border-amber-500/30"
+                                ? "bg-emerald-500/10 text-emerald-700 dark:text-emerald-400"
+                                : "bg-amber-500/10 text-amber-700 dark:text-amber-400"
                             )}>
                               {cert.status === "completed" ? "✨ Completed" : "🚀 In Progress"}
                             </div>
@@ -269,7 +269,7 @@ export function Certifications() {
                         </div>
 
                         {/* Description */}
-                        <p className="text-slate-600 leading-relaxed mb-6 dark:text-muted-foreground/80">
+                        <p className="text-slate-600 leading-relaxed mb-6 dark:text-muted-foreground">
                           {cert.description}
                         </p>
 
@@ -286,7 +286,7 @@ export function Certifications() {
                                 initial={{ scale: 0, opacity: 0 }}
                                 animate={{ scale: 1, opacity: 1 }}
                                 transition={{ delay: 0.6 + index * 0.2 + areaIndex * 0.1 }}
-                                className="inline-flex items-center px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-200 text-emerald-700 text-xs font-medium dark:border-emerald-500/20 dark:text-emerald-400"
+                                className="inline-flex items-center px-3 py-1.5 rounded-full bg-emerald-500/10 border-0 text-emerald-700 text-xs font-medium dark:border-emerald-500/20 dark:text-emerald-400"
                               >
                                 {area}
                               </motion.span>

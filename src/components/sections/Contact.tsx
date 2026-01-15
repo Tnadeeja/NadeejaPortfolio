@@ -191,7 +191,7 @@ export function Contact() {
                   </div>
 
                   {/* Description */}
-                  <p className="text-slate-600 leading-relaxed mb-8 text-lg dark:text-muted-foreground/80">
+                  <p className="text-slate-600 leading-relaxed mb-8 text-lg dark:text-muted-foreground">
                     {contactData.leftSide.description}
                   </p>
 
@@ -208,7 +208,7 @@ export function Contact() {
                       </div>
                       <div>
                         <div className="text-slate-900 font-medium dark:text-white">Email</div>
-                        <div className="text-slate-600 dark:text-muted-foreground/80">contact@nWeerasinghe.com</div>
+                        <div className="text-slate-600 dark:text-muted-foreground">contact@nWeerasinghe.com</div>
                       </div>
                     </motion.div>
 
@@ -223,7 +223,7 @@ export function Contact() {
                       </div>
                       <div>
                         <div className="text-slate-900 font-medium dark:text-white">Available Worldwide</div>
-                        <div className="text-slate-600 dark:text-muted-foreground/80">Remote & On-site</div>
+                        <div className="text-slate-600 dark:text-muted-foreground">Remote & On-site</div>
                       </div>
                     </motion.div>
                   </div>
@@ -285,7 +285,7 @@ export function Contact() {
                       <h3 className="text-2xl font-bold text-slate-900 dark:text-white">
                         {contactData.rightSide.title}
                       </h3>
-                      <p className="text-slate-600 dark:text-muted-foreground/80">I'll get back to you ASAP</p>
+                      <p className="text-slate-600 dark:text-muted-foreground">I'll get back to you ASAP</p>
                     </div>
                   </div>
 

@@ -309,7 +309,7 @@ export function Skills() {
                 >
                   15+
                 </motion.div>
-                <div className="text-sm text-slate-600 dark:text-muted-foreground">Years Experience</div>
+                <div className="text-sm text-muted-foreground dark:text-muted-foreground">Years Experience</div>
               </div>
               
               <div className="text-center">
@@ -321,7 +321,7 @@ export function Skills() {
                 >
                   50+
                 </motion.div>
-                <div className="text-sm text-slate-600 dark:text-muted-foreground">Projects Completed</div>
+                <div className="text-sm text-muted-foreground dark:text-muted-foreground">Projects Completed</div>
               </div>
               
               <div className="text-center">
@@ -333,7 +333,7 @@ export function Skills() {
                 >
                   95%
                 </motion.div>
-                <div className="text-sm text-slate-600 dark:text-muted-foreground">Client Satisfaction</div>
+                <div className="text-sm text-muted-foreground dark:text-muted-foreground">Client Satisfaction</div>
               </div>
             </motion.div>
             

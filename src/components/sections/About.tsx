@@ -193,7 +193,7 @@ export function About() {
                         {item.title}
                       </h3>
                       
-                      <p className="text-slate-600 leading-relaxed text-lg dark:text-muted-foreground/80">
+                      <p className="text-slate-600 leading-relaxed text-lg dark:text-muted-foreground">
                         {item.description}
                       </p>
                       

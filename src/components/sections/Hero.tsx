@@ -90,7 +90,7 @@ export function Hero() {
               variants={itemVariants}
               className="mb-4"
             >
-              <h2 className="text-xl md:text-2xl font-light text-slate-600 dark:text-muted-foreground/70 tracking-wide">
+              <h2 className="text-xl md:text-2xl font-light text-slate-600 dark:text-muted-foreground tracking-wide">
                 Hi, I'm
               </h2>
             </motion.div>
@@ -122,7 +122,7 @@ export function Hero() {
               variants={itemVariants}
               className="mb-12 max-w-lg"
             >
-              <p className="text-base md:text-lg text-slate-600 dark:text-muted-foreground/80 leading-relaxed">
+              <p className="text-base md:text-lg text-slate-600 dark:text-muted-foreground leading-relaxed">
                 Building intelligent solutions through data-driven development and clean code architecture. 
                 Currently developing expertise in machine learning while pursuing IT undergraduate studies.
               </p>

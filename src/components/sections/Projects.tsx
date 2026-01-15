@@ -209,7 +209,7 @@ export function Projects() {
                         </motion.div>
                       </div>
                       
-                      <p className="text-slate-600 leading-relaxed text-lg dark:text-muted-foreground/80">
+                      <p className="text-slate-600 leading-relaxed text-lg dark:text-muted-foreground">
                         {project.shortDescription}
                       </p>
                     </div>
