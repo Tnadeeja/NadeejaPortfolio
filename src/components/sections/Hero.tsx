@@ -1,11 +1,124 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Github, Linkedin, Mail, Download, ChevronDown } from "lucide-react"
+import { Github, Linkedin, Mail, Download, ChevronDown, ArrowRight } from "lucide-react"
 import { cn } from "@/lib/utils"
 import Image from "next/image"
+import { useEffect, useRef } from "react"
 
 export function Hero() {
+  const canvasRef = useRef<HTMLCanvasElement>(null)
+  
+  useEffect(() => {
+    const canvas = canvasRef.current
+    if (!canvas) return
+    
+    const ctx = canvas.getContext('2d')
+    if (!ctx) return
+    
+    // Set canvas size
+    const resizeCanvas = () => {
+      canvas.width = window.innerWidth
+      canvas.height = window.innerHeight
+    }
+    
+    resizeCanvas()
+    window.addEventListener('resize', resizeCanvas)
+    
+    // Animation variables
+    let time = 0
+    const nodes: Array<{
+      x: number
+      y: number
+      vx: number
+      vy: number
+      size: number
+      opacity: number
+      connections: number[]
+    }> = []
+    
+    // Create neural network particles
+    // Create central hub nodes
+    for (let i = 0; i < 8; i++) {
+      const angle = (i / 8) * Math.PI * 2
+      const radius = 100 + Math.random() * 50
+      nodes.push({
+        x: canvas.width / 2 + Math.cos(angle) * radius,
+        y: canvas.height / 2 + Math.sin(angle) * radius,
+        vx: (Math.random() - 0.5) * 0.2,
+        vy: (Math.random() - 0.5) * 0.2,
+        size: 4 + Math.random() * 2,
+        opacity: 0.8 + Math.random() * 0.2,
+        connections: []
+      })
+    }
+    
+    // Create satellite nodes
+    for (let i = 0; i < 30; i++) {
+      nodes.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        vx: (Math.random() - 0.5) * 0.3,
+        vy: (Math.random() - 0.5) * 0.3,
+        size: 1 + Math.random() * 2,
+        opacity: 0.4 + Math.random() * 0.3,
+        connections: []
+      })
+    }
+    
+    // Animation loop
+    const animate = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height)
+      
+      // Get theme colors
+      const isDark = document.documentElement.classList.contains('dark')
+      const particleColor = isDark ? 'rgba(16, 185, 129, 0.3)' : 'rgba(5, 150, 105, 0.2)'
+      const lineColor = isDark ? 'rgba(16, 185, 129, 0.1)' : 'rgba(5, 150, 105, 0.1)'
+      
+      // Update and draw nodes
+      nodes.forEach((node, i) => {
+        node.x += node.vx
+        node.y += node.vy
+        
+        // Bounce off edges
+        if (node.x < 0 || node.x > canvas.width) node.vx *= -1
+        if (node.y < 0 || node.y > canvas.height) node.vy *= -1
+        
+        // Draw node
+        ctx.beginPath()
+        ctx.arc(node.x, node.y, node.size, 0, Math.PI * 2)
+        ctx.fillStyle = particleColor
+        ctx.fill()
+        
+        // Draw connections
+        nodes.forEach((otherNode, j) => {
+          if (i !== j) {
+            const dx = node.x - otherNode.x
+            const dy = node.y - otherNode.y
+            const distance = Math.sqrt(dx * dx + dy * dy)
+            
+            if (distance < 150) {
+              ctx.beginPath()
+              ctx.moveTo(node.x, node.y)
+              ctx.lineTo(otherNode.x, otherNode.y)
+              ctx.strokeStyle = lineColor
+              ctx.lineWidth = 0.5
+              ctx.stroke()
+            }
+          }
+        })
+      })
+      
+      time += 0.01
+      requestAnimationFrame(animate)
+    }
+    
+    animate()
+    
+    return () => {
+      window.removeEventListener('resize', resizeCanvas)
+    }
+  }, [])
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -76,6 +189,13 @@ export function Hero() {
 
   return (
     <section id="home" className="section min-h-[calc(100vh-4rem)] flex items-center relative overflow-hidden">
+      {/* Animated Canvas Background */}
+      <canvas
+        ref={canvasRef}
+        className="absolute inset-0 w-full h-full"
+        style={{ zIndex: 1 }}
+      />
+      
       <div className="container-wide relative z-10">
         <motion.div
           variants={containerVariants}
