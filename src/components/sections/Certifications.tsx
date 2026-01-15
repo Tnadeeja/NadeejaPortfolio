@@ -149,7 +149,7 @@ export function Certifications() {
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-black bg-gradient-to-r from-teal-700 via-emerald-600 to-emerald-500 dark:from-emerald-400 dark:via-emerald-500 dark:to-brand-600 bg-clip-text text-transparent mb-6">
               Learning Roadmap
             </h2>
-            <p className="text-lg md:text-xl text-slate-600 dark:text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+            <p className="text-base md:text-lg lg:text-xl text-slate-600 dark:text-muted-foreground max-w-4xl mx-auto leading-relaxed px-4">
               Continuous learning journey showcasing discipline, expertise growth, and professional development 
               through structured education and industry certifications.
             </p>
@@ -166,7 +166,7 @@ export function Certifications() {
             ></motion.div>
             
             {/* Timeline Items */}
-            <div className="space-y-16">
+            <div className="space-y-12 sm:space-y-8 md:space-y-16">
               {certificationsData.map((cert, index) => (
                 <motion.div
                   key={cert.id}
@@ -174,13 +174,13 @@ export function Certifications() {
                   transition={{ delay: index * 0.2 }}
                   className={cn(
                     "relative flex items-center",
-                    index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+                    index % 2 === 0 ? "flex-col sm:flex-row" : "flex-col sm:flex-row-reverse"
                   )}
                 >
                   {/* Timeline Node */}
                   <motion.div
                     variants={iconVariants}
-                    className="relative z-20 flex-shrink-0 w-16 h-16 md:w-20 md:h-20"
+                    className="relative z-20 flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24"
                   >
                     <div className="absolute inset-0 bg-emerald-500/10 rounded-full blur-xl dark:bg-emerald-500/20"></div>
                     <div className={cn(
@@ -194,9 +194,9 @@ export function Certifications() {
                         transition={{ type: "spring", stiffness: 300 }}
                       >
                         {cert.status === "completed" ? (
-                          <CheckCircle className="w-6 h-6 md:w-8 md:h-8 text-emerald-700 dark:text-emerald-400" />
+                          <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-8 lg:h-8 text-emerald-700 dark:text-emerald-400" />
                         ) : (
-                          <AlertCircle className="w-6 h-6 md:w-8 md:h-8 text-amber-700 dark:text-amber-400" />
+                          <AlertCircle className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-8 lg:h-8 text-amber-700 dark:text-amber-400" />
                         )}
                       </motion.div>
                     </div>
