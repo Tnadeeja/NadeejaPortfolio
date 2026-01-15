@@ -89,10 +89,10 @@ export function Navbar() {
             <Sparkles className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
           </motion.div>
           <div>
-            <h1 className="text-xl font-bold bg-gradient-to-r from-emerald-400 via-emerald-500 to-brand-600 bg-clip-text text-transparent">
+            <h1 className="text-xl font-bold bg-gradient-to-r from-emerald-700 via-emerald-600 to-emerald-500 dark:from-emerald-400 dark:via-emerald-500 dark:to-brand-600 bg-clip-text text-transparent">
               Thamindu Weerasinghe
             </h1>
-            <p className="text-xs text-emerald-600 dark:text-emerald-400 font-medium">Full Stack Developer</p>
+            <p className="text-xs text-emerald-700 dark:text-emerald-400 font-medium">Full Stack Developer</p>
           </div>
         </motion.div>
 
@@ -116,22 +116,22 @@ export function Navbar() {
                 className={cn(
                   "relative px-4 py-2 rounded-lg font-medium transition-all duration-300 group",
                   isActive 
-                    ? "bg-emerald-500/20 border-emerald-500/50 shadow-[0_0_25px_#00ff8830]"
-                    : "bg-white/5 backdrop-blur-sm border border-white/10 text-white hover:border-emerald-500/30 hover:bg-emerald-500/10"
+                    ? "bg-white/10 text-emerald-900 dark:bg-emerald-500/20 dark:text-white dark:border-emerald-500/50 dark:shadow-[0_0_25px_#00ff8830]"
+                    : "bg-transparent text-slate-700 border border-transparent hover:bg-white/10 hover:text-emerald-900 dark:bg-white/5 dark:backdrop-blur-sm dark:border dark:border-white/10 dark:text-white dark:hover:border-emerald-500/30 dark:hover:bg-emerald-500/10"
                 )}
               >
                 <span className="relative z-10 flex items-center gap-2">
-                  {item.name === "About" && <Brain className={cn("w-4 h-4", isActive ? "text-emerald-300" : "text-emerald-600 dark:text-emerald-400")} />}
-                  {item.name === "Skills" && <Zap className={cn("w-4 h-4", isActive ? "text-emerald-300" : "text-emerald-600 dark:text-emerald-400")} />}
-                  {item.name === "Projects" && <Code className={cn("w-4 h-4", isActive ? "text-emerald-300" : "text-emerald-600 dark:text-emerald-400")} />}
-                  {item.name === "Certifications" && <Globe className={cn("w-4 h-4", isActive ? "text-emerald-300" : "text-emerald-600 dark:text-emerald-400")} />}
-                  {item.name === "Contact" && <Sparkles className={cn("w-4 h-4", isActive ? "text-emerald-300" : "text-emerald-600 dark:text-emerald-400")} />}
+                  {item.name === "About" && <Brain className={cn("w-4 h-4", isActive ? "text-emerald-700 dark:text-emerald-300" : "text-emerald-700 dark:text-emerald-400")} />}
+                  {item.name === "Skills" && <Zap className={cn("w-4 h-4", isActive ? "text-emerald-700 dark:text-emerald-300" : "text-emerald-700 dark:text-emerald-400")} />}
+                  {item.name === "Projects" && <Code className={cn("w-4 h-4", isActive ? "text-emerald-700 dark:text-emerald-300" : "text-emerald-700 dark:text-emerald-400")} />}
+                  {item.name === "Certifications" && <Globe className={cn("w-4 h-4", isActive ? "text-emerald-700 dark:text-emerald-300" : "text-emerald-700 dark:text-emerald-400")} />}
+                  {item.name === "Contact" && <Sparkles className={cn("w-4 h-4", isActive ? "text-emerald-700 dark:text-emerald-300" : "text-emerald-700 dark:text-emerald-400")} />}
                   {item.name}
                 </span>
                 {isActive && (
                   <motion.div
                     layoutId="activeNav"
-                    className="absolute inset-0 bg-gradient-to-r from-emerald-500/20 to-brand-600/20 rounded-lg"
+                    className="absolute inset-0 bg-gradient-to-r from-emerald-500/8 via-transparent to-emerald-500/6 rounded-lg dark:from-emerald-500/20 dark:to-brand-600/20"
                     transition={{ type: "spring", stiffness: 300, damping: 30 }}
                   ></motion.div>
                 )}
@@ -140,7 +140,7 @@ export function Navbar() {
                     initial={{ width: 0, opacity: 0 }}
                     whileHover={{ width: "100%", opacity: 1 }}
                     transition={{ duration: 0.3 }}
-                    className="absolute inset-0 bg-gradient-to-r from-emerald-500/10 to-brand-600/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    className="absolute inset-0 bg-gradient-to-r from-emerald-500/8 via-transparent to-emerald-500/6 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 dark:from-emerald-500/10 dark:to-brand-600/10"
                   ></motion.div>
                 )}
               </motion.button>
@@ -173,7 +173,7 @@ export function Navbar() {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={() => setIsOpen(!isOpen)}
-            className="relative w-10 h-10 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 flex items-center justify-center text-white group"
+            className="relative w-10 h-10 rounded-xl bg-white/70 border border-emerald-200 flex items-center justify-center text-slate-700 shadow-sm shadow-emerald-900/10 hover:bg-emerald-50 dark:bg-white/5 dark:backdrop-blur-sm dark:border-white/10 dark:text-white group"
           >
             <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/10 to-brand-600/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             <AnimatePresence mode="wait">
@@ -235,23 +235,23 @@ export function Navbar() {
                     className={cn(
                       "relative w-full text-left py-4 px-6 font-medium rounded-xl transition-all duration-300 group",
                       isActive
-                        ? "bg-emerald-500/20 border-emerald-500/50 shadow-[0_0_25px_#00ff8830]"
-                        : "bg-white/5 backdrop-blur-sm border border-white/10 text-white hover:border-emerald-500/30 hover:bg-emerald-500/10"
+                        ? "bg-white/10 text-emerald-900 dark:bg-emerald-500/20 dark:text-white dark:border-emerald-500/50 dark:shadow-[0_0_25px_#00ff8830]"
+                        : "bg-transparent text-slate-700 border border-transparent hover:bg-white/10 hover:text-emerald-900 dark:bg-white/5 dark:backdrop-blur-sm dark:border dark:border-white/10 dark:text-white dark:hover:border-emerald-500/30 dark:hover:bg-emerald-500/10"
                     )}
                   >
                     <span className="relative z-10 flex items-center gap-3">
-                      {item.name === "About" && <Brain className={cn("w-4 h-4", isActive ? "text-emerald-300" : "text-emerald-600 dark:text-emerald-400")} />}
-                      {item.name === "Skills" && <Zap className={cn("w-4 h-4", isActive ? "text-emerald-300" : "text-emerald-600 dark:text-emerald-400")} />}
-                      {item.name === "Projects" && <Code className={cn("w-4 h-4", isActive ? "text-emerald-300" : "text-emerald-600 dark:text-emerald-400")} />}
-                      {item.name === "Certifications" && <Globe className={cn("w-4 h-4", isActive ? "text-emerald-300" : "text-emerald-600 dark:text-emerald-400")} />}
-                      {item.name === "Contact" && <Sparkles className={cn("w-4 h-4", isActive ? "text-emerald-300" : "text-emerald-600 dark:text-emerald-400")} />}
+                      {item.name === "About" && <Brain className={cn("w-4 h-4", isActive ? "text-emerald-700 dark:text-emerald-300" : "text-emerald-700 dark:text-emerald-400")} />}
+                      {item.name === "Skills" && <Zap className={cn("w-4 h-4", isActive ? "text-emerald-700 dark:text-emerald-300" : "text-emerald-700 dark:text-emerald-400")} />}
+                      {item.name === "Projects" && <Code className={cn("w-4 h-4", isActive ? "text-emerald-700 dark:text-emerald-300" : "text-emerald-700 dark:text-emerald-400")} />}
+                      {item.name === "Certifications" && <Globe className={cn("w-4 h-4", isActive ? "text-emerald-700 dark:text-emerald-300" : "text-emerald-700 dark:text-emerald-400")} />}
+                      {item.name === "Contact" && <Sparkles className={cn("w-4 h-4", isActive ? "text-emerald-700 dark:text-emerald-300" : "text-emerald-700 dark:text-emerald-400")} />}
                       {item.name}
                       <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     </span>
                     {isActive && (
                       <motion.div
                         layoutId="activeMobileNav"
-                        className="absolute inset-0 bg-gradient-to-r from-emerald-500/20 to-brand-600/20 rounded-xl"
+                        className="absolute inset-0 bg-gradient-to-r from-emerald-500/8 via-transparent to-emerald-500/6 rounded-xl dark:from-emerald-500/20 dark:to-brand-600/20"
                         transition={{ type: "spring", stiffness: 300, damping: 30 }}
                       ></motion.div>
                     )}
@@ -260,7 +260,7 @@ export function Navbar() {
                         initial={{ width: 0, opacity: 0 }}
                         whileHover={{ width: "100%", opacity: 1 }}
                         transition={{ duration: 0.3 }}
-                        className="absolute inset-0 bg-gradient-to-r from-emerald-500/10 to-brand-600/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                        className="absolute inset-0 bg-gradient-to-r from-emerald-500/8 via-transparent to-emerald-500/6 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 dark:from-emerald-500/10 dark:to-brand-600/10"
                       ></motion.div>
                     )}
                   </motion.button>

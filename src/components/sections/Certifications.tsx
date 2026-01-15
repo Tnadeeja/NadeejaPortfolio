@@ -138,18 +138,18 @@ export function Certifications() {
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.8 }}
-              className="inline-flex items-center px-4 py-2 rounded-full bg-emerald-500/10 backdrop-blur-sm border border-emerald-500/20 mb-6"
+              className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-emerald-200 mb-6 dark:bg-emerald-500/10 dark:border-emerald-500/20"
             >
               <Sparkles className="w-4 h-4 text-emerald-600 dark:text-emerald-400 mr-2" />
-              <span className="text-sm font-medium text-emerald-600 dark:text-emerald-400">
+              <span className="text-sm font-semibold text-emerald-700 dark:font-medium dark:text-emerald-400">
                 Learning Journey
               </span>
             </motion.div>
             
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black bg-gradient-to-r from-emerald-400 via-emerald-500 to-brand-600 bg-clip-text text-transparent mb-6">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black bg-gradient-to-r from-teal-700 via-emerald-600 to-emerald-500 dark:from-emerald-400 dark:via-emerald-500 dark:to-brand-600 bg-clip-text text-transparent mb-6">
               Learning Roadmap
             </h2>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl text-slate-600 dark:text-muted-foreground max-w-4xl mx-auto leading-relaxed">
               Continuous learning journey showcasing discipline, expertise growth, and professional development 
               through structured education and industry certifications.
             </p>
@@ -182,21 +182,21 @@ export function Certifications() {
                     variants={iconVariants}
                     className="relative z-20 flex-shrink-0 w-16 h-16 md:w-20 md:h-20"
                   >
-                    <div className="absolute inset-0 bg-emerald-500/20 rounded-full blur-xl"></div>
+                    <div className="absolute inset-0 bg-emerald-500/10 rounded-full blur-xl dark:bg-emerald-500/20"></div>
                     <div className={cn(
                       "relative w-full h-full rounded-full border-2 flex items-center justify-center backdrop-blur-sm",
                       cert.status === "completed" 
-                        ? "bg-emerald-500/10 border-emerald-500/50"
-                        : "bg-amber-500/10 border-amber-500/50"
+                        ? "bg-white/10 border-emerald-200 dark:bg-emerald-500/10 dark:border-emerald-500/50"
+                        : "bg-white/10 border-amber-200 dark:bg-amber-500/10 dark:border-amber-500/50"
                     )}>
                       <motion.div
                         whileHover={{ scale: 1.2, rotate: 360 }}
                         transition={{ type: "spring", stiffness: 300 }}
                       >
                         {cert.status === "completed" ? (
-                          <CheckCircle className="w-6 h-6 md:w-8 md:h-8 text-emerald-600 dark:text-emerald-400" />
+                          <CheckCircle className="w-6 h-6 md:w-8 md:h-8 text-emerald-700 dark:text-emerald-400" />
                         ) : (
-                          <AlertCircle className="w-6 h-6 md:w-8 md:h-8 text-amber-600 dark:text-amber-400" />
+                          <AlertCircle className="w-6 h-6 md:w-8 md:h-8 text-amber-700 dark:text-amber-400" />
                         )}
                       </motion.div>
                     </div>
@@ -208,8 +208,8 @@ export function Certifications() {
                       transition={{ delay: 0.8 + index * 0.2 }}
                       className="absolute -bottom-2 left-1/2 transform -translate-x-1/2"
                     >
-                      <div className="px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 backdrop-blur-sm">
-                        <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400">
+                      <div className="px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-200 backdrop-blur-sm dark:border-emerald-500/30">
+                        <span className="text-xs font-bold text-emerald-700 dark:text-emerald-400">
                           {cert.date}
                         </span>
                       </div>
@@ -225,9 +225,9 @@ export function Certifications() {
                       index % 2 === 0 ? "md:mr-8 md:pl-12" : "md:ml-8 md:pr-12"
                     )}
                   >
-                    <div className="relative bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 p-6 md:p-8 hover:border-emerald-500/30 transition-all duration-500 hover:shadow-[0_0_40px_#00ff8815] group">
+                    <div className="relative bg-white/5 backdrop-blur-xl rounded-2xl border border-slate-200/60 p-6 md:p-8 hover:border-emerald-200 transition-all duration-500 shadow-[0_18px_50px_rgba(2,6,23,0.08)] hover:shadow-[0_22px_60px_rgba(2,6,23,0.12)] group dark:border-white/10 dark:hover:border-emerald-500/30 dark:hover:shadow-[0_0_40px_#00ff8815]">
                       {/* Glow Effect */}
-                      <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 via-transparent to-brand-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
+                      <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/8 via-transparent to-emerald-500/6 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl dark:from-emerald-500/10 dark:to-brand-600/10"></div>
                       
                       <div className="relative z-10">
                         {/* Header */}
@@ -237,16 +237,16 @@ export function Certifications() {
                               <motion.div
                                 whileHover={{ scale: 1.1, rotate: 5 }}
                                 transition={{ type: "spring", stiffness: 400 }}
-                                className="p-2 rounded-lg bg-emerald-500/10 border border-emerald-500/30"
+                                className="p-2 rounded-lg bg-white/10 backdrop-blur-sm border border-emerald-200 dark:bg-emerald-500/10 dark:border-emerald-500/30"
                               >
-                                <cert.icon className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
+                                <cert.icon className="w-5 h-5 text-emerald-700 dark:text-emerald-400" />
                               </motion.div>
-                              <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-emerald-400 transition-colors">
+                              <h3 className="text-xl md:text-2xl font-bold text-slate-900 group-hover:text-emerald-700 transition-colors dark:text-white dark:group-hover:text-emerald-400">
                                 {cert.title}
                               </h3>
                             </div>
                             
-                            <div className="flex items-center gap-2 text-muted-foreground/80">
+                            <div className="flex items-center gap-2 text-slate-600 dark:text-muted-foreground/80">
                               <MapPin className="w-4 h-4" />
                               <span className="text-sm font-medium">{cert.issuer}</span>
                             </div>
@@ -260,8 +260,8 @@ export function Certifications() {
                             <div className={cn(
                               "px-3 py-1.5 rounded-full text-xs font-medium backdrop-blur-sm border",
                               cert.status === "completed" 
-                                ? "bg-emerald-500/20 text-emerald-400 border-emerald-500/30"
-                                : "bg-amber-500/20 text-amber-400 border-amber-500/30"
+                                ? "bg-emerald-500/10 text-emerald-700 border-emerald-200 dark:text-emerald-400 dark:border-emerald-500/30"
+                                : "bg-amber-500/10 text-amber-700 border-amber-200 dark:text-amber-400 dark:border-amber-500/30"
                             )}>
                               {cert.status === "completed" ? "✨ Completed" : "🚀 In Progress"}
                             </div>
@@ -269,15 +269,15 @@ export function Certifications() {
                         </div>
 
                         {/* Description */}
-                        <p className="text-muted-foreground/80 leading-relaxed mb-6">
+                        <p className="text-slate-600 leading-relaxed mb-6 dark:text-muted-foreground/80">
                           {cert.description}
                         </p>
 
                         {/* Focus Areas */}
                         <div className="mb-6">
                           <div className="flex items-center gap-2 mb-3">
-                            <BookOpen className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
-                            <span className="text-sm font-semibold text-white">Focus Areas</span>
+                            <BookOpen className="w-4 h-4 text-emerald-700 dark:text-emerald-400" />
+                            <span className="text-sm font-semibold text-slate-900 dark:text-white">Focus Areas</span>
                           </div>
                           <div className="flex flex-wrap gap-2">
                             {cert.focusAreas.map((area, areaIndex) => (
@@ -286,7 +286,7 @@ export function Certifications() {
                                 initial={{ scale: 0, opacity: 0 }}
                                 animate={{ scale: 1, opacity: 1 }}
                                 transition={{ delay: 0.6 + index * 0.2 + areaIndex * 0.1 }}
-                                className="inline-flex items-center px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-xs font-medium"
+                                className="inline-flex items-center px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-200 text-emerald-700 text-xs font-medium dark:border-emerald-500/20 dark:text-emerald-400"
                               >
                                 {area}
                               </motion.span>
@@ -299,7 +299,7 @@ export function Certifications() {
                           href="#"
                           whileHover={{ scale: 1.02, x: 5 }}
                           whileTap={{ scale: 0.98 }}
-                          className="inline-flex items-center gap-2 text-emerald-600 dark:text-emerald-400 text-sm font-medium hover:text-emerald-500 transition-colors"
+                          className="inline-flex items-center gap-2 text-emerald-700 text-sm font-medium hover:text-emerald-600 transition-colors dark:text-emerald-400 dark:hover:text-emerald-500"
                         >
                           <span>View Certificate</span>
                           <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />

@@ -1,7 +1,6 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { cn } from "@/lib/utils"
 import { 
   GraduationCap, 
   Code, 
@@ -141,18 +140,18 @@ export function About() {
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.8 }}
-              className="inline-flex items-center px-4 py-2 rounded-full bg-emerald-500/10 backdrop-blur-sm border border-emerald-500/20 mb-6"
+              className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-emerald-200 mb-6 dark:bg-emerald-500/10 dark:border-emerald-500/20"
             >
               <User className="w-4 h-4 text-emerald-600 dark:text-emerald-400 mr-2" />
-              <span className="text-sm font-medium text-emerald-600 dark:text-emerald-400">
+              <span className="text-sm font-semibold text-emerald-700 dark:font-medium dark:text-emerald-400">
                 Personal Journey
               </span>
             </motion.div>
             
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black bg-gradient-to-r from-emerald-400 via-emerald-500 to-brand-600 bg-clip-text text-transparent mb-6">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black bg-gradient-to-r from-emerald-600 via-emerald-700 to-emerald-800 dark:from-emerald-400 dark:via-emerald-500 dark:to-brand-600 bg-clip-text text-transparent mb-6">
               About Me
             </h2>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl text-slate-600 dark:text-muted-foreground max-w-4xl mx-auto leading-relaxed">
               Passionate data scientist and software engineer with a relentless drive for innovation, 
               continuous learning, and creating impactful solutions that bridge technology and real-world challenges.
             </p>
@@ -168,9 +167,9 @@ export function About() {
                 className="group"
               >
                 {/* Premium Glassmorphism Card */}
-                <div className="relative bg-white/5 backdrop-blur-xl rounded-3xl border border-white/10 p-8 lg:p-10 hover:border-emerald-500/30 transition-all duration-500 hover:shadow-[0_0_60px_#00ff8820]">
+                <div className="relative bg-white/5 backdrop-blur-xl rounded-3xl border border-slate-200/60 p-8 lg:p-10 transition-all duration-500 shadow-[0_18px_50px_rgba(2,6,23,0.08)] hover:border-emerald-200 hover:shadow-[0_22px_60px_rgba(2,6,23,0.12)] dark:border-white/10 dark:hover:border-emerald-500/30 dark:hover:shadow-[0_0_60px_#00ff8820]">
                   {/* Glow Effect */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 via-transparent to-brand-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"></div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/8 via-transparent to-emerald-500/6 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl dark:from-emerald-500/10 dark:to-brand-600/10"></div>
                   
                   <div className="relative z-10">
                     {/* Icon with enhanced glassmorphism */}
@@ -182,31 +181,21 @@ export function About() {
                       whileHover={{ scale: 1.1, rotate: 5 }}
                       className="relative mb-8"
                     >
-                      <div className="absolute inset-0 bg-emerald-500/20 rounded-2xl blur-xl"></div>
-                      <div className="relative bg-emerald-500/10 backdrop-blur-sm rounded-2xl p-4 border border-emerald-500/30">
+                      <div className="absolute inset-0 bg-emerald-500/10 rounded-2xl blur-xl dark:bg-emerald-500/20"></div>
+                      <div className="relative bg-white/10 backdrop-blur-sm rounded-2xl p-4 border border-emerald-200 dark:bg-emerald-500/10 dark:border-emerald-500/30">
                         <item.icon className="w-8 h-8 text-emerald-600 dark:text-emerald-400" />
                       </div>
                     </motion.div>
 
                     {/* Content */}
                     <div className="space-y-6">
-                      <motion.h3
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.4 + index * 0.2 }}
-                        className="text-2xl font-bold text-white group-hover:text-emerald-400 transition-colors"
-                      >
+                      <h3 className="text-2xl font-bold text-slate-900 group-hover:text-emerald-700 transition-colors dark:text-white dark:group-hover:text-emerald-400">
                         {item.title}
-                      </motion.h3>
+                      </h3>
                       
-                      <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.5 + index * 0.2 }}
-                        className="text-muted-foreground/80 leading-relaxed text-lg"
-                      >
+                      <p className="text-slate-600 leading-relaxed text-lg dark:text-muted-foreground/80">
                         {item.description}
-                      </motion.p>
+                      </p>
                       
                       {/* Enhanced Details List */}
                       <motion.ul
@@ -228,7 +217,7 @@ export function About() {
                               transition={{ type: "spring", stiffness: 400 }}
                               className="flex-shrink-0 w-2 h-2 rounded-full bg-emerald-500/50 mt-2"
                             ></motion.div>
-                            <span className="text-emerald-600 dark:text-emerald-400 font-medium leading-relaxed">
+                            <span className="text-slate-700 dark:text-emerald-400 font-medium leading-relaxed">
                               {detail}
                             </span>
                           </motion.li>
@@ -255,7 +244,7 @@ export function About() {
               transition={{ delay: 1.4 }}
               whileHover={{ scale: 1.05, x: 5 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 font-medium hover:bg-emerald-500/20 transition-all duration-300"
+              className="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-white/10 backdrop-blur-sm border border-emerald-200 text-emerald-800 font-semibold hover:bg-white/10 hover:shadow-[0_16px_45px_rgba(2,6,23,0.10)] transition-all duration-300 dark:bg-emerald-500/10 dark:border-emerald-500/30 dark:text-emerald-400 dark:font-medium dark:hover:bg-emerald-500/20"
             >
               <span>Let's Connect</span>
               <ArrowRight className="w-5 h-5" />

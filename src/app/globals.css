@@ -173,20 +173,31 @@
 
 /* Light mode specific enhancements for Hero and Navbar */
 html:not(.dark) .bg-white\/10 {
-  background-color: rgba(255, 255, 255, 0.98) !important;
-  border: 2px solid rgb(16 185 129) !important;
-  box-shadow: 0 4px 20px rgba(16, 185, 129, 0.15) !important;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.72),
+    rgba(248, 250, 252, 0.55)
+  ) !important;
+  border: 1px solid rgba(16, 185, 129, 0.12) !important;
+  box-shadow:
+    0 10px 35px rgba(2, 6, 23, 0.06),
+    0 1px 0 rgba(255, 255, 255, 0.7) inset !important;
+  backdrop-filter: blur(18px) saturate(140%) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(140%) !important;
 }
 
 html:not(.dark) .bg-white\/5 {
-  background-color: rgba(255, 255, 255, 0.95) !important;
-  border: 1px solid rgb(16 185 129) !important;
-  box-shadow: 0 2px 10px rgba(16, 185, 129, 0.1) !important;
-}
-
-html:not(.dark) .text-white {
-  color: rgb(15 23 42) !important;
-  font-weight: 600 !important;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.55),
+    rgba(248, 250, 252, 0.4)
+  ) !important;
+  border: 1px solid rgba(2, 6, 23, 0.06) !important;
+  box-shadow:
+    0 8px 24px rgba(2, 6, 23, 0.05),
+    0 1px 0 rgba(255, 255, 255, 0.6) inset !important;
+  backdrop-filter: blur(14px) saturate(140%) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(140%) !important;
 }
 
 html:not(.dark) .text-foreground {
@@ -197,99 +208,10 @@ html:not(.dark) .text-muted-foreground {
   color: rgb(71 85 105) !important;
 }
 
-html:not(.dark) .text-muted-foreground\/80 {
-  color: rgb(71 85 105) !important;
-}
-
-html:not(.dark) .text-muted-foreground\/70 {
-  color: rgb(71 85 105) !important;
-}
-
-html:not(.dark) .text-muted-foreground\/60 {
-  color: rgb(71 85 105) !important;
-}
-
-html:not(.dark) .text-muted-foreground\/50 {
-  color: rgb(71 85 105) !important;
-}
-
-html:not(.dark) .text-emerald-600 {
-  color: rgb(5 150 105) !important;
-  font-weight: 600 !important;
-}
-
-html:not(.dark) .text-emerald-400 {
-  color: rgb(16 185 129) !important;
-  font-weight: 600 !important;
-}
-
-html:not(.dark) .text-emerald-300 {
-  color: rgb(52 211 153) !important;
-  font-weight: 600 !important;
-}
-
-html:not(.dark) .border-white\/10 {
-  border-color: rgb(16 185 129) !important;
-  border-width: 2px !important;
-}
-
-html:not(.dark) .border-emerald-500\/20 {
-  border-color: rgb(16 185 129) !important;
-  border-width: 2px !important;
-}
-
-html:not(.dark) .border-emerald-500\/30 {
-  border-color: rgb(16 185 129) !important;
-  border-width: 2px !important;
-}
-
-html:not(.dark) .bg-emerald-500\/10 {
-  background-color: rgba(16, 185, 129, 0.15) !important;
-}
-
-html:not(.dark) .bg-emerald-500\/20 {
-  background-color: rgba(16, 185, 129, 0.2) !important;
-}
-
-html:not(.dark) .bg-gradient-to-r.from-emerald-400.via-emerald-500.to-brand-600 {
-  background: linear-gradient(90deg, rgb(5 150 105), rgb(16 185 129), rgb(99 102 241)) !important;
-  -webkit-background-clip: text !important;
-  background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-}
-
 html:not(.dark) body {
-  background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%) !important;
+  background: linear-gradient(135deg, #f8fafc 0%, #f3f4f6 100%) !important;
 }
 
 html:not(.dark) .section {
-  background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%) !important;
-}
-
-html:not(.dark) button {
-  background-color: rgb(16 185 129) !important;
-  color: white !important;
-  border: 2px solid rgb(16 185 129) !important;
-  font-weight: 600 !important;
-}
-
-html:not(.dark) button:hover {
-  background-color: rgb(5 150 105) !important;
-  border-color: rgb(5 150 105) !important;
-}
-
-html:not(.dark) svg {
-  color: rgb(16 185 129) !important;
-}
-
-html:not(.dark) .w-4.h-4.text-emerald-600 {
-  color: rgb(5 150 105) !important;
-}
-
-html:not(.dark) .w-5.h-5.text-emerald-600 {
-  color: rgb(5 150 105) !important;
-}
-
-html:not(.dark) .w-6.h-6.text-emerald-600 {
-  color: rgb(5 150 105) !important;
+  background: transparent !important;
 }

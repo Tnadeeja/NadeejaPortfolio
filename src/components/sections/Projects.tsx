@@ -124,18 +124,18 @@ export function Projects() {
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.8 }}
-              className="inline-flex items-center px-4 py-2 rounded-full bg-emerald-500/10 backdrop-blur-sm border border-emerald-500/20 mb-6"
+              className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-emerald-200 mb-6 dark:bg-emerald-500/10 dark:border-emerald-500/20"
             >
               <Star className="w-4 h-4 text-emerald-600 dark:text-emerald-400 mr-2" />
-              <span className="text-sm font-medium text-emerald-600 dark:text-emerald-400">
+              <span className="text-sm font-semibold text-emerald-700 dark:font-medium dark:text-emerald-400">
                 Featured Projects
               </span>
             </motion.div>
             
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black bg-gradient-to-r from-emerald-400 via-emerald-500 to-brand-600 bg-clip-text text-transparent mb-6">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black bg-gradient-to-r from-teal-700 via-emerald-600 to-emerald-500 dark:from-emerald-400 dark:via-emerald-500 dark:to-brand-600 bg-clip-text text-transparent mb-6">
               Innovation Portfolio
             </h2>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl text-slate-600 dark:text-muted-foreground max-w-4xl mx-auto leading-relaxed">
               Cutting-edge projects showcasing advanced development skills, innovative solutions, 
               and real-world impact across multiple technologies and industries.
             </p>
@@ -151,9 +151,9 @@ export function Projects() {
                 className="group"
               >
                 {/* Premium Project Card */}
-                <div className="relative bg-white/5 backdrop-blur-xl rounded-3xl border border-white/10 overflow-hidden hover:border-emerald-500/30 transition-all duration-500 hover:shadow-[0_0_60px_#00ff8820]">
+                <div className="relative bg-white/5 backdrop-blur-xl rounded-3xl border border-slate-200/60 overflow-hidden hover:border-emerald-200 transition-all duration-500 shadow-[0_18px_50px_rgba(2,6,23,0.08)] hover:shadow-[0_22px_60px_rgba(2,6,23,0.12)] dark:border-white/10 dark:hover:border-emerald-500/30 dark:hover:shadow-[0_0_60px_#00ff8820]">
                   {/* Glow Effect */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 via-transparent to-brand-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/8 via-transparent to-emerald-500/6 opacity-0 group-hover:opacity-100 transition-opacity duration-500 dark:from-emerald-500/10 dark:to-brand-600/10"></div>
                   
                   {/* Project Image */}
                   <div className="relative h-64 lg:h-80 overflow-hidden">
@@ -168,7 +168,7 @@ export function Projects() {
                         />
                         
                         {/* Image Overlay Gradient */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60"></div>
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-60"></div>
                         
                         {/* Floating Status Badge */}
                         <motion.div
@@ -180,8 +180,8 @@ export function Projects() {
                           <div className={cn(
                             "px-4 py-2 rounded-full backdrop-blur-md border text-sm font-medium",
                             project.status === "completed" 
-                              ? "bg-emerald-500/20 text-emerald-400 border-emerald-500/30"
-                              : "bg-amber-500/20 text-amber-400 border-amber-500/30"
+                              ? "bg-emerald-500/20 text-emerald-700 border-emerald-200 dark:text-emerald-400 dark:border-emerald-500/30"
+                              : "bg-amber-500/20 text-amber-700 border-amber-200 dark:text-amber-400 dark:border-amber-500/30"
                           )}>
                             {project.status === "completed" ? "✨ Launched" : "🚀 In Progress"}
                           </div>
@@ -195,7 +195,7 @@ export function Projects() {
                     {/* Project Header */}
                     <div className="mb-6">
                       <div className="flex items-start justify-between mb-4">
-                        <h3 className="text-2xl lg:text-3xl font-bold text-white group-hover:text-emerald-400 transition-colors">
+                        <h3 className="text-2xl lg:text-3xl font-bold text-slate-900 group-hover:text-emerald-700 transition-colors dark:text-white dark:group-hover:text-emerald-400">
                           {project.title}
                         </h3>
                         <motion.div
@@ -203,13 +203,13 @@ export function Projects() {
                           transition={{ type: "spring", stiffness: 400 }}
                           className="flex-shrink-0 ml-4"
                         >
-                          <div className="p-2 rounded-xl bg-emerald-500/10 border border-emerald-500/30">
-                            <TrendingUp className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
+                          <div className="p-2 rounded-xl bg-white/10 backdrop-blur-sm border border-emerald-200 dark:bg-emerald-500/10 dark:border-emerald-500/30">
+                            <TrendingUp className="w-5 h-5 text-emerald-700 dark:text-emerald-400" />
                           </div>
                         </motion.div>
                       </div>
                       
-                      <p className="text-muted-foreground/80 leading-relaxed text-lg">
+                      <p className="text-slate-600 leading-relaxed text-lg dark:text-muted-foreground/80">
                         {project.shortDescription}
                       </p>
                     </div>
@@ -223,7 +223,7 @@ export function Projects() {
                           initial="hidden"
                           animate="visible"
                           transition={{ delay: 0.8 + index * 0.3 + techIndex * 0.05 }}
-                          className="inline-flex items-center px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-xs font-medium"
+                          className="inline-flex items-center px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-200 text-emerald-700 text-xs font-medium dark:border-emerald-500/20 dark:text-emerald-400"
                         >
                           {tech}
                         </motion.span>
@@ -234,7 +234,7 @@ export function Projects() {
                           initial="hidden"
                           animate="visible"
                           transition={{ delay: 0.8 + index * 0.3 + 0.2 }}
-                          className="inline-flex items-center px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-white/70 text-xs font-medium"
+                          className="inline-flex items-center px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-slate-200 text-slate-700 text-xs font-medium dark:border-white/20 dark:text-white/70"
                         >
                           +{project.tech.length - 4}
                         </motion.span>
@@ -249,7 +249,7 @@ export function Projects() {
                         rel="noopener noreferrer"
                         whileHover={{ scale: 1.05, x: 5 }}
                         whileTap={{ scale: 0.95 }}
-                        className="flex items-center gap-2 px-6 py-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 font-medium hover:bg-emerald-500/20 transition-all duration-300"
+                        className="flex items-center gap-2 px-6 py-3 rounded-xl bg-emerald-500/10 border border-emerald-200 text-emerald-700 font-medium hover:bg-emerald-50 hover:border-emerald-300 transition-all duration-300 dark:border-emerald-500/30 dark:text-emerald-400 dark:hover:bg-emerald-500/20"
                       >
                         <Github className="w-4 h-4" />
                         <span>View Code</span>
@@ -263,7 +263,7 @@ export function Projects() {
                           rel="noopener noreferrer"
                           whileHover={{ scale: 1.05, x: 5 }}
                           whileTap={{ scale: 0.95 }}
-                          className="flex items-center gap-2 px-6 py-3 rounded-xl bg-white/10 border border-white/20 text-white font-medium hover:bg-white/20 transition-all duration-300"
+                          className="flex items-center gap-2 px-6 py-3 rounded-xl bg-white/10 backdrop-blur-sm border border-slate-200 text-slate-700 font-medium hover:bg-emerald-50 hover:border-emerald-300 transition-all duration-300 dark:border-white/20 dark:text-white dark:hover:bg-white/20"
                         >
                           <ExternalLink className="w-4 h-4" />
                           <span>Live Demo</span>
@@ -288,7 +288,7 @@ export function Projects() {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="btn btn-ghost inline-flex items-center gap-2 px-6 py-3 text-sm font-medium"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white/10 backdrop-blur-sm border border-emerald-200 text-emerald-800 font-semibold hover:bg-white/10 hover:shadow-[0_16px_45px_rgba(2,6,23,0.10)] transition-all duration-300 dark:bg-emerald-500/10 dark:border-emerald-500/30 dark:text-emerald-400 dark:font-medium dark:hover:bg-emerald-500/20"
             >
               <Github className="w-4 h-4" />
               <span>View All Projects</span>

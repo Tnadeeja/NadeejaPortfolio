@@ -140,18 +140,18 @@ export function Contact() {
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.8 }}
-              className="inline-flex items-center px-4 py-2 rounded-full bg-emerald-500/10 backdrop-blur-sm border border-emerald-500/20 mb-6"
+              className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-emerald-200 mb-6 dark:bg-emerald-500/10 dark:border-emerald-500/20"
             >
               <MessageCircle className="w-4 h-4 text-emerald-600 dark:text-emerald-400 mr-2" />
-              <span className="text-sm font-medium text-emerald-600 dark:text-emerald-400">
+              <span className="text-sm font-semibold text-emerald-700 dark:font-medium dark:text-emerald-400">
                 Let's Connect
               </span>
             </motion.div>
             
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black bg-gradient-to-r from-emerald-400 via-emerald-500 to-brand-600 bg-clip-text text-transparent mb-6">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black bg-gradient-to-r from-teal-700 via-emerald-600 to-emerald-500 dark:from-emerald-400 dark:via-emerald-500 dark:to-brand-600 bg-clip-text text-transparent mb-6">
               Get In Touch
             </h2>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl text-slate-600 dark:text-muted-foreground max-w-4xl mx-auto leading-relaxed">
               I'm always interested in discussing data science projects, software development opportunities, 
               and potential collaborations. Let's create something amazing together.
             </p>
@@ -166,7 +166,7 @@ export function Contact() {
               className="space-y-10"
             >
               {/* Contact Card */}
-              <div className="relative bg-white/5 backdrop-blur-xl rounded-3xl border border-white/10 p-8 lg:p-10 hover:border-emerald-500/30 transition-all duration-500 hover:shadow-[0_0_60px_#00ff8820]">
+              <div className="relative bg-white/5 backdrop-blur-xl rounded-3xl border border-slate-200/60 p-8 lg:p-10 hover:border-emerald-200 transition-all duration-500 shadow-[0_18px_50px_rgba(2,6,23,0.08)] hover:shadow-[0_22px_60px_rgba(2,6,23,0.12)] dark:border-white/10 dark:hover:border-emerald-500/30 dark:hover:shadow-[0_0_60px_#00ff8820]">
                 {/* Glow Effect */}
                 <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 via-transparent to-brand-600/10 opacity-0 hover:opacity-100 transition-opacity duration-500 rounded-3xl"></div>
                 
@@ -178,20 +178,20 @@ export function Contact() {
                       transition={{ type: "spring", stiffness: 400 }}
                       className="p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30"
                     >
-                      <MessageCircle className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
+                      <MessageCircle className="w-6 h-6 text-emerald-700 dark:text-emerald-400" />
                     </motion.div>
                     <div>
-                      <h3 className="text-2xl font-bold text-white mb-2">
+                      <h3 className="text-2xl font-bold text-slate-900 mb-2 dark:text-white">
                         {contactData.leftSide.title}
                       </h3>
-                      <p className="text-emerald-600 dark:text-emerald-400 font-medium">
+                      <p className="text-emerald-700 font-medium dark:text-emerald-400">
                         {contactData.leftSide.subtitle}
                       </p>
                     </div>
                   </div>
 
                   {/* Description */}
-                  <p className="text-muted-foreground/80 leading-relaxed mb-8 text-lg">
+                  <p className="text-slate-600 leading-relaxed mb-8 text-lg dark:text-muted-foreground/80">
                     {contactData.leftSide.description}
                   </p>
 
@@ -201,14 +201,14 @@ export function Contact() {
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 0.6 }}
-                      className="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10 hover:border-emerald-500/30 transition-all duration-300"
+                      className="flex items-center gap-4 p-4 rounded-xl bg-white/10 backdrop-blur-sm border border-emerald-200 hover:border-emerald-300 transition-all duration-300 dark:bg-white/5 dark:border-white/10 dark:hover:border-emerald-500/30"
                     >
-                      <div className="p-2 rounded-lg bg-emerald-500/10 border border-emerald-500/30">
-                        <Mail className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
+                      <div className="p-2 rounded-lg bg-white/10 backdrop-blur-sm border border-emerald-200 dark:bg-emerald-500/10 dark:border-emerald-500/30">
+                        <Mail className="w-5 h-5 text-emerald-700 dark:text-emerald-400" />
                       </div>
                       <div>
-                        <div className="text-white font-medium">Email</div>
-                        <div className="text-muted-foreground/80">contact@nWeerasinghe.com</div>
+                        <div className="text-slate-900 font-medium dark:text-white">Email</div>
+                        <div className="text-slate-600 dark:text-muted-foreground/80">contact@nWeerasinghe.com</div>
                       </div>
                     </motion.div>
 
@@ -216,14 +216,14 @@ export function Contact() {
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 0.7 }}
-                      className="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10 hover:border-emerald-500/30 transition-all duration-300"
+                      className="flex items-center gap-4 p-4 rounded-xl bg-white/10 backdrop-blur-sm border border-emerald-200 hover:border-emerald-300 transition-all duration-300 dark:bg-white/5 dark:border-white/10 dark:hover:border-emerald-500/30"
                     >
-                      <div className="p-2 rounded-lg bg-emerald-500/10 border border-emerald-500/30">
-                        <Globe className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
+                      <div className="p-2 rounded-lg bg-white/10 backdrop-blur-sm border border-emerald-200 dark:bg-emerald-500/10 dark:border-emerald-500/30">
+                        <Globe className="w-5 h-5 text-emerald-700 dark:text-emerald-400" />
                       </div>
                       <div>
-                        <div className="text-white font-medium">Available Worldwide</div>
-                        <div className="text-muted-foreground/80">Remote & On-site</div>
+                        <div className="text-slate-900 font-medium dark:text-white">Available Worldwide</div>
+                        <div className="text-slate-600 dark:text-muted-foreground/80">Remote & On-site</div>
                       </div>
                     </motion.div>
                   </div>
@@ -237,7 +237,7 @@ export function Contact() {
                 transition={{ delay: 0.8 }}
                 className="text-center lg:text-left"
               >
-                <h4 className="text-lg font-semibold text-white mb-6">Connect With Me</h4>
+                <h4 className="text-lg font-semibold text-slate-900 mb-6 dark:text-white">Connect With Me</h4>
                 <div className="flex justify-center lg:justify-start gap-4">
                   {contactData.rightSide.socialLinks.map((social, index) => (
                     <motion.a
@@ -252,9 +252,9 @@ export function Contact() {
                       whileTap={{ scale: 0.95 }}
                       className="relative group"
                     >
-                      <div className="absolute inset-0 bg-emerald-500/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                      <div className="relative w-14 h-14 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 flex items-center justify-center hover:border-emerald-500/30 transition-all duration-300">
-                        <social.icon className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
+                      <div className="absolute inset-0 bg-emerald-500/10 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 dark:bg-emerald-500/20"></div>
+                      <div className="relative w-14 h-14 rounded-xl bg-white/10 backdrop-blur-sm border border-emerald-200 flex items-center justify-center hover:border-emerald-300 transition-all duration-300 dark:bg-white/5 dark:border-white/10 dark:hover:border-emerald-500/30">
+                        <social.icon className="w-6 h-6 text-emerald-700 dark:text-emerald-400" />
                       </div>
                     </motion.a>
                   ))}
@@ -279,13 +279,13 @@ export function Contact() {
                       transition={{ type: "spring", stiffness: 400 }}
                       className="p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30"
                     >
-                      <Send className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
+                      <Send className="w-6 h-6 text-emerald-700 dark:text-emerald-400" />
                     </motion.div>
                     <div>
-                      <h3 className="text-2xl font-bold text-white">
+                      <h3 className="text-2xl font-bold text-slate-900 dark:text-white">
                         {contactData.rightSide.title}
                       </h3>
-                      <p className="text-muted-foreground/80">I'll get back to you ASAP</p>
+                      <p className="text-slate-600 dark:text-muted-foreground/80">I'll get back to you ASAP</p>
                     </div>
                   </div>
 
@@ -297,7 +297,7 @@ export function Contact() {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.4 }}
                     >
-                      <label htmlFor="name" className="block text-sm font-medium text-white mb-2">
+                      <label htmlFor="name" className="block text-sm font-medium text-slate-900 mb-2 dark:text-white">
                         {contactData.rightSide.form.name.label}
                       </label>
                       <input
@@ -305,7 +305,7 @@ export function Contact() {
                         id="name"
                         name="name"
                         placeholder={contactData.rightSide.form.name.placeholder}
-                        className="w-full px-4 py-3 rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm text-white placeholder-muted-foreground/50 focus:border-emerald-500/30 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 transition-all duration-300"
+                        className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white/10 backdrop-blur-sm text-slate-900 placeholder-slate-500 focus:border-emerald-300 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 transition-all duration-300 dark:border-white/10 dark:bg-white/5 dark:text-white dark:placeholder-muted-foreground/50 dark:focus:border-emerald-500/30"
                         required
                       />
                     </motion.div>
@@ -324,7 +324,7 @@ export function Contact() {
                         id="email"
                         name="email"
                         placeholder={contactData.rightSide.form.email.placeholder}
-                        className="w-full px-4 py-3 rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm text-white placeholder-muted-foreground/50 focus:border-emerald-500/30 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 transition-all duration-300"
+                        className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white/10 backdrop-blur-sm text-slate-900 placeholder-slate-500 focus:border-emerald-300 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 transition-all duration-300 dark:border-white/10 dark:bg-white/5 dark:text-white dark:placeholder-muted-foreground/50 dark:focus:border-emerald-500/30"
                         required
                       />
                     </motion.div>
@@ -356,7 +356,7 @@ export function Contact() {
                       transition={{ delay: 0.7 }}
                       whileHover={{ scale: 1.02, x: 5 }}
                       whileTap={{ scale: 0.98 }}
-                      className="w-full flex items-center justify-center gap-3 px-6 py-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 font-medium hover:bg-emerald-500/20 transition-all duration-300"
+                      className="w-full flex items-center justify-center gap-3 px-6 py-4 rounded-xl bg-emerald-500/10 border border-emerald-200 text-emerald-700 font-medium hover:bg-emerald-50 hover:border-emerald-300 transition-all duration-300 dark:border-emerald-500/30 dark:text-emerald-400 dark:hover:bg-emerald-500/20"
                     >
                       <Send className="w-5 h-5" />
                       <span>Send Message</span>

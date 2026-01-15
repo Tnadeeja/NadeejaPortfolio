@@ -59,34 +59,34 @@ export function Layout({ children }: LayoutProps) {
                   <div className="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center">
                     <Sparkles className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
                   </div>
-                  <h3 className="text-xl font-bold text-white">Weerasinghe Portfolio</h3>
+                  <h3 className="text-xl font-bold !text-emerald-700 dark:!text-white">Weerasinghe Portfolio</h3>
                 </div>
-                <p className="text-muted-foreground/80 leading-relaxed">
+                <p className="!text-emerald-600 leading-relaxed dark:!text-muted-foreground/80">
                   Building innovative solutions with data science and modern web technologies.
                 </p>
               </div>
 
               {/* Quick Links */}
               <div className="space-y-4">
-                <h4 className="text-lg font-semibold text-white">Quick Links</h4>
+                <h4 className="text-lg font-semibold !text-emerald-700 dark:!text-white">Quick Links</h4>
                 <ul className="space-y-2">
                   <li>
-                    <a href="#home" className="text-muted-foreground/80 hover:text-emerald-400 transition-colors">
+                    <a href="#home" className="!text-emerald-600 hover:!text-emerald-800 transition-colors dark:!text-muted-foreground/80 dark:hover:!text-emerald-400">
                       Home
                     </a>
                   </li>
                   <li>
-                    <a href="#about" className="text-muted-foreground/80 hover:text-emerald-400 transition-colors">
+                    <a href="#about" className="!text-emerald-600 hover:!text-emerald-800 transition-colors dark:!text-muted-foreground/80 dark:hover:!text-emerald-400">
                       About
                     </a>
                   </li>
                   <li>
-                    <a href="#skills" className="text-muted-foreground/80 hover:text-emerald-400 transition-colors">
+                    <a href="#skills" className="!text-emerald-600 hover:!text-emerald-800 transition-colors dark:!text-muted-foreground/80 dark:hover:!text-emerald-400">
                       Skills
                     </a>
                   </li>
                   <li>
-                    <a href="#projects" className="text-muted-foreground/80 hover:text-emerald-400 transition-colors">
+                    <a href="#projects" className="!text-emerald-600 hover:!text-emerald-800 transition-colors dark:!text-muted-foreground/80 dark:hover:!text-emerald-400">
                       Projects
                     </a>
                   </li>
@@ -95,7 +95,7 @@ export function Layout({ children }: LayoutProps) {
 
               {/* Social Links */}
               <div className="space-y-4">
-                <h4 className="text-lg font-semibold text-white">Connect</h4>
+                <h4 className="text-lg font-semibold !text-emerald-700 dark:!text-white">Connect</h4>
                 <div className="flex gap-4">
                   <a
                     href="https://github.com/nadeeja"
@@ -126,14 +126,14 @@ export function Layout({ children }: LayoutProps) {
             {/* Bottom Section */}
             <div className="pt-8 border-t border-white/10">
               <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-                <div className="flex items-center gap-2 text-muted-foreground/80">
+                <div className="flex items-center gap-2 !text-emerald-600 dark:!text-muted-foreground/80">
                   <span>Made with</span>
-                  <Heart className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+                  <Heart className="w-4 h-4 !text-emerald-700 dark:!text-emerald-400" />
                   <span>by Thamindu Weerasinghe</span>
                 </div>
                 
                 <div className="flex items-center gap-4">
-                  <span className="text-muted-foreground/60 text-sm">© 2024 All rights reserved</span>
+                  <span className="!text-emerald-600 text-sm dark:!text-muted-foreground/60">© 2024 All rights reserved</span>
                   <BackToTopButton />
                 </div>
               </div>

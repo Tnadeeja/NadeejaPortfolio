@@ -139,18 +139,18 @@ export function Skills() {
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.8 }}
-              className="inline-flex items-center px-4 py-2 rounded-full bg-emerald-500/10 backdrop-blur-sm border border-emerald-500/20 mb-6"
+              className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-emerald-200 mb-6 dark:bg-emerald-500/10 dark:border-emerald-500/20"
             >
               <Sparkles className="w-4 h-4 text-emerald-600 dark:text-emerald-400 mr-2" />
-              <span className="text-sm font-medium text-emerald-600 dark:text-emerald-400">
+              <span className="text-sm font-semibold text-emerald-700 dark:font-medium dark:text-emerald-400">
                 Technical Excellence
               </span>
             </motion.div>
             
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black bg-gradient-to-r from-emerald-400 via-emerald-500 to-brand-600 bg-clip-text text-transparent mb-6">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black bg-gradient-to-r from-teal-700 via-emerald-600 to-emerald-500 dark:from-emerald-400 dark:via-emerald-500 dark:to-brand-600 bg-clip-text text-transparent mb-6">
               Skills & Expertise
             </h2>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl text-slate-600 dark:text-muted-foreground max-w-4xl mx-auto leading-relaxed">
               Comprehensive technical skills spanning programming languages, frameworks, data science, and tools 
               with a focus on building scalable, innovative solutions that drive real-world impact.
             </p>
@@ -168,18 +168,18 @@ export function Skills() {
                 {/* Category Capsule */}
                 <motion.div
                   variants={categoryVariants}
-                  className="bg-white/5 border border-white/10 backdrop-blur-xl rounded-2xl p-6 shadow-[0_0_40px_#00ff8820] hover:shadow-[0_0_60px_#00ff8830] transition-all duration-500"
+                  className="bg-white/5 backdrop-blur-xl rounded-2xl border border-slate-200/60 p-6 transition-all duration-500 shadow-[0_18px_50px_rgba(2,6,23,0.08)] hover:border-emerald-200 hover:shadow-[0_22px_60px_rgba(2,6,23,0.12)] dark:border-white/10 dark:hover:border-emerald-500/30 dark:hover:shadow-[0_0_60px_#00ff8830]"
                 >
                   {/* Category Header */}
                   <div className="flex items-center gap-4 mb-6">
                     <motion.div
                       whileHover={{ scale: 1.1, rotate: 5 }}
                       transition={{ type: "spring", stiffness: 400 }}
-                      className="flex-shrink-0 p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30"
+                      className="flex-shrink-0 p-3 rounded-xl bg-white/10 backdrop-blur-sm border border-emerald-200 dark:bg-emerald-500/10 dark:border-emerald-500/30"
                     >
                       <category.icon className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
                     </motion.div>
-                    <h3 className="text-2xl font-bold text-white group-hover:text-emerald-400 transition-colors">
+                    <h3 className="text-2xl font-bold text-slate-900 group-hover:text-emerald-700 transition-colors dark:text-white dark:group-hover:text-emerald-400">
                       {category.category}
                     </h3>
                   </div>
@@ -199,7 +199,7 @@ export function Skills() {
                           <motion.div
                             whileHover={{ y: -4, scale: 1.1 }}
                             transition={{ type: "spring", stiffness: 400 }}
-                            className="flex-shrink-0 p-2 rounded-lg bg-white/5 border border-white/10"
+                            className="flex-shrink-0 p-2 rounded-lg bg-white/10 backdrop-blur-sm border border-emerald-200 dark:bg-white/5 dark:border-white/10"
                           >
                             {skill.name === "Python" && <Code2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />}
                             {skill.name === "JavaScript" && <Braces className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />}
@@ -221,10 +221,10 @@ export function Skills() {
                           
                           {/* Skill Name */}
                           <div className="flex-1">
-                            <h4 className="text-lg font-semibold text-white group-hover/item:text-emerald-400 transition-colors">
+                            <h4 className="text-lg font-semibold text-slate-900 group-hover/item:text-emerald-700 transition-colors dark:text-white dark:group-hover/item:text-emerald-400">
                               {skill.name}
                             </h4>
-                            <p className="text-sm text-muted-foreground opacity-70">
+                            <p className="text-sm text-slate-600 opacity-70 dark:text-muted-foreground">
                               {skill.description}
                             </p>
                           </div>
@@ -233,7 +233,7 @@ export function Skills() {
                           <motion.div
                             whileHover={{ scale: 1.2 }}
                             transition={{ type: "spring", stiffness: 600 }}
-                            className="flex-shrink-0 text-lg font-bold text-emerald-600 dark:text-emerald-400"
+                            className="flex-shrink-0 text-lg font-bold text-emerald-700 dark:text-emerald-400"
                           >
                             {skill.level}%
                           </motion.div>
@@ -242,15 +242,15 @@ export function Skills() {
                         {/* Neon Progress Bar */}
                         <div className="relative">
                           {/* Progress Track */}
-                          <div className="w-full h-3 bg-white/5 rounded-full overflow-hidden">
+                          <div className="w-full h-3 bg-white/10 backdrop-blur-sm rounded-full overflow-hidden dark:bg-white/5">
                             {/* Animated Progress Fill */}
                             <motion.div
                               variants={progressVariants}
                               custom={skill.level}
-                              className="h-full bg-gradient-to-r from-emerald-400 to-emerald-500 rounded-full shadow-[0_0_20px_#00ff88] transition-all duration-1000 relative overflow-hidden"
+                              className="h-full bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-full shadow-[0_0_20px_rgba(16,185,129,0.4)] transition-all duration-1000 relative overflow-hidden dark:from-emerald-400 dark:to-emerald-500 dark:shadow-[0_0_20px_#00ff88]"
                             >
                               {/* Glow Effect */}
-                              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-pulse"></div>
+                              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-pulse dark:via-white/30"></div>
                               
                               {/* Neon Glow */}
                               <motion.div
@@ -262,7 +262,7 @@ export function Skills() {
                                   repeat: Infinity,
                                   repeatType: "reverse"
                                 }}
-                                className="absolute inset-0 bg-gradient-to-r from-emerald-400/50 to-emerald-500/50 blur-md"
+                                className="absolute inset-0 bg-gradient-to-r from-emerald-400/40 to-emerald-500/40 blur-md dark:from-emerald-400/50 dark:to-emerald-500/50"
                               ></motion.div>
                             </motion.div>
                           </div>
@@ -286,10 +286,10 @@ export function Skills() {
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ delay: 1.6, duration: 0.8 }}
-              className="inline-flex items-center px-6 py-3 rounded-full bg-emerald-500/10 backdrop-blur-sm border border-emerald-500/20 mb-6"
+              className="inline-flex items-center px-6 py-3 rounded-full bg-white/10 backdrop-blur-sm border border-emerald-200 mb-6 dark:bg-emerald-500/10 dark:border-emerald-500/20"
             >
               <Award className="w-4 h-4 text-emerald-600 dark:text-emerald-400 mr-2" />
-              <span className="text-sm font-medium text-emerald-600 dark:text-emerald-400">
+              <span className="text-sm font-semibold text-emerald-700 dark:font-medium dark:text-emerald-400">
                 Expert Level Achieved
               </span>
             </motion.div>
@@ -305,11 +305,11 @@ export function Skills() {
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
                   transition={{ delay: 1.8, type: "spring", stiffness: 200 }}
-                  className="text-3xl font-bold text-emerald-600 dark:text-emerald-400"
+                  className="text-3xl font-bold text-emerald-700 dark:text-emerald-400"
                 >
                   15+
                 </motion.div>
-                <div className="text-sm text-muted-foreground">Years Experience</div>
+                <div className="text-sm text-slate-600 dark:text-muted-foreground">Years Experience</div>
               </div>
               
               <div className="text-center">
@@ -317,11 +317,11 @@ export function Skills() {
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
                   transition={{ delay: 1.9, type: "spring", stiffness: 200 }}
-                  className="text-3xl font-bold text-emerald-600 dark:text-emerald-400"
+                  className="text-3xl font-bold text-emerald-700 dark:text-emerald-400"
                 >
                   50+
                 </motion.div>
-                <div className="text-sm text-muted-foreground">Projects Completed</div>
+                <div className="text-sm text-slate-600 dark:text-muted-foreground">Projects Completed</div>
               </div>
               
               <div className="text-center">
@@ -329,11 +329,11 @@ export function Skills() {
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
                   transition={{ delay: 2.0, type: "spring", stiffness: 200 }}
-                  className="text-3xl font-bold text-emerald-600 dark:text-emerald-400"
+                  className="text-3xl font-bold text-emerald-700 dark:text-emerald-400"
                 >
                   95%
                 </motion.div>
-                <div className="text-sm text-muted-foreground">Client Satisfaction</div>
+                <div className="text-sm text-slate-600 dark:text-muted-foreground">Client Satisfaction</div>
               </div>
             </motion.div>
             
@@ -344,7 +344,7 @@ export function Skills() {
               transition={{ delay: 2.1 }}
               whileHover={{ scale: 1.05, x: 5 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 font-medium hover:bg-emerald-500/20 transition-all duration-300"
+              className="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-white/10 backdrop-blur-sm border border-emerald-200 text-emerald-800 font-semibold hover:bg-white/10 hover:shadow-[0_16px_45px_rgba(2,6,23,0.10)] transition-all duration-300 dark:bg-emerald-500/10 dark:border-emerald-500/30 dark:text-emerald-400 dark:font-medium dark:hover:bg-emerald-500/20"
             >
               <span>View My Work</span>
               <TrendingUp className="w-5 h-5" />
