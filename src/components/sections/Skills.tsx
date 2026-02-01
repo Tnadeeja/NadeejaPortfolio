@@ -8,20 +8,28 @@ import {
   Brain, 
   Globe, 
   Wrench,
-  Terminal,
-  Zap,
-  Cpu,
-  Coffee,
-  Braces,
-  Layers,
-  Package,
-  Server,
-  BarChart3,
-  Cloud,
   Sparkles,
   TrendingUp,
   Award
 } from "lucide-react"
+import {
+  FaPython,
+  FaJs,
+  FaReact,
+  FaNodeJs,
+  FaGitAlt,
+  FaDocker,
+  FaAws
+} from "react-icons/fa"
+import {
+  SiTypescript,
+  SiMysql,
+  SiNextdotjs,
+  SiTailwindcss,
+  SiPandas,
+  SiTensorflow,
+  SiVscodium
+} from "react-icons/si"
 
 const skillsData = [
   {
@@ -199,24 +207,24 @@ export function Skills() {
                           <motion.div
                             whileHover={{ y: -4, scale: 1.1 }}
                             transition={{ type: "spring", stiffness: 400 }}
-                            className="flex-shrink-0 p-2 rounded-lg bg-white/10 backdrop-blur-sm border border-emerald-200 dark:bg-white/5 dark:border-white/10"
+                            className="flex-shrink-0 w-12 h-12 rounded-xl bg-white/90 backdrop-blur-sm border border-emerald-200 dark:bg-white/10 dark:border-white/20 flex items-center justify-center"
                           >
-                            {skill.name === "Python" && <Code2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />}
-                            {skill.name === "JavaScript" && <Braces className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />}
-                            {skill.name === "TypeScript" && <Layers className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />}
-                            {skill.name === "SQL" && <Database className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />}
-                            {skill.name === "React" && <Globe className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />}
-                            {skill.name === "Node.js" && <Server className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />}
-                            {skill.name === "Next.js" && <Layers className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />}
-                            {skill.name === "Tailwind CSS" && <Package className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />}
-                            {skill.name === "Pandas" && <BarChart3 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />}
-                            {skill.name === "Machine Learning" && <Brain className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />}
-                            {skill.name === "Data Visualization" && <Zap className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />}
-                            {skill.name === "Statistical Analysis" && <Cpu className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />}
-                            {skill.name === "Git" && <Code2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />}
-                            {skill.name === "Docker" && <Package className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />}
-                            {skill.name === "AWS" && <Cloud className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />}
-                            {skill.name === "VS Code" && <Terminal className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />}
+                            {skill.name === "Python" && <FaPython className="w-8 h-8 text-blue-500" />}
+                            {skill.name === "JavaScript" && <FaJs className="w-8 h-8 text-yellow-500" />}
+                            {skill.name === "TypeScript" && <SiTypescript className="w-8 h-8 text-blue-600" />}
+                            {skill.name === "SQL" && <SiMysql className="w-8 h-8 text-blue-600" />}
+                            {skill.name === "React" && <FaReact className="w-8 h-8 text-cyan-500" />}
+                            {skill.name === "Node.js" && <FaNodeJs className="w-8 h-8 text-green-600" />}
+                            {skill.name === "Next.js" && <SiNextdotjs className="w-8 h-8 text-black" />}
+                            {skill.name === "Tailwind CSS" && <SiTailwindcss className="w-8 h-8 text-cyan-600" />}
+                            {skill.name === "Pandas" && <SiPandas className="w-8 h-8 text-blue-700" />}
+                            {skill.name === "Machine Learning" && <SiTensorflow className="w-8 h-8 text-orange-600" />}
+                            {skill.name === "Data Visualization" && <FaReact className="w-8 h-8 text-purple-600" />}
+                            {skill.name === "Statistical Analysis" && <FaGitAlt className="w-8 h-8 text-red-600" />}
+                            {skill.name === "Git" && <FaGitAlt className="w-8 h-8 text-red-orange" />}
+                            {skill.name === "Docker" && <FaDocker className="w-8 h-8 text-blue-500" />}
+                            {skill.name === "AWS" && <FaAws className="w-8 h-8 text-orange-500" />}
+                            {skill.name === "VS Code" && <SiVscodium className="w-8 h-8 text-blue-600" />}
                           </motion.div>
                           
                           {/* Skill Name */}

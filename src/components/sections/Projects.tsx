@@ -142,21 +142,21 @@ export function Projects() {
           </motion.div>
 
           {/* Projects Grid */}
-          <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
             {projectsData.map((project, index) => (
               <motion.div
                 key={project.id}
                 variants={cardVariants}
                 transition={{ delay: index * 0.15 }}
-                className="group"
+                className="group h-full"
               >
                 {/* Premium Project Card */}
-                <div className="relative bg-white/5 backdrop-blur-xl rounded-3xl border border-slate-200/60 overflow-hidden hover:border-emerald-200 transition-all duration-500 shadow-[0_18px_50px_rgba(2,6,23,0.08)] hover:shadow-[0_22px_60px_rgba(2,6,23,0.12)] dark:border-white/10 dark:hover:border-emerald-500/30 dark:hover:shadow-[0_0_60px_#00ff8820]">
+                <div className="relative bg-white/5 backdrop-blur-xl rounded-3xl border border-slate-200/60 overflow-hidden hover:border-emerald-200 transition-all duration-500 shadow-[0_18px_50px_rgba(2,6,23,0.08)] hover:shadow-[0_22px_60px_rgba(2,6,23,0.12)] dark:border-white/10 dark:hover:border-emerald-500/30 dark:hover:shadow-[0_0_60px_#00ff8820] h-full flex flex-col">
                   {/* Glow Effect */}
                   <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/8 via-transparent to-emerald-500/6 opacity-0 group-hover:opacity-100 transition-opacity duration-500 dark:from-emerald-500/10 dark:to-brand-600/10"></div>
                   
                   {/* Project Image */}
-                  <div className="relative h-64 lg:h-80 overflow-hidden">
+                  <div className="relative h-48 overflow-hidden">
                     {project.image && (
                       <>
                         <Image
@@ -191,11 +191,11 @@ export function Projects() {
                   </div>
 
                   {/* Content */}
-                  <div className="relative p-8 lg:p-10">
+                  <div className="relative p-6 flex flex-col flex-1">
                     {/* Project Header */}
-                    <div className="mb-6">
-                      <div className="flex items-start justify-between mb-4">
-                        <h3 className="text-2xl lg:text-3xl font-bold text-slate-900 group-hover:text-emerald-700 transition-colors dark:text-white dark:group-hover:text-emerald-400">
+                    <div className="mb-4">
+                      <div className="flex items-start justify-between mb-3">
+                        <h3 className="text-xl font-bold text-slate-900 group-hover:text-emerald-700 transition-colors dark:text-white dark:group-hover:text-emerald-400">
                           {project.title}
                         </h3>
                         <motion.div
@@ -209,13 +209,13 @@ export function Projects() {
                         </motion.div>
                       </div>
                       
-                      <p className="text-slate-600 leading-relaxed text-lg dark:text-muted-foreground">
+                      <p className="text-slate-600 leading-relaxed text-sm dark:text-muted-foreground line-clamp-2">
                         {project.shortDescription}
                       </p>
                     </div>
 
                     {/* Tech Stack */}
-                    <div className="flex flex-wrap gap-2 mb-8">
+                    <div className="flex flex-wrap gap-2 mb-4">
                       {project.tech.slice(0, 4).map((tech, techIndex) => (
                         <motion.span
                           key={tech}
@@ -242,14 +242,14 @@ export function Projects() {
                     </div>
 
                     {/* Action Buttons */}
-                    <div className="flex items-center gap-4">
+                    <div className="mt-auto flex items-center gap-2">
                       <motion.a
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
                         whileHover={{ scale: 1.05, x: 5 }}
                         whileTap={{ scale: 0.95 }}
-                        className="flex items-center gap-2 px-6 py-3 rounded-xl bg-emerald-500/10 border border-emerald-200 text-emerald-700 font-medium hover:bg-emerald-50 hover:border-emerald-300 transition-all duration-300 dark:border-emerald-500/30 dark:text-emerald-400 dark:hover:bg-emerald-500/20"
+                        className="flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-500/10 border border-emerald-200 text-emerald-700 font-medium hover:bg-emerald-50 hover:border-emerald-300 transition-all duration-300 dark:border-emerald-500/30 dark:text-emerald-400 dark:hover:bg-emerald-500/20"
                       >
                         <Github className="w-4 h-4" />
                         <span>View Code</span>
@@ -263,7 +263,7 @@ export function Projects() {
                           rel="noopener noreferrer"
                           whileHover={{ scale: 1.05, x: 5 }}
                           whileTap={{ scale: 0.95 }}
-                          className="flex items-center gap-2 px-6 py-3 rounded-xl bg-white/10 backdrop-blur-sm border border-slate-200 text-slate-700 font-medium hover:bg-emerald-50 hover:border-emerald-300 transition-all duration-300 dark:border-white/20 dark:text-white dark:hover:bg-white/20"
+                          className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/10 backdrop-blur-sm border border-slate-200 text-slate-700 font-medium hover:bg-emerald-50 hover:border-emerald-300 transition-all duration-300 dark:border-white/20 dark:text-white dark:hover:bg-white/20"
                         >
                           <ExternalLink className="w-4 h-4" />
                           <span>Live Demo</span>
