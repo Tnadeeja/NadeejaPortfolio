@@ -36,40 +36,40 @@ const skillsData = [
     category: "Programming Languages",
     icon: Code2,
     skills: [
-      { name: "Python", level: 90, description: "Data analysis, ML, automation scripts" },
-      { name: "JavaScript", level: 85, description: "Full-stack development, React, Node.js" },
-      { name: "TypeScript", level: 80, description: "Type-safe development, large-scale apps" },
-      { name: "SQL", level: 75, description: "Database queries, data manipulation" },
+      { name: "Python", level: 85, description: "Data analysis, Pandas, NumPy, basic machine learning, scripting" },
+      { name: "JavaScript", level: 80, description: "Full-stack development with MERN, REST APIs, frontend logic" },
+      { name: "TypeScript", level: 70, description: "Type-safe React applications, improving code quality" },
+      { name: "SQL", level: 75, description: "Database design, queries, joins, and data analysis" },
     ]
   },
   {
     category: "Frameworks",
     icon: Globe,
     skills: [
-      { name: "React", level: 88, description: "SSR, hooks, performance optimization" },
-      { name: "Node.js", level: 82, description: "Backend development, APIs, microservices" },
-      { name: "Next.js", level: 85, description: "Full-stack framework, SSR, SSG" },
-      { name: "Tailwind CSS", level: 90, description: "Utility-first CSS, responsive design" },
+      { name: "React", level: 85, description: "Component-based UI, hooks, responsive design" },
+      { name: "Node.js", level: 80, description: "Backend APIs, authentication, CRUD operations" },
+      { name: "Next.js", level: 75, description: "Server-side rendering basics, routing, full-stack structure" },
+      { name: "Tailwind CSS", level: 90, description: "Utility-first styling, modern UI design, responsive layouts" },
     ]
   },
   {
     category: "Data Science",
     icon: Brain,
     skills: [
-      { name: "Pandas", level: 85, description: "Data manipulation, analysis, cleaning" },
-      { name: "Machine Learning", level: 70, description: "TensorFlow, scikit-learn, models" },
-      { name: "Data Visualization", level: 80, description: "Matplotlib, D3.js, charts" },
-      { name: "Statistical Analysis", level: 75, description: "Hypothesis testing, regression" },
+      { name: "Pandas", level: 85, description: "Data cleaning, transformation, analysis" },
+      { name: "Machine Learning", level: 65, description: "Basic models, scikit-learn, supervised learning concepts" },
+      { name: "Data Visualization", level: 80, description: "Power BI dashboards, Matplotlib, charts & insights" },
+      { name: "Statistical Analysis", level: 70, description: "Descriptive statistics, regression basics, hypothesis testing" },
     ]
   },
   {
     category: "Tools & Platforms",
     icon: Wrench,
     skills: [
-      { name: "Git", level: 92, description: "Version control, CI/CD, collaboration" },
-      { name: "Docker", level: 70, description: "Containerization, deployment" },
-      { name: "AWS", level: 65, description: "Cloud services, S3, EC2, Lambda" },
-      { name: "VS Code", level: 95, description: "Development environment, extensions" },
+      { name: "Git", level: 90, description: "Version control, GitHub collaboration, project management" },
+      { name: "Docker", level: 65, description: "Basic containerization and environment setup" },
+      { name: "AWS", level: 60, description: "Intro-level cloud knowledge (EC2, S3 concepts)" },
+      { name: "VS Code", level: 95, description: "Primary development environment, extensions, debugging" },
     ]
   },
 ]
@@ -159,8 +159,7 @@ export function Skills() {
               Skills & Expertise
             </h2>
             <p className="text-lg md:text-xl text-slate-600 dark:text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-              Comprehensive technical skills spanning programming languages, frameworks, data science, and tools 
-              with a focus on building scalable, innovative solutions that drive real-world impact.
+              A growing skill set focused on data science, full-stack development, and modern tools, built through university coursework, hands-on projects, and continuous self-learning.
             </p>
           </motion.div>
 
@@ -298,7 +297,7 @@ export function Skills() {
             >
               <Award className="w-4 h-4 text-emerald-600 dark:text-emerald-400 mr-2" />
               <span className="text-sm font-semibold text-emerald-700 dark:font-medium dark:text-emerald-400">
-                Expert Level Achieved
+                Actively Learning & Improving
               </span>
             </motion.div>
             
@@ -315,9 +314,9 @@ export function Skills() {
                   transition={{ delay: 1.8, type: "spring", stiffness: 200 }}
                   className="text-3xl font-bold text-emerald-700 dark:text-emerald-400"
                 >
-                  15+
+                  2+
                 </motion.div>
-                <div className="text-sm text-muted-foreground dark:text-muted-foreground">Years Experience</div>
+                <div className="text-sm text-muted-foreground dark:text-muted-foreground">Years Learning & Practice</div>
               </div>
               
               <div className="text-center">
@@ -327,9 +326,9 @@ export function Skills() {
                   transition={{ delay: 1.9, type: "spring", stiffness: 200 }}
                   className="text-3xl font-bold text-emerald-700 dark:text-emerald-400"
                 >
-                  50+
+                  10+
                 </motion.div>
-                <div className="text-sm text-muted-foreground dark:text-muted-foreground">Projects Completed</div>
+                <div className="text-sm text-muted-foreground dark:text-muted-foreground">Academic & Personal Projects</div>
               </div>
               
               <div className="text-center">
@@ -339,9 +338,9 @@ export function Skills() {
                   transition={{ delay: 2.0, type: "spring", stiffness: 200 }}
                   className="text-3xl font-bold text-emerald-700 dark:text-emerald-400"
                 >
-                  95%
+                  ∞
                 </motion.div>
-                <div className="text-sm text-muted-foreground dark:text-muted-foreground">Client Satisfaction</div>
+                <div className="text-sm text-muted-foreground dark:text-muted-foreground">Continuous Skill Development</div>
               </div>
             </motion.div>
             

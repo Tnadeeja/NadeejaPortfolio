@@ -50,32 +50,33 @@ const aboutData = [
     id: 1,
     title: "Education",
     icon: GraduationCap,
-    description: "Bachelor's degree in Computer Science with focus on data structures and algorithms.",
+    description: "Bachelor's degree undergraduate in Data Science, focusing on programming, data analysis, databases, and software development.",
     details: [
-      "Relevant coursework: Data Structures, Algorithms, Database Systems",
-      "Academic projects: Machine Learning applications, Web development"
+      "Undergraduate student at Sri Lanka Institute of Information Technology (SLIIT)",
+      "Coursework includes: Programming Fundamentals, Database Management Systems, Statistics, Data Analysis",
+      "Academic exposure to data science concepts and web application development"
     ]
   },
   {
     id: 2,
     title: "Professional Development",
     icon: Briefcase,
-    description: "Continuous learning through online courses, workshops, and hands-on projects.",
+    description: "Actively developing skills through online certifications, self-learning, and university projects.",
     details: [
-      "Completed 50+ online courses in web development and data science",
-      "Regular participation in coding bootcamps and hackathons",
-      "Self-study: Advanced algorithms and system design"
+      "Completed online certifications in Power BI, Data Analytics, and Software Development",
+      "Hands-on experience through university group projects and individual practice",
+      "Continuous learning mindset with focus on data visualization, dashboards, and real-world problem solving"
     ]
   },
   {
     id: 3,
     title: "Technical Skills",
     icon: Code,
-    description: "Strong foundation in programming languages, frameworks, and development tools.",
+    description: "Practical knowledge in programming, data tools, and full-stack development technologies.",
     details: [
-      "Languages: Python, JavaScript, TypeScript, SQL",
-      "Frameworks: React, Node.js, Next.js",
-      "Tools: Git, Docker, AWS, VS Code"
+      "Languages: Python, JavaScript, SQL, Java",
+      "Web Technologies: HTML, CSS, React, Node.js, MERN Stack",
+      "Data & Tools: Power BI, Git, MySQL, VS Code"
     ]
   }
 ]
@@ -152,8 +153,7 @@ export function About() {
               About Me
             </h2>
             <p className="text-lg md:text-xl text-slate-600 dark:text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-              Passionate data scientist and software engineer with a relentless drive for innovation, 
-              continuous learning, and creating impactful solutions that bridge technology and real-world challenges.
+              I am a Data Science undergraduate with a strong interest in full-stack development and data-driven problem solving. I enjoy building real-world applications, exploring data insights, and continuously improving my technical skills through academic projects, certifications, and hands-on development.
             </p>
           </motion.div>
 
