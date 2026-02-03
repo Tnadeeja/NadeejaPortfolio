@@ -19,7 +19,8 @@ import {
   FaNodeJs,
   FaGitAlt,
   FaDocker,
-  FaAws
+  FaAws,
+  FaJava
 } from "react-icons/fa"
 import {
   SiTypescript,
@@ -28,7 +29,10 @@ import {
   SiTailwindcss,
   SiPandas,
   SiTensorflow,
-  SiVscodium
+  SiVscodium,
+  SiNumpy,
+  SiMongodb,
+  SiVercel
 } from "react-icons/si"
 
 const skillsData = [
@@ -36,40 +40,46 @@ const skillsData = [
     category: "Programming Languages",
     icon: Code2,
     skills: [
-      { name: "Python", level: 85, description: "Data analysis, Pandas, NumPy, basic machine learning, scripting" },
-      { name: "JavaScript", level: 80, description: "Full-stack development with MERN, REST APIs, frontend logic" },
-      { name: "TypeScript", level: 70, description: "Type-safe React applications, improving code quality" },
-      { name: "SQL", level: 75, description: "Database design, queries, joins, and data analysis" },
+      { name: "Python", logo: "python" },
+      { name: "JavaScript", logo: "javascript" },
+      { name: "TypeScript", logo: "typescript" },
+      { name: "Java", logo: "java" },
+      { name: "SQL", logo: "mysql" },
+      { name: "PHP", logo: "php" },
     ]
   },
   {
-    category: "Frameworks",
+    category: "Frameworks & Libraries",
     icon: Globe,
     skills: [
-      { name: "React", level: 85, description: "Component-based UI, hooks, responsive design" },
-      { name: "Node.js", level: 80, description: "Backend APIs, authentication, CRUD operations" },
-      { name: "Next.js", level: 75, description: "Server-side rendering basics, routing, full-stack structure" },
-      { name: "Tailwind CSS", level: 90, description: "Utility-first styling, modern UI design, responsive layouts" },
+      { name: "React", logo: "react" },
+      { name: "Next.js", logo: "nextjs" },
+      { name: "Node.js", logo: "nodejs" },
+      { name: "Express", logo: "nodejs" },
+      { name: "Tailwind CSS", logo: "tailwindcss" },
     ]
   },
   {
-    category: "Data Science",
+    category: "Data Science & Analytics",
     icon: Brain,
     skills: [
-      { name: "Pandas", level: 85, description: "Data cleaning, transformation, analysis" },
-      { name: "Machine Learning", level: 65, description: "Basic models, scikit-learn, supervised learning concepts" },
-      { name: "Data Visualization", level: 80, description: "Power BI dashboards, Matplotlib, charts & insights" },
-      { name: "Statistical Analysis", level: 70, description: "Descriptive statistics, regression basics, hypothesis testing" },
+      { name: "Pandas", logo: "pandas" },
+      { name: "NumPy", logo: "numpy" },
+      { name: "Matplotlib", logo: "matplotlib" },
+      { name: "Power BI", logo: "powerbi" },
+      { name: "scikit-learn", logo: "tensorflow" },
     ]
   },
   {
     category: "Tools & Platforms",
     icon: Wrench,
     skills: [
-      { name: "Git", level: 90, description: "Version control, GitHub collaboration, project management" },
-      { name: "Docker", level: 65, description: "Basic containerization and environment setup" },
-      { name: "AWS", level: 60, description: "Intro-level cloud knowledge (EC2, S3 concepts)" },
-      { name: "VS Code", level: 95, description: "Primary development environment, extensions, debugging" },
+      { name: "Git", logo: "git" },
+      { name: "GitHub", logo: "git" },
+      { name: "Docker", logo: "docker" },
+      { name: "MongoDB", logo: "mongodb" },
+      { name: "MySQL", logo: "mysql" },
+      { name: "Vercel", logo: "vercel" },
     ]
   },
 ]
@@ -106,6 +116,19 @@ const skillVariants = {
     transition: {
       type: "spring",
       stiffness: 150,
+      damping: 15,
+    },
+  },
+}
+
+const skillItemVariants = {
+  hidden: { scale: 0.8, opacity: 0 },
+  visible: {
+    scale: 1,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      stiffness: 200,
       damping: 15,
     },
   },
@@ -159,7 +182,7 @@ export function Skills() {
               Skills & Expertise
             </h2>
             <p className="text-lg md:text-xl text-slate-600 dark:text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-              A growing skill set focused on data science, full-stack development, and modern tools, built through university coursework, hands-on projects, and continuous self-learning.
+              Tools and technologies I actively use in projects and academic work.
             </p>
           </motion.div>
 
@@ -191,89 +214,65 @@ export function Skills() {
                     </h3>
                   </div>
 
-                  {/* Skills with Neon Progress Bars */}
-                  <div className="space-y-4">
+                  {/* Premium Logo Grid */}
+                  <div className="grid grid-cols-3 gap-4">
                     {category.skills.map((skill, skillIndex) => (
                       <motion.div
                         key={skill.name}
-                        variants={skillVariants}
-                        transition={{ delay: categoryIndex * 0.15 + skillIndex * 0.1 }}
-                        className="group/item"
+                        variants={skillItemVariants}
+                        transition={{ delay: categoryIndex * 0.15 + skillIndex * 0.05 }}
+                        className="group"
                       >
-                        {/* Skill Row */}
-                        <div className="flex items-center gap-4 mb-2">
-                          {/* Skill Icon */}
-                          <motion.div
-                            whileHover={{ y: -4, scale: 1.1 }}
-                            transition={{ type: "spring", stiffness: 400 }}
-                            className="flex-shrink-0 w-12 h-12 rounded-xl bg-white/90 backdrop-blur-sm border border-emerald-200 dark:bg-white/10 dark:border-white/20 flex items-center justify-center"
-                          >
-                            {skill.name === "Python" && <FaPython className="w-8 h-8 text-blue-500" />}
-                            {skill.name === "JavaScript" && <FaJs className="w-8 h-8 text-yellow-500" />}
-                            {skill.name === "TypeScript" && <SiTypescript className="w-8 h-8 text-blue-600" />}
-                            {skill.name === "SQL" && <SiMysql className="w-8 h-8 text-blue-600" />}
-                            {skill.name === "React" && <FaReact className="w-8 h-8 text-cyan-500" />}
-                            {skill.name === "Node.js" && <FaNodeJs className="w-8 h-8 text-green-600" />}
-                            {skill.name === "Next.js" && <SiNextdotjs className="w-8 h-8 text-black" />}
-                            {skill.name === "Tailwind CSS" && <SiTailwindcss className="w-8 h-8 text-cyan-600" />}
-                            {skill.name === "Pandas" && <SiPandas className="w-8 h-8 text-blue-700" />}
-                            {skill.name === "Machine Learning" && <SiTensorflow className="w-8 h-8 text-orange-600" />}
-                            {skill.name === "Data Visualization" && <FaReact className="w-8 h-8 text-purple-600" />}
-                            {skill.name === "Statistical Analysis" && <FaGitAlt className="w-8 h-8 text-red-600" />}
-                            {skill.name === "Git" && <FaGitAlt className="w-8 h-8 text-red-orange" />}
-                            {skill.name === "Docker" && <FaDocker className="w-8 h-8 text-blue-500" />}
-                            {skill.name === "AWS" && <FaAws className="w-8 h-8 text-orange-500" />}
-                            {skill.name === "VS Code" && <SiVscodium className="w-8 h-8 text-blue-600" />}
-                          </motion.div>
+                        {/* Skill Tile */}
+                        <motion.div
+                          whileHover={{ 
+                            scale: 1.05,
+                            boxShadow: "0 0 20px rgba(16, 185, 129, 0.3)"
+                          }}
+                          transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                          className="relative bg-white/8 backdrop-blur-md rounded-2xl border border-white/20 p-4 transition-all duration-300 hover:bg-white/12 hover:border-emerald-300/40 dark:bg-white/5 dark:border-white/10 dark:hover:bg-emerald-500/10 dark:hover:border-emerald-400/30"
+                        >
+                          {/* Subtle Glow Effect */}
+                          <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 via-transparent to-emerald-500/3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"></div>
                           
-                          {/* Skill Name */}
-                          <div className="flex-1">
-                            <h4 className="text-lg font-semibold text-slate-900 group-hover/item:text-emerald-700 transition-colors dark:text-white dark:group-hover/item:text-emerald-400">
+                          {/* Skill Content */}
+                          <div className="relative z-10 flex flex-col items-center text-center">
+                            {/* Technology Logo */}
+                            <motion.div
+                              whileHover={{ rotate: 5 }}
+                              transition={{ type: "spring", stiffness: 300 }}
+                              className="w-12 h-12 flex items-center justify-center mb-3"
+                            >
+                              {skill.name === "Python" && <FaPython className="w-10 h-10 text-slate-400 group-hover:text-blue-500 transition-colors" />}
+                              {skill.name === "JavaScript" && <FaJs className="w-10 h-10 text-slate-400 group-hover:text-yellow-500 transition-colors" />}
+                              {skill.name === "TypeScript" && <SiTypescript className="w-10 h-10 text-slate-400 group-hover:text-blue-600 transition-colors" />}
+                              {skill.name === "Java" && <FaJava className="w-10 h-10 text-slate-400 group-hover:text-red-600 transition-colors" />}
+                              {skill.name === "SQL" && <SiMysql className="w-10 h-10 text-slate-400 group-hover:text-blue-600 transition-colors" />}
+                              {skill.name === "PHP" && <span className="w-10 h-10 text-slate-400 group-hover:text-purple-600 transition-colors font-bold text-lg">PHP</span>}
+                              {skill.name === "React" && <FaReact className="w-10 h-10 text-slate-400 group-hover:text-cyan-500 transition-colors" />}
+                              {skill.name === "Next.js" && <SiNextdotjs className="w-10 h-10 text-slate-400 group-hover:text-black dark:group-hover:text-white transition-colors" />}
+                              {skill.name === "Node.js" && <FaNodeJs className="w-10 h-10 text-slate-400 group-hover:text-green-600 transition-colors" />}
+                              {skill.name === "Express" && <FaNodeJs className="w-10 h-10 text-slate-400 group-hover:text-gray-600 transition-colors" />}
+                              {skill.name === "Tailwind CSS" && <SiTailwindcss className="w-10 h-10 text-slate-400 group-hover:text-cyan-600 transition-colors" />}
+                              {skill.name === "Pandas" && <SiPandas className="w-10 h-10 text-slate-400 group-hover:text-blue-700 transition-colors" />}
+                              {skill.name === "NumPy" && <SiNumpy className="w-10 h-10 text-slate-400 group-hover:text-blue-600 transition-colors" />}
+                              {skill.name === "Matplotlib" && <span className="w-10 h-10 text-slate-400 group-hover:text-orange-600 transition-colors font-bold text-xs">MAT</span>}
+                              {skill.name === "Power BI" && <span className="w-10 h-10 text-slate-400 group-hover:text-yellow-600 transition-colors font-bold text-xs">PBI</span>}
+                              {skill.name === "scikit-learn" && <SiTensorflow className="w-10 h-10 text-slate-400 group-hover:text-orange-600 transition-colors" />}
+                              {skill.name === "Git" && <FaGitAlt className="w-10 h-10 text-slate-400 group-hover:text-red-orange transition-colors" />}
+                              {skill.name === "GitHub" && <FaGitAlt className="w-10 h-10 text-slate-400 group-hover:text-gray-600 transition-colors" />}
+                              {skill.name === "Docker" && <FaDocker className="w-10 h-10 text-slate-400 group-hover:text-blue-500 transition-colors" />}
+                              {skill.name === "MongoDB" && <SiMongodb className="w-10 h-10 text-slate-400 group-hover:text-green-600 transition-colors" />}
+                              {skill.name === "MySQL" && <SiMysql className="w-10 h-10 text-slate-400 group-hover:text-blue-600 transition-colors" />}
+                              {skill.name === "Vercel" && <SiVercel className="w-10 h-10 text-slate-400 group-hover:text-black dark:group-hover:text-white transition-colors" />}
+                            </motion.div>
+                            
+                            {/* Skill Name */}
+                            <h4 className="text-sm font-medium text-slate-600 group-hover:text-emerald-700 transition-colors dark:text-slate-400 dark:group-hover:text-emerald-400">
                               {skill.name}
                             </h4>
-                            <p className="text-sm text-slate-600 opacity-70 dark:text-muted-foreground">
-                              {skill.description}
-                            </p>
                           </div>
-                          
-                          {/* Skill Percentage */}
-                          <motion.div
-                            whileHover={{ scale: 1.2 }}
-                            transition={{ type: "spring", stiffness: 600 }}
-                            className="flex-shrink-0 text-lg font-bold text-emerald-700 dark:text-emerald-400"
-                          >
-                            {skill.level}%
-                          </motion.div>
-                        </div>
-
-                        {/* Neon Progress Bar */}
-                        <div className="relative">
-                          {/* Progress Track */}
-                          <div className="w-full h-3 bg-white/10 backdrop-blur-sm rounded-full overflow-hidden dark:bg-white/5">
-                            {/* Animated Progress Fill */}
-                            <motion.div
-                              variants={progressVariants}
-                              custom={skill.level}
-                              className="h-full bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-full shadow-[0_0_20px_rgba(16,185,129,0.4)] transition-all duration-1000 relative overflow-hidden dark:from-emerald-400 dark:to-emerald-500 dark:shadow-[0_0_20px_#00ff88]"
-                            >
-                              {/* Glow Effect */}
-                              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-pulse dark:via-white/30"></div>
-                              
-                              {/* Neon Glow */}
-                              <motion.div
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: [0, 1, 0.8] }}
-                                transition={{ 
-                                  delay: categoryIndex * 0.15 + skillIndex * 0.1 + 1.5,
-                                  duration: 0.5,
-                                  repeat: Infinity,
-                                  repeatType: "reverse"
-                                }}
-                                className="absolute inset-0 bg-gradient-to-r from-emerald-400/40 to-emerald-500/40 blur-md dark:from-emerald-400/50 dark:to-emerald-500/50"
-                              ></motion.div>
-                            </motion.div>
-                          </div>
-                        </div>
+                        </motion.div>
                       </motion.div>
                     ))}
                   </div>
