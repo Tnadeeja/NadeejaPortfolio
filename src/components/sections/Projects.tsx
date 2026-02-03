@@ -230,7 +230,7 @@ export function Projects() {
 
                     {/* Tech Stack */}
                     <div className="flex flex-wrap gap-2 mb-4">
-                      {project.tech.slice(0, 4).map((tech, techIndex) => (
+                      {project.tech.slice(0, 5).map((tech, techIndex) => (
                         <motion.span
                           key={tech}
                           variants={tagVariants}
@@ -242,17 +242,6 @@ export function Projects() {
                           {tech}
                         </motion.span>
                       ))}
-                      {project.tech.length > 4 && (
-                        <motion.span
-                          variants={tagVariants}
-                          initial="hidden"
-                          animate="visible"
-                          transition={{ delay: 0.8 + index * 0.3 + 0.2 }}
-                          className="inline-flex items-center px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-slate-200 text-slate-700 text-xs font-medium dark:border-white/20 dark:text-white/70"
-                        >
-                          +{project.tech.length - 4}
-                        </motion.span>
-                      )}
                     </div>
 
                     {/* Action Buttons */}
@@ -269,20 +258,6 @@ export function Projects() {
                         <span>View Code</span>
                         <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
                       </motion.a>
-
-                      {project.demo && (
-                        <motion.a
-                          href={project.demo}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          whileHover={{ scale: 1.05, x: 5 }}
-                          whileTap={{ scale: 0.95 }}
-                          className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/10 backdrop-blur-sm border border-slate-200 text-slate-700 font-medium hover:bg-emerald-50 hover:border-emerald-300 transition-all duration-300 dark:border-white/20 dark:text-white dark:hover:bg-white/20"
-                        >
-                          <ExternalLink className="w-4 h-4" />
-                          <span>Live Demo</span>
-                        </motion.a>
-                      )}
                     </div>
                   </div>
                 </div>
