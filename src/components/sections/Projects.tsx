@@ -8,6 +8,20 @@ import { cn } from "@/lib/utils"
 const projectsData = [
   {
     id: 1,
+    title: "Personal Portfolio Website",
+    shortDescription: "Modern, responsive portfolio showcasing full-stack development skills with premium UI/UX design.",
+    description: "A cutting-edge personal portfolio website built with Next.js 14 and TypeScript, featuring a modern glassmorphism design with Framer Motion animations. The portfolio demonstrates advanced frontend development skills including responsive design, component-based architecture, and optimized performance. Key features include smooth scroll navigation, interactive project showcases, skills sections with logo grids, and contact forms. The project emphasizes clean code practices, accessibility standards, and mobile-first design principles, serving as a comprehensive demonstration of modern web development capabilities.",
+    tech: ["Next.js 14", "TypeScript", "React.js", "Tailwind CSS", "Framer Motion", "Lucide Icons"],
+    github: "https://github.com/Tnadeeja/NadeejaPortfolio",
+    demo: "https://nadeeja-portfolio.vercel.app",
+    image: "/images/p6.jpg",
+    featured: true,
+    tags: ["Portfolio", "Next.js", "TypeScript", "Modern UI", "Full-Stack"],
+    status: "completed",
+    year: "2025"
+  },
+  {
+    id: 2,
     title: "Full-Stack E-Commerce Platform",
     shortDescription: "Academic MERN-based clothing e-commerce platform developed as a team project at SLIIT.",
     description: "A full-stack clothing e-commerce web application developed as part of the IT Project (ITP) module at SLIIT. The system simulates a real-world online shopping workflow with separate roles for customers, administrators, and delivery staff. Core features include product management, order processing, multiple payment methods, delivery tracking, returns, and refunds. The project focused on modular architecture, RESTful API design, secure authentication, and team-based software development practices.",
@@ -21,7 +35,7 @@ const projectsData = [
     year: "2025"
   },
   {
-    id: 2,
+    id: 3,
     title: "BrightWell – Personal Wellness & Habit Tracker",
     shortDescription: "Android wellness application for habit tracking, mood journaling, and hydration reminders.",
     description: "BrightWell is a personal wellness Android application developed as part of an academic project at SLIIT. The app helps users build healthy routines by tracking daily habits, monitoring mood patterns, and managing hydration reminders. It includes features such as custom habit creation with progress tracking and streaks, a mood journal with emoji-based entries and history view, configurable hydration notifications, and a home-screen widget for quick access and real-time habit completion. The project focused on Android app architecture, UI responsiveness, local data persistence, and background task handling.",
@@ -35,7 +49,7 @@ const projectsData = [
     year: "2025"
   },
   {
-    id: 3,
+    id: 4,
     title: "BMI Calculator Web Application",
     shortDescription: "Responsive web application to calculate BMI with interactive visual feedback.",
     description: "The BMI Calculator is a self-initiated front-end web application developed to strengthen core web development skills and explore responsive, interactive UI design. The application allows users to input weight, height, gender, and age to calculate Body Mass Index (BMI) and displays results using an animated progress bar, BMI category indicators, and basic health guidance. The project focused on clean UI/UX design, DOM manipulation using vanilla JavaScript, responsive layouts for mobile and desktop devices, and deploying a polished front-end project using GitHub Pages.",
@@ -49,7 +63,7 @@ const projectsData = [
     year: "2025"
   },
   {
-    id: 4,
+    id: 5,
     title: "SmartStock – Online Stock Management System",
     shortDescription: "Role-based web system for managing inventory, purchases, returns, and reports",
     description: "SmartStock is a comprehensive online stock management system developed as a second-year group project at SLIIT. The system provides a centralized, web-based solution for managing inventory operations such as product purchases, outgoing stock, returns of damaged or expired items, supplier and customer records, and real-time report generation. Built using the MVC architectural pattern and core OOP principles, the application supports multiple user roles including Admin, Stock Manager, Sales Manager, Account Manager, and Warehouse Staff, each with role-specific access. The system features secure authentication, email-based password reset, notifications, and a responsive UI designed for real-world business workflows.",
@@ -63,7 +77,7 @@ const projectsData = [
     year: "2025"
   },
   {
-    id: 5,
+    id: 6,
     title: "Online Teacher Trainer Web Application",
     shortDescription: "Role-based learning platform for teacher training and course management",
     description: "The Online Teacher Trainer Web Application is a role-based educational platform developed as a university group project at SLIIT. The system is designed to support teacher professional development by allowing users to register either as teacher trainees who can enroll in courses and lectures, or as lecturers who can create, manage, and deliver educational content. The platform features secure authentication, role-based access control, course and lecture management, admin moderation tools, and a dual-role system that allows users to switch between trainee and lecturer roles seamlessly. The front end focuses on usability and responsiveness, while the back end ensures reliable data handling and access control for a structured digital learning experience.",
@@ -71,7 +85,7 @@ const projectsData = [
     github: "https://github.com/LakviduUpasara/Teach_wave_ELMS",
     demo: "https://github.com/LakviduUpasara/Teach_wave_ELMS",
     image: "/images/p5.jpg",
-    featured: false,
+    featured: true,
     tags: ["E-Learning", "Role-Based System", "Full-Stack", "Education Platform"],
     status: "completed",
     year: "2024"
