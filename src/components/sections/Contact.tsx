@@ -427,7 +427,7 @@ export function Contact() {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.5 }}
                     >
-                      <label htmlFor="email" className="block text-sm font-medium text-white mb-2">
+                      <label htmlFor="email" className="block text-sm font-medium text-slate-900 mb-2 dark:text-white">
                         {contactData.rightSide.form.email.label}
                       </label>
                       <input
@@ -449,7 +449,7 @@ export function Contact() {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.6 }}
                     >
-                      <label htmlFor="message" className="block text-sm font-medium text-white mb-2">
+                      <label htmlFor="message" className="block text-sm font-medium text-slate-900 mb-2 dark:text-white">
                         {contactData.rightSide.form.message.label}
                       </label>
                       <textarea
@@ -459,7 +459,7 @@ export function Contact() {
                         onChange={handleInputChange}
                         placeholder={contactData.rightSide.form.message.placeholder}
                         rows={contactData.rightSide.form.message.rows}
-                        className="w-full px-4 py-3 rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm text-white placeholder-muted-foreground/50 focus:border-emerald-500/30 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 transition-all duration-300 resize-none"
+                        className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white/10 backdrop-blur-sm text-slate-900 placeholder-slate-500 focus:border-emerald-300 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 transition-all duration-300 resize-none dark:border-white/10 dark:bg-white/5 dark:text-white dark:placeholder-muted-foreground/50 dark:focus:border-emerald-500/30"
                         required
                         disabled={status === 'sending'}
                       />
