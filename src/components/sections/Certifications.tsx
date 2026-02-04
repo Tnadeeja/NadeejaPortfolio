@@ -79,21 +79,6 @@ const certificationsData = [
       "Real-world problem solving"
     ],
     icon: TrendingUp
-  },
-  {
-    id: 6,
-    title: "BSc (Hons) in Data Science",
-    issuer: "Sri Lanka Institute of Information Technology (SLIIT)",
-    date: "2025",
-    status: "in-progress",
-    description: "Undergraduate degree program focusing on data science, machine learning, statistical analysis, and big data technologies.",
-    focusAreas: [
-      "Statistical analysis",
-      "Machine learning",
-      "Big data technologies",
-      "Data visualization"
-    ],
-    icon: Award
   }
 ]
 
