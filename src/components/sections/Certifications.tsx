@@ -7,74 +7,93 @@ import { cn } from "@/lib/utils"
 const certificationsData = [
   {
     id: 1,
+    title: "Power BI for Beginners",
+    issuer: "Microsoft",
+    date: "2025",
+    status: "completed",
+    description: "Introductory certification focused on building interactive dashboards and data visualizations using Power BI.",
+    focusAreas: [
+      "Power BI fundamentals",
+      "Data visualization",
+      "Dashboard design",
+      "Basic data modeling"
+    ],
+    icon: Database
+  },
+  {
+    id: 2,
     title: "Python Programming",
     issuer: "University of Moratuwa",
-    date: "2023",
+    date: "2025",
     status: "completed",
-    description: "Comprehensive Python programming course covering fundamentals, object-oriented programming, data structures, and algorithms.",
+    description: "Comprehensive Python programming course covering fundamentals, object-oriented programming, data structures, and algorithmic thinking.",
     focusAreas: [
       "Python fundamentals",
-      "Object-oriented programming", 
+      "Object-Oriented Programming (OOP)",
       "Data structures",
       "Databases"
     ],
     icon: Code
   },
   {
-    id: 2,
-    title: "Web Development Fundamentals",
-    issuer: "Coursera",
-    date: "2023",
-    status: "completed",
-    description: "Complete web development program covering HTML, CSS, JavaScript, and modern web frameworks.",
-    focusAreas: [
-      "Frontend development",
-      "Responsive design",
-      "JavaScript frameworks"
-    ],
-    icon: Globe
-  },
-  {
     id: 3,
-    title: "Data Science Specialization",
-    issuer: "DataCamp",
-    date: "2024",
+    title: "Python for Beginners",
+    issuer: "University of Moratuwa",
+    date: "2025",
     status: "completed",
-    description: "Intensive data science program focusing on machine learning, statistical analysis, and data visualization techniques.",
+    description: "Introductory course covering core Python syntax, control structures, and problem-solving concepts for beginners.",
     focusAreas: [
-      "Machine learning",
-      "Statistical analysis",
-      "Data visualization"
+      "Python syntax",
+      "Control structures",
+      "Functions",
+      "Basic problem solving"
     ],
-    icon: Database
+    icon: Code
   },
   {
     id: 4,
-    title: "Cloud Computing",
-    issuer: "AWS",
-    date: "2024",
-    status: "in-progress",
-    description: "AWS Cloud Practitioner certification program covering cloud architecture, deployment, and scalable infrastructure.",
+    title: "AI/ML Engineer – Stage 1",
+    issuer: "Sri Lanka Institute of Information Technology (SLIIT)",
+    date: "2025",
+    status: "completed",
+    description: "Foundation-level AI & Machine Learning program introducing essential concepts, tools, and guided projects.",
     focusAreas: [
-      "Cloud architecture",
-      "Infrastructure as code",
-      "Scalable systems"
+      "Introduction to AI & Machine Learning",
+      "ML prerequisites & tools",
+      "Computer Vision (guided project)",
+      "Natural Language Processing (guided project)"
     ],
     icon: TrendingUp
   },
   {
     id: 5,
-    title: "Full-Stack Development",
-    issuer: "freeCodeCamp",
-    date: "2023",
-    status: "completed",
-    description: "Full-stack web development program covering frontend, backend, database, and deployment technologies.",
+    title: "AI/ML Engineer – Stage 2",
+    issuer: "Sri Lanka Institute of Information Technology (SLIIT)",
+    date: "2025",
+    status: "in-progress",
+    description: "Advanced AI & Machine Learning program focused on supervised learning algorithms and real-world model development.",
     focusAreas: [
-      "Frontend frameworks",
-      "Backend development",
-      "Database design"
+      "Supervised machine learning algorithms",
+      "Model training & evaluation",
+      "Applied ML tools & techniques",
+      "Real-world problem solving"
     ],
-    icon: Zap
+    icon: TrendingUp
+  },
+  {
+    id: 6,
+    title: "BSc (Hons) in Data Science",
+    issuer: "Sri Lanka Institute of Information Technology (SLIIT)",
+    date: "2025",
+    status: "in-progress",
+    description: "Undergraduate degree program focusing on data science, machine learning, statistical analysis, and big data technologies.",
+    focusAreas: [
+      "Statistical analysis",
+      "Machine learning",
+      "Big data technologies",
+      "Data visualization"
+    ],
+    icon: Award
   }
 ]
 
