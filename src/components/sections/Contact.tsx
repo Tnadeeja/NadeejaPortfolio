@@ -1,8 +1,9 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Mail, Github, Linkedin, MapPin, Send, User, Code, MessageCircle, Sparkles, ArrowRight, Phone, Globe } from "lucide-react"
+import { Mail, Github, Linkedin, MapPin, Send, User, Code, MessageCircle, Sparkles, ArrowRight, Phone, Globe, CheckCircle, AlertCircle, Loader2, Copy } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { useState } from "react"
 
 interface SocialLink {
   icon: any;
@@ -86,7 +87,7 @@ const contactData: ContactData = {
       {
         icon: Mail,
         label: "Email",
-        url: "mailto:contact@nWeerasinghe.com",
+        url: "mailto:nadeejatw@gmail.com",
         image: "/images/contact-placeholder.jpg"
       }
     ]
@@ -118,6 +119,113 @@ const cardVariants = {
 }
 
 export function Contact() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  })
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
+  const [statusMessage, setStatusMessage] = useState('')
+  const [emailContent, setEmailContent] = useState('')
+  const [showEmailFallback, setShowEmailFallback] = useState(false)
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target
+    setFormData(prev => ({ ...prev, [name]: value }))
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    
+    // Basic validation
+    if (!formData.name || !formData.email || !formData.message) {
+      setStatus('error')
+      setStatusMessage('Please fill in all fields')
+      setTimeout(() => setStatus('idle'), 3000)
+      return
+    }
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if (!emailRegex.test(formData.email)) {
+      setStatus('error')
+      setStatusMessage('Please enter a valid email address')
+      setTimeout(() => setStatus('idle'), 3000)
+      return
+    }
+
+    // Show sending state
+    setStatus('sending')
+    setStatusMessage('')
+
+    // Create email content
+    const subject = `Portfolio Contact: ${formData.name}`
+    const body = `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+    const fullEmailContent = `To: nadeejatw@gmail.com\nSubject: ${subject}\n\n${body}`
+    
+    setEmailContent(fullEmailContent)
+
+    // Try mailto link first
+    const mailtoSubject = encodeURIComponent(`Portfolio Contact: ${formData.name}`)
+    const mailtoBody = encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+    )
+    const mailtoLink = `mailto:nadeejatw@gmail.com?subject=${mailtoSubject}&body=${mailtoBody}`
+
+    try {
+      // Try to open email client
+      window.location.href = mailtoLink
+      
+      // Check if mailto worked (give it 2 seconds)
+      setTimeout(() => {
+        // If still on same page, mailto didn't work
+        if (document.visibilityState === 'visible') {
+          setShowEmailFallback(true)
+          setStatus('error')
+          setStatusMessage('Email client not found. Please use the options below.')
+        } else {
+          // Email client opened successfully
+          setStatus('success')
+          setStatusMessage('Email client opened! Please send the message to complete.')
+          setFormData({ name: '', email: '', message: '' })
+          setTimeout(() => setStatus('idle'), 5000)
+        }
+      }, 2000)
+    } catch (error) {
+      // Fallback if mailto fails
+      setShowEmailFallback(true)
+      setStatus('error')
+      setStatusMessage('Email client not available. Please use the options below.')
+    }
+  }
+
+  const copyToClipboard = async () => {
+    try {
+      await navigator.clipboard.writeText(emailContent)
+      setStatus('success')
+      setStatusMessage('Email content copied! Paste it in your email client.')
+      setTimeout(() => setStatus('idle'), 3000)
+    } catch (error) {
+      setStatus('error')
+      setStatusMessage('Failed to copy. Please copy manually.')
+      setTimeout(() => setStatus('idle'), 3000)
+    }
+  }
+
+  const openGmail = () => {
+    const subject = encodeURIComponent(`Portfolio Contact: ${formData.name}`)
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+    )
+    const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=nadeejatw@gmail.com&su=${subject}&body=${body}`
+    window.open(gmailLink, '_blank')
+    
+    setStatus('success')
+    setStatusMessage('Gmail opened in new tab!')
+    setFormData({ name: '', email: '', message: '' })
+    setTimeout(() => setStatus('idle'), 3000)
+  }
+
   return (
     <section id="contact" className="section overflow-hidden relative">
       {/* Background Effects */}
@@ -208,7 +316,7 @@ export function Contact() {
                       </div>
                       <div>
                         <div className="text-slate-900 font-medium dark:text-white">Email</div>
-                        <div className="text-slate-600 dark:text-muted-foreground">contact@nWeerasinghe.com</div>
+                        <div className="text-slate-600 dark:text-muted-foreground">nadeejatw@gmail.com</div>
                       </div>
                     </motion.div>
 
@@ -222,8 +330,8 @@ export function Contact() {
                         <Globe className="w-5 h-5 text-emerald-700 dark:text-emerald-400" />
                       </div>
                       <div>
-                        <div className="text-slate-900 font-medium dark:text-white">Available Worldwide</div>
-                        <div className="text-slate-600 dark:text-muted-foreground">Remote & On-site</div>
+                        <div className="text-slate-900 font-medium dark:text-white">Location</div>
+                        <div className="text-slate-600 dark:text-muted-foreground">Colombo, Sri Lanka</div>
                       </div>
                     </motion.div>
                   </div>
@@ -290,7 +398,7 @@ export function Contact() {
                   </div>
 
                   {/* Contact Form */}
-                  <form className="space-y-6">
+                  <form onSubmit={handleSubmit} className="space-y-6">
                     {/* Name Input */}
                     <motion.div
                       initial={{ opacity: 0, y: 20 }}
@@ -304,9 +412,12 @@ export function Contact() {
                         type={contactData.rightSide.form.name.type}
                         id="name"
                         name="name"
+                        value={formData.name}
+                        onChange={handleInputChange}
                         placeholder={contactData.rightSide.form.name.placeholder}
                         className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white/10 backdrop-blur-sm text-slate-900 placeholder-slate-500 focus:border-emerald-300 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 transition-all duration-300 dark:border-white/10 dark:bg-white/5 dark:text-white dark:placeholder-muted-foreground/50 dark:focus:border-emerald-500/30"
                         required
+                        disabled={status === 'sending'}
                       />
                     </motion.div>
 
@@ -323,9 +434,12 @@ export function Contact() {
                         type={contactData.rightSide.form.email.type}
                         id="email"
                         name="email"
+                        value={formData.email}
+                        onChange={handleInputChange}
                         placeholder={contactData.rightSide.form.email.placeholder}
                         className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white/10 backdrop-blur-sm text-slate-900 placeholder-slate-500 focus:border-emerald-300 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 transition-all duration-300 dark:border-white/10 dark:bg-white/5 dark:text-white dark:placeholder-muted-foreground/50 dark:focus:border-emerald-500/30"
                         required
+                        disabled={status === 'sending'}
                       />
                     </motion.div>
 
@@ -341,12 +455,75 @@ export function Contact() {
                       <textarea
                         id="message"
                         name="message"
+                        value={formData.message}
+                        onChange={handleInputChange}
                         placeholder={contactData.rightSide.form.message.placeholder}
                         rows={contactData.rightSide.form.message.rows}
                         className="w-full px-4 py-3 rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm text-white placeholder-muted-foreground/50 focus:border-emerald-500/30 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 transition-all duration-300 resize-none"
                         required
+                        disabled={status === 'sending'}
                       />
                     </motion.div>
+
+                    {/* Fallback Options */}
+                    {showEmailFallback && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="space-y-3"
+                      >
+                        <div className="p-4 rounded-xl bg-amber-500/10 border border-amber-200 text-amber-700 dark:bg-amber-500/10 dark:border-amber-500/30 dark:text-amber-400">
+                          <p className="text-sm font-medium mb-3">Choose an option to send your message:</p>
+                          
+                          <div className="space-y-2">
+                            <button
+                              onClick={openGmail}
+                              className="w-full flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-white/10 border border-amber-200 text-amber-700 hover:bg-amber-50 transition-all duration-300 dark:bg-white/5 dark:border-amber-500/30 dark:hover:bg-amber-500/20"
+                            >
+                              <Mail className="w-4 h-4" />
+                              <span className="text-sm font-medium">Open Gmail</span>
+                            </button>
+                            
+                            <button
+                              onClick={copyToClipboard}
+                              className="w-full flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-white/10 border border-amber-200 text-amber-700 hover:bg-amber-50 transition-all duration-300 dark:bg-white/5 dark:border-amber-500/30 dark:hover:bg-amber-500/20"
+                            >
+                              <Copy className="w-4 h-4" />
+                              <span className="text-sm font-medium">Copy Email Content</span>
+                            </button>
+                          </div>
+                          
+                          <div className="mt-3 p-2 rounded-lg bg-black/5 border border-amber-200/30 dark:bg-black/10">
+                            <p className="text-xs font-mono text-amber-600 dark:text-amber-400">
+                              Email: nadeejatw@gmail.com
+                            </p>
+                          </div>
+                        </div>
+                      </motion.div>
+                    )}
+
+                    {/* Status Messages */}
+                    {status === 'success' && !showEmailFallback && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="flex items-center gap-3 p-4 rounded-xl bg-emerald-500/10 border border-emerald-200 text-emerald-700 dark:bg-emerald-500/10 dark:border-emerald-500/30 dark:text-emerald-400"
+                      >
+                        <CheckCircle className="w-5 h-5 flex-shrink-0" />
+                        <span className="text-sm font-medium">{statusMessage}</span>
+                      </motion.div>
+                    )}
+                    
+                    {status === 'error' && !showEmailFallback && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="flex items-center gap-3 p-4 rounded-xl bg-red-500/10 border border-red-200 text-red-700 dark:bg-red-500/10 dark:border-red-500/30 dark:text-red-400"
+                      >
+                        <AlertCircle className="w-5 h-5 flex-shrink-0" />
+                        <span className="text-sm font-medium">{statusMessage}</span>
+                      </motion.div>
+                    )}
 
                     {/* Submit Button */}
                     <motion.button
@@ -354,13 +531,23 @@ export function Contact() {
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.7 }}
-                      whileHover={{ scale: 1.02, x: 5 }}
-                      whileTap={{ scale: 0.98 }}
-                      className="w-full flex items-center justify-center gap-3 px-6 py-4 rounded-xl bg-emerald-500/10 border border-emerald-200 text-emerald-700 font-medium hover:bg-emerald-50 hover:border-emerald-300 transition-all duration-300 dark:border-emerald-500/30 dark:text-emerald-400 dark:hover:bg-emerald-500/20"
+                      whileHover={{ scale: status === 'sending' ? 1 : 1.02, x: status === 'sending' ? 0 : 5 }}
+                      whileTap={{ scale: status === 'sending' ? 1 : 0.98 }}
+                      disabled={status === 'sending'}
+                      className="w-full flex items-center justify-center gap-3 px-6 py-4 rounded-xl bg-emerald-500/10 border border-emerald-200 text-emerald-700 font-medium hover:bg-emerald-50 hover:border-emerald-300 transition-all duration-300 dark:border-emerald-500/30 dark:text-emerald-400 dark:hover:bg-emerald-500/20 disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                      <Send className="w-5 h-5" />
-                      <span>Send Message</span>
-                      <ArrowRight className="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                      {status === 'sending' ? (
+                        <>
+                          <Loader2 className="w-5 h-5 animate-spin" />
+                          <span>Opening Email Client...</span>
+                        </>
+                      ) : (
+                        <>
+                          <Send className="w-5 h-5" />
+                          <span>Send Message</span>
+                          <ArrowRight className="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                        </>
+                      )}
                     </motion.button>
                   </form>
                 </div>
