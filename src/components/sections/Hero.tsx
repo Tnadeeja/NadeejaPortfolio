@@ -508,7 +508,7 @@ export function Hero() {
 
               <motion.a
 
-                href="/Thamindu Weerasinghe Resume.pdf"
+                href="/Thamindu_Weerasinghe_cv07.pdf"
 
                 download
 
