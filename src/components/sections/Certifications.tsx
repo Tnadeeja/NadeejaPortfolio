@@ -151,7 +151,7 @@ export function Certifications() {
             </motion.div>
             
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-black bg-gradient-to-r from-teal-700 via-emerald-600 to-emerald-500 dark:from-emerald-400 dark:via-emerald-500 dark:to-brand-600 bg-clip-text text-transparent mb-6">
-              Learning Roadmap
+              Certifications
             </h2>
             <p className="text-base md:text-lg lg:text-xl text-slate-600 dark:text-muted-foreground max-w-4xl mx-auto leading-relaxed px-4">
               Continuous learning journey showcasing discipline, expertise growth, and professional development 
@@ -299,15 +299,13 @@ export function Certifications() {
                         </div>
 
                         {/* Action Link */}
-                        <motion.a
-                          href="#"
+                        <motion.div
                           whileHover={{ scale: 1.02, x: 5 }}
-                          whileTap={{ scale: 0.98 }}
-                          className="inline-flex items-center gap-2 text-emerald-700 text-sm font-medium hover:text-emerald-600 transition-colors dark:text-emerald-400 dark:hover:text-emerald-500"
+                          className="inline-flex items-center gap-2 text-emerald-700 text-sm font-medium dark:text-emerald-400"
                         >
                           <span>View Certificate</span>
                           <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
-                        </motion.a>
+                        </motion.div>
                       </div>
                     </div>
                   </motion.div>

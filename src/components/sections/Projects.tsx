@@ -161,7 +161,7 @@ export function Projects() {
             </motion.div>
             
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-black bg-gradient-to-r from-teal-700 via-emerald-600 to-emerald-500 dark:from-emerald-400 dark:via-emerald-500 dark:to-brand-600 bg-clip-text text-transparent mb-6">
-              Innovation Portfolio
+              Projects
             </h2>
             <p className="text-lg md:text-xl text-slate-600 dark:text-muted-foreground max-w-4xl mx-auto leading-relaxed">
               Cutting-edge projects showcasing advanced development skills, innovative solutions, 
@@ -189,7 +189,7 @@ export function Projects() {
                       <>
                         <Image
                           src={project.image}
-                          alt={project.title}
+                          alt={`${project.title} project by Thamindu Weerasinghe`}
                           fill
                           className="object-cover transition-transform duration-700 group-hover:scale-110"
                           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

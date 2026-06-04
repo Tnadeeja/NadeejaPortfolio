@@ -465,7 +465,7 @@ export function Hero() {
               <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/70 border border-emerald-200 shadow-sm shadow-emerald-900/5 dark:bg-emerald-500/10 dark:backdrop-blur-sm dark:border-emerald-500/20">
 
                 <span className="text-sm md:text-base font-semibold text-emerald-700 dark:font-medium dark:text-emerald-400">
-                  IT Undergraduate · Data Science & Full-Stack Development
+                  Data Science Undergraduate - Full-Stack Developer
                 </span>
 
               </div>
@@ -485,7 +485,7 @@ export function Hero() {
             >
 
               <p className="text-base md:text-lg text-slate-600 dark:text-muted-foreground leading-relaxed">
-                I am an IT undergraduate with a strong interest in data science and full-stack development. I enjoy building practical, real-world applications, working with data, and continuously learning modern technologies through academic projects and self-driven development.
+                I&apos;m Thamindu Weerasinghe, a Data Science undergraduate at SLIIT with a strong interest in full-stack development, data analytics, and machine learning. I enjoy building practical applications, working with data, and continuously learning through academic and self-driven projects.
               </p>
 
             </motion.div>
@@ -548,7 +548,7 @@ export function Hero() {
 
                 {/* GitHub Button */}
 
-                <motion.button
+                <motion.a
 
                   variants={buttonVariants}
 
@@ -568,11 +568,17 @@ export function Hero() {
 
                   whileTap={{ scale: 0.9 }}
 
-                  onClick={() => window.open("https://github.com", "_blank")}
+                  href="https://github.com/nWeerasinghe"
+
+                  target="_blank"
+
+                  rel="noopener noreferrer"
 
                   className="relative group"
 
-                  title="GitHub"
+                  title="Thamindu Weerasinghe GitHub profile"
+
+                  aria-label="Visit Thamindu Weerasinghe on GitHub"
 
                 >
 
@@ -582,13 +588,13 @@ export function Hero() {
 
                   </div>
 
-                </motion.button>
+                </motion.a>
 
 
 
                 {/* LinkedIn Button */}
 
-                <motion.button
+                <motion.a
 
                   variants={buttonVariants}
 
@@ -608,11 +614,17 @@ export function Hero() {
 
                   whileTap={{ scale: 0.9 }}
 
-                  onClick={() => window.open("https://linkedin.com", "_blank")}
+                  href="https://linkedin.com/in/thamindu-nWeerasinghe"
+
+                  target="_blank"
+
+                  rel="noopener noreferrer"
 
                   className="relative group"
 
-                  title="LinkedIn"
+                  title="Thamindu Weerasinghe LinkedIn profile"
+
+                  aria-label="Visit Thamindu Weerasinghe on LinkedIn"
 
                 >
 
@@ -622,13 +634,13 @@ export function Hero() {
 
                   </div>
 
-                </motion.button>
+                </motion.a>
 
 
 
                 {/* Email Button */}
 
-                <motion.button
+                <motion.a
 
                   variants={buttonVariants}
 
@@ -648,11 +660,13 @@ export function Hero() {
 
                   whileTap={{ scale: 0.9 }}
 
-                  onClick={() => window.open("mailto:contact@nadeeja.com")}
+                  href="mailto:nadeejatw@gmail.com"
 
                   className="relative group"
 
-                  title="Email"
+                  title="Email Thamindu Weerasinghe"
+
+                  aria-label="Send an email to Thamindu Weerasinghe"
 
                 >
 
@@ -662,7 +676,7 @@ export function Hero() {
 
                   </div>
 
-                </motion.button>
+                </motion.a>
 
               </div>
 
@@ -768,7 +782,7 @@ export function Hero() {
 
                       src="/images/profile.jpg"
 
-                      alt="Thamindu Weerasinghe"
+                      alt="Thamindu Weerasinghe professional portfolio profile image"
 
                       fill
 
@@ -847,3 +861,4 @@ export function Hero() {
   )
 
 }
+

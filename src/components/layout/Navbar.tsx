@@ -95,20 +95,19 @@ export function Navbar() {
           >
             <img
               src="/images/logo.png"
-              alt="Thamindu Weerasinghe Logo"
+              alt="Thamindu Weerasinghe portfolio logo"
               width={32}
               height={32}
               className="rounded-lg object-contain"
               onError={(e) => {
-                console.log('Navbar logo error:', e);
+                e.currentTarget.style.display = "none"
               }}
-              onLoad={() => console.log('Navbar logo loaded successfully')}
             />
           </motion.div>
           <div>
-            <h1 className="text-xl font-bold bg-gradient-to-r from-emerald-700 via-emerald-600 to-emerald-500 dark:from-emerald-400 dark:via-emerald-500 dark:to-brand-600 bg-clip-text text-transparent">
+            <div className="text-xl font-bold bg-gradient-to-r from-emerald-700 via-emerald-600 to-emerald-500 dark:from-emerald-400 dark:via-emerald-500 dark:to-brand-600 bg-clip-text text-transparent">
               Thamindu Weerasinghe
-            </h1>
+            </div>
             <p className="text-xs text-emerald-700 dark:text-emerald-400 font-medium">Full Stack Developer</p>
           </div>
         </motion.div>

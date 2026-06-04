@@ -1,49 +1,48 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Github, Linkedin, Mail, ArrowUp, Heart } from "lucide-react"
-import { cn } from "@/lib/utils"
+import { Github, Linkedin, Mail, Heart } from "lucide-react"
 
 const footerData = {
   social: [
     {
       icon: Github,
       label: "GitHub",
-      url: "https://github.com/nadeeja"
+      url: "https://github.com/nWeerasinghe",
     },
     {
       icon: Linkedin,
       label: "LinkedIn",
-      url: "https://linkedin.com/in/thamindu-nadeeja"
+      url: "https://linkedin.com/in/thamindu-nWeerasinghe",
     },
     {
       icon: Mail,
       label: "Email",
-      url: "mailto:contact@nadeeja.com"
-    }
+      url: "mailto:nadeejatw@gmail.com",
+    },
   ],
   quickLinks: [
     {
       label: "Home",
-      url: "/"
+      url: "/",
     },
     {
       label: "About",
-      url: "#about"
+      url: "#about",
     },
     {
       label: "Skills",
-      url: "#skills"
+      url: "#skills",
     },
     {
       label: "Projects",
-      url: "#projects"
+      url: "#projects",
     },
     {
       label: "Contact",
-      url: "#contact"
-    }
-  ]
+      url: "#contact",
+    },
+  ],
 }
 
 const containerVariants = {
@@ -81,9 +80,7 @@ export function Footer() {
           viewport={{ once: true, amount: 0.2 }}
           className="max-w-6xl mx-auto py-12"
         >
-          {/* Main Content */}
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-            {/* Brand */}
             <motion.div
               variants={itemVariants}
               transition={{ delay: 0.1 }}
@@ -91,7 +88,7 @@ export function Footer() {
             >
               <div className="space-y-4">
                 <h3 className="text-xl font-bold !text-slate-900 dark:!text-foreground">
-                  Thamindu Nadeeja
+                  Thamindu Weerasinghe
                 </h3>
                 <p className="!text-slate-900 font-medium dark:!text-muted-foreground">
                   Data Science & Full Stack Developer
@@ -99,7 +96,6 @@ export function Footer() {
               </div>
             </motion.div>
 
-            {/* Social Links */}
             <motion.div
               variants={itemVariants}
               transition={{ delay: 0.2 }}
@@ -109,7 +105,7 @@ export function Footer() {
                 Connect
               </h4>
               <div className="flex justify-center gap-4">
-                {footerData.social.map((social, index) => (
+                {footerData.social.map((social) => (
                   <motion.a
                     key={social.label}
                     href={social.url}
@@ -126,7 +122,6 @@ export function Footer() {
               </div>
             </motion.div>
 
-            {/* Quick Links */}
             <motion.div
               variants={itemVariants}
               transition={{ delay: 0.3 }}
@@ -136,7 +131,7 @@ export function Footer() {
                 Quick Links
               </h4>
               <div className="flex flex-wrap justify-center gap-2">
-                {footerData.quickLinks.map((link, index) => (
+                {footerData.quickLinks.map((link) => (
                   <motion.a
                     key={link.label}
                     href={link.url}
@@ -151,7 +146,6 @@ export function Footer() {
             </motion.div>
           </div>
 
-          {/* Copyright */}
           <motion.div
             variants={itemVariants}
             transition={{ delay: 0.4 }}
@@ -163,7 +157,7 @@ export function Footer() {
                 <span className="text-sm font-medium">Made with</span>
               </div>
               <p className="text-sm !text-slate-900 font-medium dark:!text-muted-foreground">
-                &copy; 2024 Thamindu Nadeeja. All rights reserved.
+                &copy; 2026 Thamindu Weerasinghe. All rights reserved.
               </p>
             </div>
           </motion.div>

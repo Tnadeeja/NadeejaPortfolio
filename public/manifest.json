@@ -1,7 +1,7 @@
 {
-  "name": "Thamindu Nadeeja Portfolio",
-  "short_name": "Nadeeja Portfolio",
-  "description": "Professional portfolio showcasing data science expertise and full-stack development projects with modern design and smooth animations.",
+  "name": "Thamindu Weerasinghe Portfolio",
+  "short_name": "Thamindu Portfolio",
+  "description": "Official portfolio of Thamindu Weerasinghe, a Data Science undergraduate and full-stack developer.",
   "start_url": ".",
   "display": "standalone",
   "background_color": "#0a0a0a",
@@ -23,14 +23,8 @@
       "purpose": "maskable any"
     },
     {
-      "src": "/icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "maskable any"
-    },
-    {
-      "src": "/icon-512.png",
-      "sizes": "512x512",
+      "src": "/images/logo.png",
+      "sizes": "254x257",
       "type": "image/png",
       "purpose": "maskable any"
     }

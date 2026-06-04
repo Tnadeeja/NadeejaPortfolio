@@ -179,7 +179,7 @@ export function Skills() {
             </motion.div>
             
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-black bg-gradient-to-r from-teal-700 via-emerald-600 to-emerald-500 dark:from-emerald-400 dark:via-emerald-500 dark:to-brand-600 bg-clip-text text-transparent mb-6">
-              Skills & Expertise
+              Skills
             </h2>
             <p className="text-lg md:text-xl text-slate-600 dark:text-muted-foreground max-w-4xl mx-auto leading-relaxed">
               Tools and technologies I actively use in projects and academic work.

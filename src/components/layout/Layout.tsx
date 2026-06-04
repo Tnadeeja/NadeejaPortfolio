@@ -1,8 +1,7 @@
 "use client"
 
 import { Navbar } from "./Navbar"
-import { Github, Linkedin, Mail, ChevronUp, Heart, Sparkles } from "lucide-react"
-import Image from "next/image"
+import { Github, Linkedin, Mail, ChevronUp, Heart } from "lucide-react"
 
 interface LayoutProps {
   children: React.ReactNode
@@ -11,7 +10,7 @@ interface LayoutProps {
 function BackToTopButton() {
   return (
     <button
-      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       className="w-10 h-10 rounded-lg bg-emerald-500/10 backdrop-blur-sm border border-emerald-500/30 flex items-center justify-center hover:bg-emerald-500/20 transition-all duration-300"
     >
       <ChevronUp className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
@@ -42,48 +41,38 @@ export function Layout({ children }: LayoutProps) {
         }
       `}</style>
       <Navbar />
-      <main className="pt-16 flex-1">
-        {children}
-      </main>
-      
-      {/* Premium 2026 Footer */}
+      <main className="pt-16 flex-1">{children}</main>
+
       <footer className="relative overflow-hidden">
-        {/* Background Effects */}
         <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 via-transparent to-brand-600/5"></div>
-        
+
         <div className="relative z-10 border-t border-white/10">
           <div className="container-wide py-12">
             <div className="grid md:grid-cols-3 gap-8 mb-8">
-              {/* Brand Section */}
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
-                  {/* Logo */}
-                  <div className="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center overflow-hidden">
+                  <div className="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center overflow-hidden relative">
                     <img
                       src="/images/logo.png"
-                      alt="Thamindu Weerasinghe Logo"
+                      alt="Thamindu Weerasinghe portfolio logo"
                       width={32}
                       height={32}
                       className="rounded-lg object-contain"
                       onError={(e) => {
-                        console.log('Logo load error:', e);
-                        e.currentTarget.style.display = 'none';
+                        e.currentTarget.style.display = "none"
                       }}
-                      onLoad={() => console.log('Logo loaded successfully')}
                     />
-                    {/* Fallback */}
                     <div className="absolute inset-0 flex items-center justify-center bg-emerald-500/20 rounded-lg">
                       <span className="text-emerald-700 dark:text-emerald-400 font-bold text-xs">TW</span>
                     </div>
                   </div>
-                  <h3 className="text-xl font-bold !text-emerald-700 dark:!text-white">Thamindu Portfolio</h3>
+                  <h3 className="text-xl font-bold !text-emerald-700 dark:!text-white">Thamindu Weerasinghe</h3>
                 </div>
                 <p className="!text-emerald-600 leading-relaxed dark:!text-muted-foreground/80">
-                  Building innovative solutions with data science and modern web technologies.
+                  Official portfolio of Thamindu Weerasinghe, focused on data science, full-stack development, and practical software projects.
                 </p>
               </div>
 
-              {/* Quick Links */}
               <div className="space-y-4">
                 <h4 className="text-lg font-semibold !text-emerald-700 dark:!text-white">Quick Links</h4>
                 <ul className="space-y-2">
@@ -110,12 +99,11 @@ export function Layout({ children }: LayoutProps) {
                 </ul>
               </div>
 
-              {/* Social Links */}
               <div className="space-y-4">
                 <h4 className="text-lg font-semibold !text-emerald-700 dark:!text-white">Connect</h4>
                 <div className="flex gap-4">
                   <a
-                    href="https://github.com/nadeeja"
+                    href="https://github.com/nWeerasinghe"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-10 h-10 rounded-lg bg-white/5 backdrop-blur-sm border border-white/10 flex items-center justify-center hover:border-emerald-500/30 hover:bg-emerald-500/10 transition-all duration-300"
@@ -123,7 +111,7 @@ export function Layout({ children }: LayoutProps) {
                     <Github className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
                   </a>
                   <a
-                    href="https://linkedin.com/in/thamindu-nadeeja"
+                    href="https://linkedin.com/in/thamindu-nWeerasinghe"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-10 h-10 rounded-lg bg-white/5 backdrop-blur-sm border border-white/10 flex items-center justify-center hover:border-emerald-500/30 hover:bg-emerald-500/10 transition-all duration-300"
@@ -131,7 +119,7 @@ export function Layout({ children }: LayoutProps) {
                     <Linkedin className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
                   </a>
                   <a
-                    href="mailto:contact@nadeeja.com"
+                    href="mailto:nadeejatw@gmail.com"
                     className="w-10 h-10 rounded-lg bg-white/5 backdrop-blur-sm border border-white/10 flex items-center justify-center hover:border-emerald-500/30 hover:bg-emerald-500/10 transition-all duration-300"
                   >
                     <Mail className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
@@ -140,7 +128,6 @@ export function Layout({ children }: LayoutProps) {
               </div>
             </div>
 
-            {/* Bottom Section */}
             <div className="pt-8 border-t border-white/10">
               <div className="flex flex-col md:flex-row justify-between items-center gap-4">
                 <div className="flex items-center gap-2 !text-emerald-600 dark:!text-muted-foreground/80">
@@ -148,9 +135,9 @@ export function Layout({ children }: LayoutProps) {
                   <Heart className="w-4 h-4 !text-emerald-700 dark:!text-emerald-400" />
                   <span>by Thamindu Weerasinghe</span>
                 </div>
-                
+
                 <div className="flex items-center gap-4">
-                  <span className="!text-emerald-600 text-sm dark:!text-muted-foreground/60">© 2024 All rights reserved</span>
+                  <span className="!text-emerald-600 text-sm dark:!text-muted-foreground/60">&copy; 2026 All rights reserved</span>
                   <BackToTopButton />
                 </div>
               </div>

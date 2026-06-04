@@ -150,10 +150,10 @@ export function About() {
             </motion.div>
             
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-black bg-gradient-to-r from-emerald-600 via-emerald-700 to-emerald-800 dark:from-emerald-400 dark:via-emerald-500 dark:to-brand-600 bg-clip-text text-transparent mb-6">
-              About Me
+              About Thamindu Weerasinghe
             </h2>
             <p className="text-lg md:text-xl text-slate-600 dark:text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-              I am a Data Science undergraduate with a strong interest in full-stack development and data-driven problem solving. I enjoy building real-world applications, exploring data insights, and continuously improving my technical skills through academic projects, certifications, and hands-on development.
+              Thamindu Weerasinghe is a Data Science undergraduate with a strong interest in full-stack development and data-driven problem solving. He enjoys building real-world applications, exploring data insights, and continuously improving technical skills through academic projects, certifications, and hands-on development.
             </p>
           </motion.div>
 
